@@ -1,0 +1,103 @@
+html, body {
+	font-family: 'Josefin Sans', sans-serif;
+	height: 100%;
+	width: 100%;
+	background-color: #ffffff;
+}
+header {
+	background-color: #4a59a7 !important;
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+ 	-o-background-size: cover;
+	background-position: center;
+	text-align: center;
+	color: white;
+}
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding: 125px 15px 100px;
+  width: 100%;
+}
+header .header-content .header-content-inner h3 {
+	max-width: 50%;
+	margin: auto;
+	margin-top: 10%;
+	text-align: center;
+	font-weight: 700;
+	line-height: 125%;
+	margin-top: 11vw;
+ 	margin-bottom: 0;
+ 	z-index: 1;
+ 	position: relative;
+}
+.header_image {
+	width: 90px;
+	position: fixed;
+	transform-origin:50% 50%;
+    animation:60s rotateRight infinite linear; 
+}
+
+@keyframes rotateRight{
+    100%{ transform:rotate(360deg); }
+}
+.navbar {
+	margin-bottom: -40px;
+}
+.navbar-default {
+	background-color: #4a59a7 !important;
+	font-weight: 300;
+}
+.navbar-default .navbar-brand {
+    font-weight: 600;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: #2e408e;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: #2e408e;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color: #2e408e;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: #354a96;
+}
+.dropdown-menu {
+	padding: 5px;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  z-index: 100;
+}
+
+.btn-primary {
+	background-color: #fecf0b;
+	color: #000000;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+	color: #000000;
+	background-color: #e7bd20;
+}
+.btn {
+	margin-top: 25px;
+	z-index: 1;
+	position: relative;
+}
+
