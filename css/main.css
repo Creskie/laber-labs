@@ -37,7 +37,7 @@ header .header-content .header-content-inner h3 {
 }
 .header_image {
 	width: 90px;
-	position: fixed;
+	position: absolute;
 	transform-origin:50% 50%;
     animation:60s rotateRight infinite linear; 
 }
