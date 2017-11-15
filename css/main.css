@@ -1,9 +1,11 @@
+/* Universal */
 html, body {
 	font-family: 'Josefin Sans', sans-serif;
 	height: 100%;
 	width: 100%;
-	background-color: #ffffff;
+	background-color: #4a59a7;
 }
+/* Landing color block */
 header {
 	background-color: #4a59a7 !important;
 	position: relative;
@@ -35,7 +37,20 @@ header .header-content .header-content-inner h3 {
  	z-index: 1;
  	position: relative;
 }
-.header_image {
+.header_image1 {
+	width: 90px;
+	position: absolute;`
+	transform-origin:50% 50%;
+    animation:60s rotateRight infinite linear; 
+}
+.header_image2 {
+	width: 90px;
+	position: absolute;
+	transform-origin:50% 50%;
+    animation:60s rotateRight infinite linear; 
+}
+}
+.header_image3 {
 	width: 90px;
 	position: absolute;
 	transform-origin:50% 50%;
@@ -45,6 +60,7 @@ header .header-content .header-content-inner h3 {
 @keyframes rotateRight{
     100%{ transform:rotate(360deg); }
 }
+/* Navigation bar */
 .navbar {
 	margin-bottom: -40px;
 }
@@ -54,6 +70,9 @@ header .header-content .header-content-inner h3 {
 }
 .navbar-default .navbar-brand {
     font-weight: 600;
+}
+.dropdown-menu > li > a {
+    font-weight: 300;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -75,17 +94,8 @@ header .header-content .header-content-inner h3 {
 .dropdown-menu {
 	padding: 5px;
 }
-.sticky {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  position: sticky;
-  z-index: 100;
-}
-
 .btn-primary {
-	background-color: #fecf0b;
+	background-color: #febc12;
 	color: #000000;
 }
 .btn-primary:hover,
@@ -99,5 +109,31 @@ header .header-content .header-content-inner h3 {
 	margin-top: 25px;
 	z-index: 1;
 	position: relative;
+}
+/* Section */
+section {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.sub-section {
+	color: black;
+	padding: 50px;
+}
+.lab-life {
+	width: 100%;
+}
+.container {
+	width: 100%;
+}
+.additional-info {
+	width: 100%;
+	background-color: #ffffff;
+}
+.footer {
+	width: 100%;
+	background-color: #4a59a7;
+}
+.footer-name {
+	text-align: right;
 }
 

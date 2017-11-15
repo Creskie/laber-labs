@@ -31,12 +31,16 @@ $(document).ready(function(){
     
 });
 
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - $('.header_image').height() - 40;
-    var w = $(window).width() - $('.header_image').width();
-
+    var h = $(window).height() - $('.header_image1').height() - 40 * (getRandomArbitrary(10, 20));
+    var w = $(window).width() - $('.header_image1').width() * getRandomArbitrary(10, 100)
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
     
@@ -45,14 +49,17 @@ function makeNewPosition(){
 }
 
 function animateDiv(){
-    var newq = makeNewPosition();
-    var oldq = $('.header_image').offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
-    
-    $('.header_image').animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateDiv();        
-    });
-    
+	var i = 1;
+	var angle = 0;
+	while(true){
+	    var newq = makeNewPosition();
+	    var oldq = $('.header_image'+i.toString()).offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    $('.header_image'+i.toString()).animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateDiv();        
+	    });
+	    i++;
+	}
 };
 
 function calcSpeed(prev, next) {
@@ -69,3 +76,43 @@ function calcSpeed(prev, next) {
     return speed;
 
 }
+
+// Smooth scrolling
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+
