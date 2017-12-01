@@ -1,46 +1,15 @@
-// Navigation bar fade while scrolling
-(function setupNavbar() {
-	var lastTimeoutHandle = null;
-	var shouldFadeOut = true;
-
-	function fadeNavbarOut() {
-		$('.navbar').fadeOut();
-	}
-
-	function fadeNavbarIn() {
-		$('.navbar').fadeIn();
-		shouldFadeOut = true;
-	}
-
-	$(window).scroll(function onScroll() {
-		if (shouldFadeOut) {
-			shouldFadeOut = false;
-			requestAnimationFrame(fadeNavbarOut);
-		}
-
-		if (lastTimeoutHandle) {
-			clearTimeout(lastTimeoutHandle);
-		}
-		lastTimeoutHandle = setTimeout(fadeNavbarIn, 300);
-	});
-})();
-
 // Shift hands around
 $(document).ready(function(){
     animateDiv();
     
 });
 
-
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - $('.header_image1').height() - 40 * (getRandomArbitrary(10, 20));
-    var w = $(window).width() - $('.header_image1').width() * getRandomArbitrary(10, 100)
+    var h = $(window).height() - $('.header_image').height() - 40;
+    var w = $(window).width() - $('.header_image').width();
+
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
     
@@ -49,17 +18,14 @@ function makeNewPosition(){
 }
 
 function animateDiv(){
-	var i = 1;
-	var angle = 0;
-	while(true){
-	    var newq = makeNewPosition();
-	    var oldq = $('.header_image'+i.toString()).offset();
-	    var speed = calcSpeed([oldq.top, oldq.left], newq);
-	    $('.header_image'+i.toString()).animate({ top: newq[0], left: newq[1] }, speed, function(){
-	      animateDiv();        
-	    });
-	    i++;
-	}
+    var newq = makeNewPosition();
+    var oldq = $('.header_image').offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
+    
+    $('.header_image').animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv();        
+    });
+    
 };
 
 function calcSpeed(prev, next) {

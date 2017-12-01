@@ -10,12 +10,13 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" href="css/font-awesome.css">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar drop-shadow navbar-default navbar-fixed-top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -28,14 +29,14 @@
 	    </div>
 
 	    <div class="collapse navbar-collapse" class="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
+	      <ul class="nav navbar-nav navbar-right tabs">
 	        <li><a href="#">Team</a></li>
-	        <li><a href="#">Publications</a></li>
+	        <li><a href="pages/publications.html">Publications</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="#">Laser Foxes</a></li>
-	            <li><a href="#">Space Mice</a></li>
+	            <li><a href="pages/spacemice.html">Space Mice</a></li>
 	            <li><a href="#">Flying Squirrel</a></li>
 	            <li><a href="#">Snack Attack</a></li>
 	            <li><a href="#">Zombies on Treadmills</a></li>
@@ -53,10 +54,9 @@
 	            <li><a href="#">Pack Does That</a></li>
 	          </ul>
 	        </li>
-	        <li><a href="#">Funding</a></li>
-	        <li><a href="#">Teaching</a></li>
+	        <li><a href="pages/funding.html">Funding</a></li>
+	        <li><a href="pages/teaching.html">Teaching</a></li>
 	        <li><a href="#">Student Blog</a></li>
-	        <li><a href="#">Contact Us</a></li>
 	       </ul>
 	    </div>
 	  </div>
@@ -65,8 +65,7 @@
 	<header>
 		<div class="header-content">
 			<div class="header-content-inner">
-				<img class="header_image1" src="images/hand.svg" />
-				<img class="header_image2" src="images/hand.svg" />
+				<img class="header_image" src="images/hand.svg" />
 				<h3>A statistics lab dedicated to the development of practical yet mathematically rigorous methodology for data-driven decision making</h3>
 				<a href="#button-to-info" class="btn btn-primary btn-lg">Learn More</a>
 			</div>
@@ -102,12 +101,21 @@
 	<section class="footer">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-12">
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12">
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
+					<span class="fa-stack fa-lg">
+  						<a href="https://twitter.com/LaberLabs"><i class="fa fa-twitter fa-stack-1x"></i></a>
+					</span>
+					<span class="fa-stack fa-lg">
+  						<a href="https://www.facebook.com/LaberLabs/"><i class="fa fa-facebook fa-stack-1x"></i></a>
+					</span>
+					<span class="fa-stack fa-lg">
+  						<a href="https://www.youtube.com/c/LaberLabs"><i class="fa fa-youtube fa-stack-1x"></i></a>
+					</span>
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12">
-					<p class="footer-name">Laber Labs</p>
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
+					<p class="footer-name">Contact Us</br>laber@stat.ncsu.edu</p>
 				</div>
 			</div>
 		</div>

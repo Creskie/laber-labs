@@ -5,6 +5,23 @@ html, body {
 	width: 100%;
 	background-color: #4a59a7;
 }
+
+.title-description {
+	font-style: italic;
+}
+a:link {
+	color: #febc12;
+}
+a:visited {
+	color: #febc12;
+}
+a:hover {
+	color: #ffffff;
+}
+a:active {
+	color: #ffffff;
+}
+
 /* Landing color block */
 header {
 	background-color: #4a59a7 !important;
@@ -37,22 +54,9 @@ header .header-content .header-content-inner h3 {
  	z-index: 1;
  	position: relative;
 }
-.header_image1 {
+.header_image {
 	width: 90px;
 	position: absolute;`
-	transform-origin:50% 50%;
-    animation:60s rotateRight infinite linear; 
-}
-.header_image2 {
-	width: 90px;
-	position: absolute;
-	transform-origin:50% 50%;
-    animation:60s rotateRight infinite linear; 
-}
-}
-.header_image3 {
-	width: 90px;
-	position: absolute;
 	transform-origin:50% 50%;
     animation:60s rotateRight infinite linear; 
 }
@@ -63,6 +67,20 @@ header .header-content .header-content-inner h3 {
 /* Navigation bar */
 .navbar {
 	margin-bottom: -40px;
+}
+.navbar-brand {
+	padding-left: 50px;
+	padding-top: 15px;
+}
+.navbar-nav > li > a {
+	padding-top: 15px;
+}
+.tabs {
+	padding-right: 35px;
+}
+.drop-shadow {
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
 }
 .navbar-default {
 	background-color: #4a59a7 !important;
@@ -94,7 +112,7 @@ header .header-content .header-content-inner h3 {
 .dropdown-menu {
 	padding: 5px;
 }
-.btn-primary {
+a.btn-primary {
 	background-color: #febc12;
 	color: #000000;
 }
@@ -103,7 +121,7 @@ header .header-content .header-content-inner h3 {
 .btn-primary:active,
 .btn-primary.active {
 	color: #000000;
-	background-color: #e7bd20;
+	background-color: #ffffff;
 }
 .btn {
 	margin-top: 25px;
@@ -135,5 +153,29 @@ section {
 }
 .footer-name {
 	text-align: right;
+}
+.footer-section {
+	color: #ffffff;
+	text-align: center;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+/* Publications Page */
+.section-title {
+	margin-bottom: 30px;
+}
+.publication-link {
+	color: #febc12;
+}
+.publication-link:hover {
+	color: #febc12;
+}
+.publications-section {
+	margin-bottom: 75px;
+}
+.journal {
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
