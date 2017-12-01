@@ -10,16 +10,16 @@ html, body {
 	font-style: italic;
 }
 a:link {
-	color: #febc12;
+	color: #2c3e77;
 }
 a:visited {
-	color: #febc12;
+	color: #2c3e77;
 }
 a:hover {
-	color: #ffffff;
+	color: #febc12;
 }
 a:active {
-	color: #ffffff;
+	color: #febc12;
 }
 
 /* Landing color block */
@@ -71,6 +71,7 @@ header .header-content .header-content-inner h3 {
 .navbar-brand {
 	padding-left: 50px;
 	padding-top: 15px;
+	font-family: 'Overpass Mono', monospace;
 }
 .navbar-nav > li > a {
 	padding-top: 15px;
@@ -121,9 +122,12 @@ a.btn-primary {
 .btn-primary:active,
 .btn-primary.active {
 	color: #000000;
-	background-color: #ffffff;
+	background-color: #eaa50c;
 }
 .btn {
+	font-family: 'Overpass Mono', monospace;
+	font-size: 15px;
+	font-weight: 700;
 	margin-top: 25px;
 	z-index: 1;
 	position: relative;
@@ -135,7 +139,10 @@ section {
 }
 .sub-section {
 	color: black;
-	padding: 50px;
+	padding: 20px;
+}
+.sub-description {
+	min-height: 314px;
 }
 .lab-life {
 	width: 100%;
@@ -151,21 +158,43 @@ section {
 	width: 100%;
 	background-color: #4a59a7;
 }
-.footer-name {
-	text-align: right;
+.footer-contact, .footer-email {
+	font-family: 'Overpass Mono', monospace;
+	margin: 0;
 }
 .footer-section {
 	color: #ffffff;
 	text-align: center;
 	padding-left: 50px;
 	padding-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.footer-contact {
+	font-family: 'Josefin Sans', sans-serif;
+	color: #2c3e78;
+	font-weight: 700;
+}
+.footer-email {
+	font-weight: 400;
+	font-size: 12px;
+}
+.subheader-1 {
+	font-weight: 600;
+	padding-top: 20px;
+}
+.description-1 {
+	font-family: 'Overpass Mono', monospace;
+	font-weight: 400;
+	font-size: 11px;
 }
 
 /* Publications Page */
 .section-title {
+	font-family: 'Josefin Sans', sans-serif;
 	margin-bottom: 30px;
 }
-.publication-link {
+a.publication-link {
 	color: #febc12;
 }
 .publication-link:hover {
@@ -173,6 +202,8 @@ section {
 }
 .publications-section {
 	margin-bottom: 75px;
+	font-family: 'Overpass Mono', monospace;
+	font-size: 11px;
 }
 .journal {
 	padding-top: 5px;
