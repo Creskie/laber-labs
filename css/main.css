@@ -5,6 +5,9 @@ html, body {
 	width: 100%;
 	background-color: #4a59a7;
 }
+.padding-0 {
+	padding: 0;
+}
 
 .title-description {
 	font-style: italic;
@@ -24,7 +27,6 @@ a:active {
 
 /* Landing color block */
 header {
-	background-color: #4a59a7 !important;
 	position: relative;
 	width: 100%;
 	min-height: 100%;
@@ -34,7 +36,15 @@ header {
  	-o-background-size: cover;
 	background-position: center;
 	text-align: center;
+}
+.header-blue {
+	background-color: #4a59a7 !important;
 	color: white;
+}
+.header-white {
+	background-color: white;
+	background-image: "../images/eric-laber.jpg";
+	color: black;
 }
 header .header-content {
   position: relative;
@@ -45,18 +55,16 @@ header .header-content {
 header .header-content .header-content-inner h3 {
 	max-width: 50%;
 	margin: auto;
-	margin-top: 10%;
 	text-align: center;
 	font-weight: 700;
 	line-height: 125%;
 	margin-top: 11vw;
- 	margin-bottom: 0;
  	z-index: 1;
  	position: relative;
 }
-.header_image {
+.header-image {
 	width: 90px;
-	position: absolute;`
+	position: absolute;
 	transform-origin:50% 50%;
     animation:60s rotateRight infinite linear; 
 }
@@ -147,12 +155,44 @@ section {
 .lab-life {
 	width: 100%;
 }
+
+/* Hover over image to zoom effect */
+.lab-life-container img {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+}
+.lab-life-container:hover img {
+    -webkit-transform:scale(1.25); /* Safari and Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* IE 9 */
+    -o-transform:scale(1.25); /* Opera */
+     transform:scale(1.25);
+}
+.lab-life-container {
+	overflow: hidden;
+}
+
+.team-photo {
+	width: 100%;
+	max-width: 500px;
+	border-radius: 50%;
+}
+.team-photo-head {
+	border-radius: 5px;
+}
 .container {
 	width: 100%;
 }
-.additional-info {
+.additional-section {
 	width: 100%;
 	background-color: #ffffff;
+}
+.additional-section-1 {
+	width: 100%;
+	background-color: gray;
 }
 .footer {
 	width: 100%;
@@ -189,12 +229,12 @@ section {
 	font-size: 11px;
 }
 
-/* Publications Page */
+/* Publications page */
 .section-title {
 	font-family: 'Josefin Sans', sans-serif;
 	margin-bottom: 30px;
 }
-a.publication-link {
+a.link {
 	color: #febc12;
 }
 .publication-link:hover {
@@ -208,5 +248,18 @@ a.publication-link {
 .journal {
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+
+/* Games */
+.game-container {
+	margin: 0 auto;
+}
+
+.game {
+
+	padding: 0;
+    border-style: none;
+    position: block;
+    left: 0;
 }
 

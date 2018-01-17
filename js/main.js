@@ -7,8 +7,8 @@ $(document).ready(function(){
 function makeNewPosition(){
     
     // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - $('.header_image').height() - 40;
-    var w = $(window).width() - $('.header_image').width();
+    var h = $(window).height() - $('.header-image').height() - 40;
+    var w = $(window).width() - $('.header-image').width();
 
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
@@ -19,10 +19,10 @@ function makeNewPosition(){
 
 function animateDiv(){
     var newq = makeNewPosition();
-    var oldq = $('.header_image').offset();
+    var oldq = $('.header-image').offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
     
-    $('.header_image').animate({ top: newq[0], left: newq[1] }, speed, function(){
+    $('.header-image').animate({ top: newq[0], left: newq[1] }, speed, function(){
       animateDiv();        
     });
     
