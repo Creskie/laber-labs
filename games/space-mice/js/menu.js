@@ -31,6 +31,7 @@ var Menu = {
 
 
     create: function() {
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		    // Stretch to full screen 
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.input.onDown.add(this.gofull);

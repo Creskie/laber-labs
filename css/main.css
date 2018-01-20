@@ -251,15 +251,24 @@ a.link {
 }
 
 /* Games */
+.game-header {
+	background-image: url(../images/space-mice-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	opacity: 0;
+}
+.game-highlight {
+	background-color: white;
+}
 .game-container {
-	margin: 0 auto;
+	margin: 0;
+	width: 100%;
+	height: 2vw;
 }
 
 .game {
-
 	padding: 0;
     border-style: none;
     position: block;
-    left: 0;
 }
 
