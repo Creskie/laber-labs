@@ -255,8 +255,41 @@ a.link {
 	background-image: url(../images/space-mice-poster.jpg);
 	background-size: cover;
 	overflow: hidden;
-	opacity: 0;
+        -webkit-animation: fadein 4s; /* Safari and Chrome */
+        -moz-animation: fadein 4s; /* Firefox */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+        -o-animation: fadein 4s; /* Opera */
+        animation: fadein 4s;
 }
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .game-highlight {
 	background-color: white;
 }
@@ -269,6 +302,5 @@ a.link {
 .game {
 	padding: 0;
     border-style: none;
-    position: block;
 }
 

@@ -35,7 +35,6 @@ var Menu = {
 		    // Stretch to full screen 
         game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.input.onDown.add(this.gofull);
-		    
         game.add.tileSprite(0,0, game.width, game.height, 'menu');
         game.add.text(430, 320, "LASERCATS", {fontSize: '48px', fill: "#FFF", align: "center"});
         game.add.text(455, 380, "Press ENTER to Play", {fontSize: '24px', fill: "#FFF", align: "center"});
