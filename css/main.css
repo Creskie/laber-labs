@@ -86,6 +86,16 @@ header .header-content .header-content-inner h3 {
 	transform-origin:50% 50%;
     animation:60s rotateRight infinite linear; 
 }
+.break-out {
+    width: 100%;
+    position: relative;
+    left: 0;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
 
 @keyframes rotateRight{
     100%{ transform:rotate(360deg); }
@@ -341,6 +351,9 @@ a.link {
 header.header-half {
   min-height: 50vh !important;
 }
+header.header-threequarter {
+	min-height: 75vh !important;
+}
 
 @keyframes fadein {
     from { opacity: 0; }
@@ -377,7 +390,6 @@ header.header-half {
 	width: 100%;
 	max-height: 600px;
 }
-
 .game {
 	padding: 0;
     border-style: none;
