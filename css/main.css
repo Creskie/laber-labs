@@ -24,6 +24,24 @@ a:hover {
 a:active {
 	color: #febc12;
 }
+img {
+	width: 100%;
+}
+
+/* Making YouTube videos responsive */
+.iframe-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+}
+.iframe-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 /* Landing color block */
 header {
@@ -75,62 +93,58 @@ header .header-content .header-content-inner h3 {
 /* Navigation bar */
 .navbar {
 	margin-bottom: -40px;
+	background-color: #4a59a7;
 }
 .navbar-brand {
-	padding-left: 50px;
-	padding-top: 15px;
 	font-family: 'Overpass Mono', monospace;
+	color: #2c3e78 !important;
+    font-weight: 600;
+}
+.navbar-brand:hover {
+	color: black !important;
 }
 .navbar-nav > li > a {
 	padding-top: 15px;
 }
-.tabs {
-	padding-right: 35px;
-}
-.drop-shadow {
-    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-}
-.navbar-default {
-	background-color: #4a59a7 !important;
+.tabs > li > a {
+	padding-left: 15px;
+	color: white;
+	font-family: 'Overpass Mono', monospace;
 	font-weight: 300;
+	font-size: 12px;
 }
-.navbar-default .navbar-brand {
-    font-weight: 600;
+.tabs > li > a:hover,
+.tabs > li > a:active {
+	text-decoration: underline;
 }
-.dropdown-menu > li > a {
-    font-weight: 300;
+.dropdown-menu.show {
+	padding: 3px;
+	border-radius: 0.25rem;
 }
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    background-color: #2e408e;
+.dropdown-item {
+	font-family: 'Overpass Mono', monospace;
+	font-size: 12px;
+	color: #4a59a7 !important;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    background-color: #2e408e;
+.dropdown-item:active {
+	background-color: white !important;
 }
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-    background-color: #2e408e;
-}
-.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
-    background-color: #354a96;
-}
-.dropdown-menu {
-	padding: 5px;
+.dropdown-toggle::after { /* Hide default caret icon */
+	display: none;
 }
 a.btn-primary {
 	background-color: #febc12;
 	color: #000000;
+	border-radius: 0.25rem;
+	border-width: 0.5px;
+	border-color: #febc12;
 }
 .btn-primary:hover,
-.btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
 	color: #000000;
-	background-color: #eaa50c;
+	background-color: #ce9413;
+	border-color: #ce9413;
 }
 .btn {
 	font-family: 'Overpass Mono', monospace;
@@ -147,34 +161,11 @@ section {
 }
 .sub-section {
 	color: black;
-	padding: 20px;
+	padding: 15px;
 }
 .sub-description {
 	min-height: 314px;
 }
-.lab-life {
-	width: 100%;
-}
-
-/* Hover over image to zoom effect */
-.lab-life-container img {
-    -webkit-transition: all 1s ease; /* Safari and Chrome */
-  	-moz-transition: all 1s ease; /* Firefox */
-  	-o-transition: all 1s ease; /* IE 9 */
-  	-ms-transition: all 1s ease; /* Opera */
-  	transition: all 1s ease;
-}
-.lab-life-container:hover img {
-    -webkit-transform:scale(1.25); /* Safari and Chrome */
-    -moz-transform:scale(1.25); /* Firefox */
-    -ms-transform:scale(1.25); /* IE 9 */
-    -o-transform:scale(1.25); /* Opera */
-     transform:scale(1.25);
-}
-.lab-life-container {
-	overflow: hidden;
-}
-
 .team-photo {
 	width: 100%;
 	max-width: 500px;
@@ -189,10 +180,6 @@ section {
 .additional-section {
 	width: 100%;
 	background-color: #ffffff;
-}
-.additional-section-1 {
-	width: 100%;
-	background-color: gray;
 }
 .footer {
 	width: 100%;
@@ -215,9 +202,10 @@ section {
 	color: #2c3e78;
 	font-weight: 700;
 }
-.footer-email {
+.footer-email > a {
 	font-weight: 400;
 	font-size: 12px;
+	color: white;
 }
 .subheader-1 {
 	font-weight: 600;
@@ -227,6 +215,20 @@ section {
 	font-family: 'Overpass Mono', monospace;
 	font-weight: 400;
 	font-size: 11px;
+}
+.subtitle-1 {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 700;
+	color: lightgrey;
+	padding-top: 30px;
+}
+.subtitle-2 {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 700;
+	color: black;
+	padding-top: 30px;
 }
 
 /* Publications page */
@@ -249,13 +251,123 @@ a.link {
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: black !important;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid #febc12 !important;
+    border-width: 0;
+}
+.nav-link:hover {
+	border-color: transparent !important;
+}
+.nav-tabs .nav-item a.nav-link {
+	color: grey;
+
+}
 
 /* Games */
-.game-header {
+.game-header-spacemice {
 	background-image: url(../images/space-mice-poster.jpg);
 	background-size: cover;
 	overflow: hidden;
-	opacity: 0;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.game-header-flyingsquirrel {
+	background-image: url(../images/flying-squirrel-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.game-header-laserfoxes {
+	background-image: url(../images/laser-foxes-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.game-header-snackattack {
+	background-image: url(../images/snack-attack-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.game-header-zombiesontreadmills {
+	background-image: url(../images/zombies-on-treadmills-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.game-header-mountboredoom {
+	background-image: url(../images/mount-boredoom-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+.header-mint {
+	background-color: #f3faf9 !important;
+}
+.header-peach {
+	background-color: #fff6eb !important;
+}
+.header-pink {
+	background-color: #fbc6c5 !important;
+}
+
+/* Animations */
+header.header-half {
+  min-height: 50vh !important;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 .game-highlight {
 	background-color: white;
@@ -263,12 +375,24 @@ a.link {
 .game-container {
 	margin: 0;
 	width: 100%;
-	height: 2vw;
+	max-height: 600px;
 }
 
 .game {
 	padding: 0;
     border-style: none;
-    position: block;
+    position: relative;
 }
-
+.game-credits > li {
+	font-family: 'Overpass Mono', monospace;
+	font-size: 12px;
+	color: lightgrey;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-left: 1px solid lightgrey;
+	list-style-type: none;
+}
+ul.game-credits {
+	padding: 0;
+}

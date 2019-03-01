@@ -1,3 +1,21 @@
+// Quote Generator for simple science
+var quotes = [
+  '\"My work centers around using information to make better choices especially when information is big, has noise, and is gathering over time. Also, I yell at students.\"',
+  '\"The tiny creatures are planning to take over the world. They enter into your body and make you sick. Even worse, they can spread to anyone near you. They take over your friends, family, and even strangers you meet on the street. Before long, more and more people are sick, and it may be too late to stop the creatures. The good thing is, we humans created guards to fight off the creatures before it has a chance to make you sick. Since there are not many guards around, only a small group of human can be helped at a time. Our work is to find out which humans to help at different time such that there will be fewest sick people in the long run.\"',
+  '\"Some information changes over time. We want to take this information to help choose good stuff to give to people who are sick.\"',
+  '\"I want to control things spreading in space because they make people and animals sick.\"',
+  '\"Information comes in all the time and we’re figuring out how to use them to make good choices. Learning is important. Usually kids can learn or kids can play. Why don’t we have both?\"',
+  '\"As the world is becoming colorful, people may feel lost because of too many choices they can do. I am trying to lead one to the right choice for his/her own good and understand the world better at the same time.\"',
+  '\"I try to find the best way to stop bad things from spreading.\"',
+  '\"Small things live in the dust in your house, and I want to guess where each of those small things lives across the country. This is hard because there are a lot of small things, and they may be nice or mean to each other.\"',
+  '\"Some people are mean and steal other people so we try to stop them with numbers. There are also cats in space… don’t ask me why.\"',
+  '\"We want to find out how many sick people we need to try to help in order to discover the best way to help all sick people in the future.\"',
+]
+function newQuote() {
+  var randomNumber = Math.floor(Math.random() * (quotes.length));
+  document.getElementById('quoteDisplay').innerHTML = quotes[randomNumber];
+}
+
 // Shift hands around
 $(document).ready(function(){
     animateDiv();

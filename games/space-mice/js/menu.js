@@ -21,6 +21,7 @@ var Menu = {
 		    if (game.scale.isFullScreen)
 		    {
 			    game.scale.stopFullScreen();
+                game.destroy();
 		    }
 		    else
 		    {

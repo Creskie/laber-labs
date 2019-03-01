@@ -8,145 +8,240 @@
 
     <title>Laber Labs</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:400,700" rel="stylesheet">
+
+    <!-- Hamburger to X animation -->
+    <link href="../css/hamburgers.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<nav class="navbar drop-shadow navbar-default navbar-fixed-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="../index.html">Laber Labs</a>
-	    </div>
+	<nav class="navbar navbar-expand-lg fixed-top" role="navigation">
+        <a class="navbar-brand" href="../index.html">Laber Labs</a>
+            <button class="navbar-toggler hamburger hamburger--squeeze" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" type="button" aria-expanded="false">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
 
-	    <div class="collapse navbar-collapse" class="bs-example-navbar-collapse-1">
-	      <ul type="square" class="nav navbar-nav navbar-right tabs">
-	        <li><a href="team.html">Team</a></li>
-	        <li><a href="#">Publications</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
-	          <ul type="square" class="dropdown-menu" role="menu">
-	            <li><a href="#">Laser Foxes</a></li>
-	            <li><a href="#">Space Mice</a></li>
-	            <li><a href="#">Flying Squirrel</a></li>
-	            <li><a href="#">Snack Attack</a></li>
-	            <li><a href="#">Zombies on Treadmills</a></li>
-	          </ul>
-	        </li>
-	        <li><a href="../images/ericlaber_cv.pdf">CV</a></li>
-	        <li><a href="#">Consultation</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Videos <span class="caret"></span></a>
-	          <ul type="square" class="dropdown-menu" role="menu">
-	            <li><a href="#">2-Min Stats</a></li>
-	            <li><a href="#">Ataristicians</a></li>
-	            <li><a href="#">Bandit Workshop</a></li>
-	            <li><a href="#">RL Pals</a></li>
-	            <li><a href="#">Pack Does That</a></li>
-	          </ul>
-	        </li>
-	        <li><a href="funding.html">Funding</a></li>
-	        <li><a href="#">Teaching</a></li>
-	        <li><a href="#">Student Blog</a></li>
-	       </ul>
+	    <!-- Hamburger to X animation -->
+	    <script>
+	      var $hamburger = $(".hamburger");
+	      $hamburger.on("click", function(e) {
+	        $hamburger.toggleClass("is-active");
+	        // Do something else, like open/close menu
+	      });
+	    </script>
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      	<ul class="navbar-nav ml-auto tabs">
+	      		<li class="nav-item"><a class="nav-link" href="../images/ericlaber_cv.pdf">CV</a></li>
+		        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+		        <li class="nav-item"><a class="nav-link" href="#">Publications</a></li>
+		        <li class="nav-item dropdown">
+		        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects
+		        		<i class="fas fa-angle-down"></i>
+		        	</a>
+		        	<div class="dropdown-menu" role="menu">
+		            <a class="dropdown-item" href="#">Longstanding</a>
+		            <a class="dropdown-item" href="#">Emerging</a>
+		            <a class="dropdown-item" href="#">Outreach</a>
+		          </div>
+		        </li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subsets
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="#">Doran's Lab</a>
+			            <a class="dropdown-item" href="#">Ataristicians</a>
+			            <a class="dropdown-item" href="#">Design</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="laserfoxes">Laser Foxes</a>
+			            <a class="dropdown-item" href="spacemice.html">Space Mice</a>
+			            <a class="dropdown-item" href="flyingsquirrel.html">Flying Squirrel</a>
+			            <a class="dropdown-item" href="snackattack.html">Snack Attack</a>
+			            <a class="dropdown-item" href="zombiesontreadmills.html">Zombies on Treadmills</a>
+			            <a class="dropdown-item" href="mountboredoom.html">Mount Boredoom</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Videos
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="animations.html">Animations</a>
+			            <a class="dropdown-item" href="workshops.html">Workshops</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item"><a class="nav-link" href="#">Student Blog</a></li>
+		        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+	       	</ul>
 	    </div>
-	  </div>
 	</nav>
 
+	<!-- Tab system -->
 	<section class="additional-section">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-2 col-md-1 sub-section"></div>
 				<div class="col-lg-8 col-md-10 col-sm-12 sub-section">
-					<div class="publications-section">
-						<div class="section-title">
-							<h3 class="subheader-1">Peer Reviewed</h3>
-							<p class="title-description">*(Asterisk indicates first author is student)</p>
-						</div>
-						<ul type="square" class="publications-section">
-							<li class="journal"><b>Laber, E.B.,</b> Wu, F., Munera, C., Lipkovich, I., Colucci, S., Ripa, S. "Identifying optimal dosage regimes under safety constraints: an application to long-term opiod treatment of chronic pain," tenatively accepted, <i>Statistics in Medicine.</i></li>
-							<li class="journal">Hu, T.*, <b>Laber, E.B.,</b> Meyer, N.J., Pacifici, J. (2017) "Thompson sampling for large decision problems," acceptable after minor revision, <i>Biometrika.</i></li>
-							<li class="journal"><b>Laber, E.B.,</b> Staicu, A.M., (2017) "Functional feature construction for personalized treatment regimes," in press, <i>Journal of the American Statistical Association.</i></li>
-							<li class="journal">Zhang, Y.*, <b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A. (2017) "Decision lists for optimal dynamic treatment regimes," in press, <i>Journal of the American Statistical Association.</i></li>
-							<li class="journal">Butler-Bente, E.*, <b>Laber, E.B.,</b> Kosorok, M.R. (2017) "Incorporating patient preferences into the estimation of optimal treatment regimes," to appear, <i>Biometrics.</i></li>
-							<li class="journal">Kelleher, S.A., Dorfman, C.S., Vilardaga, J.C.P., Majestic, C., Winger, J., Gandhi, V., Nunez, C., Van Denburg, A., Shelby, Reed, S.D., Murphy, S.A., Davidian, M., <b>Laber, E.B.,</b> Kimmick, K.W., Westbrook, K.W., Abernathy, A.P., Keefe, F.J., Somers, T.J. (2017) "Optimizing delivery of a behavioral cancer pain intervention using a SMART," in press, <i>Contemporary Clinical Trials.</i></li>
-							<li class="journal">Blau, S.R., David, L.M., Gorney, A.M., Dohse, C.S., Williams, K.D., Lim, J-H, Pftzner, W.G., <b>Laber, E.B.,</b> Sawicki, G.S., Olby, N.J. (2017) "Quantifying Center of Pressure Variability in Chondrodystrophoid Dogs," in press, <i>The Veterinary Journal.</i></li>
-							<li class="journal">Rashid, N., Chen, J. Lawson, M.T., Luckett, D., Wang, L., <b>Laber, E.B.,</b> Liu, Y., Yeh, J.J., Zeng, D., Kosorok, M.R. (2017) "High dimensional precision medicine from patient-derived xenografts," under review, invited discussion paper, <i>Journal of the American Statistical Association.</i></li>
-							<li class="journal"><b>Laber, E.B.,</b> Shedden, K. (2017) "Comment: Statistical Significance and the Dichotomization of Evidence: The Relevance of the ASA Statement on Statistical Significance and p-values for Statisticians," to appear, <i>Journal of the American Statistical Association.</i></li>
-							<li class="journal"><b>Laber, E.B.,</b> Meyer, N.J., Reich, B.J., Pacifici, K.P., Collazo, J., Drake, J. (2017) "On-line estimation of an optimal treatment allocation strategy for the control of white-nose syndrome in bats," under review (tentatively accepted as a read paper in JRSS C).</li>
-							<li class="journal">Fenn, J., <b>Laber, E.B.,</b> Williams, K., Rousse, C.A., Early, P.J., Mariani, C.J., Munana, K.R., Dedecker, S., Volk, H.A., Olby, N.J. (2016) "Evaluating associations between anesthetic variables and functional outcome in dogs with thoracolumbar intervertebral disc extrusion undergoing decompressive hemilaminectomy," tentatively accepted, <i>Journal of Veterinary Internal Medicine.</i></li>
-							<li class="journal">Qian, G.*, <b>Laber, E.B.,</b> Reich, B.R. (2016) "Discussion of Bayesian Non-parametric Estimation for Dynamic Treatment Regimes with Sequential Transition Times," invited discussion, <i>Journal of the American Statistical Association,</i> 111(515), 936-942.</li>
-							<li class="journal">Lizotte, D.J., <b>Laber, E.B.</b> (2016) "Non-deterministic fitted-Q for decision support," <i>Journal of Machine Learning Research,</i> 17(211), 1-28.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Regh, T., Davidian, M., Kosorok, M.R., Tsiatis, A., Zeng, D., Zhao, Y. (2016) "Using pilot data to size a two-arm randomized trial to find a nearly optimal personalized treatment strategy," <i>Statistics in Medicine,</i> 35(8), 1245-1256.</li>
-							<li class="journal">Barberan, A., Dunn, R., Reich, B., Pacifici, K., <b>Laber, E.B.,</b> Menninger, H., Morton, J., Henley, J., Leff, J., Miller, S., Fierer, N. (2015) "The ecology of microscopic life in household dust," <i>Preceedings of the Royal Society B,</i> 282(1814).</li>
-							<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> Stefanski, L.A. (2017) "Interactive Q-learning for quantiles," to appear, <i>Journal of the American Statistical Association,</i> 112(518), 638-649.</li>
-							<li class="journal">Zhang, Y.*, <b>Laber, E.B.,</b> Tsiatis, A., Davidian, M. (2015) "Using decision lists to construct interpretable and parsimonious treatment regimes," <i>Biometrics,</i> 71(4), 895-904, (selected for ENAR Distinguished Paper Award).</li>
-							<li class="journal"><b>Laber, E.B.,</b> Zhao, Y. (2015) "Tree-based methods for optimal treatment allocation," <i>Biometrika,</i> 102(3), 501-514.</li>
-							<li class="journal">Lizotte, D.J., <b>Laber, E.B.</b> (2015) "Multi-objective Markov Decision support systems," <i>Proceedings of Reinforcement Learning and Decision Making</i> (selected for oral presentation).
-							<li class="journal">Zhang, Y.*, <b>Laber, E.B.</b> (2015) "Comment on an adaptive resampling test for detecting the presence of significant predictors," <i>Journal of the American Statistical Association,</i> 110(512), 1451-1454.</li>
-							<li class="journal">Grantham, N.*, Reich, B., Pacifici, K, <b>Laber, E.B.,</b> Menninger, H.L., Henley, J.B., Leff, J.W., Barberan, A., Fierer, N., Dunn, R.R. (2015) "Fungi identify the geographic origin of dust samples," <i>PLOS One,</i> 10(4).</li>
-							<li class="journal">Zhao, Y., Zeng, D., <b>Laber, E.B.,</b> Kosorok, M. (2015) <a class="link" href="http://www.tandfonline.com/doi/pdf/10.1080/01621459.2014.937488">“New statistical learning methods for estimating optimal dynamic treatment regimes,”</a> <i>Journal of the American Statistical Association,</i> 110(510), 583-598.</li>
-							<li class="journal">Wu. F.*, <b>Laber, E.B.,</b> Lipkovich, I., Severus, E. (2015) "Who will benefit from antidepressants in the acute treatment of bipolar depression? A reanalysis of the STEP-BD study by Sachs et al. 2007, using Q-learning," <i>International Journal of Bipolar Disorders,</i> 3(1), 1-11.</li>
-							<li>Song, R., Kosork, M., Zeng, D., Zhao, Y.Q., <b>Laber, E.B.,</b> Yuan, M. (2015) "On sparse representation for optimal individualized treatment selection with penalized outcome weighted learning," <i>Stat,</i> 4(1), 59-68.</li>
-							<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> and Stefanski, L.A. (2014) "iqLearn: interactive Q-learning in R," <i>Journal of Statistical Software,</i> 64(1).</li>
-							<li class="journal">Zhao, Y., Zeng, D., <b>Laber, E.B.,</b> Kosorok, M. (2014) "Doubly Robust Learning for Estimating Individualized Treatment with Censored Data," <i>Biometrika,</i> 101(2), 151-168.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Qian, M., Pehlam, W.E., Murphy, S.A. (2014) <a class="link" href="https://projecteuclid.org/euclid.ejs/1408540283">"Dynamic treatment regimes: Technical challenges and applications,"</a> <i>Electronic Journal of Statistics</i> (with discussion), 8(1), 1225-1272.</li>
-							<ul type="square">
-								<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Qian, M., Pehlam, W.E., Murphy, S.A. (2014) <a class="link" href="https://projecteuclid.org/euclid.ejs/1408540288">"Rejoinder: Dynamic treatment regimes: technical challenges and applications,"</a> <i>Electronic Journal of Statistics,</i> 8(1), 1312-1321.</li>
-							</ul>
-							<li class="journal"><b>Laber, E.B.,</b> Linn, K.A., Stefanski, L. (2014) <a class="link" href="https://www.ncbi.nlm.nih.gov/pubmed/25541562">"Interactive model building for Q-learning,"</a> <i>Biometrika,</i> 101(4), 831-847.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Ferguson, B. (2014) "Set-valued dynamic treatment regimes for competing outcomes," <i>Biometrics,</i> 70(1), 53-61.</li>
-							<li class="journal">Lim, J., Chanoit, A., Smith, D.T., <b>Laber, E.B.,</b> Olby, N.J. (2014) "Potassium channel antagonists 4-aminopyridine and the t-butyl carbamate derivative of 4-AP improve hind limb function in chronically non-ambulatory dogs, a blinded, placebo-controlled trial," <i>PLOS One,</i> 9(12), 1-19.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A., Holloway, S.T. (2014) "Discussion of Biomarkers to Optimize Patient Treatment Recommendations," <i>Biometrics,</i> 70(3), 707-710.</li>
-							<li class="journal">Huang, Y., <b>Laber, E.B.</b> (2014) "Personalized evaluation of biomarker value: a cost-benefit perspective," <i>Statistics in Biosciences,</i> 8(1), 43-65.</li>
-							<li class="journal">Zhao, Y.Q., <b>Laber, E.B.</b> (2014) "Estimation of Optimal Dynamic Treatment Regimes," <i>Clinical Trials,</i> 11(4), 400-407.</li>
-							<li class="journal">Chakraborty, B., <b>Laber, E.B.,</b> Zhao, Y. (2014) "Inference about the expected performance of a data-driven dynamic treatment regime," <i>Clinical Trials</i> 11(4), 408-417.</li>
-							<li class="journal">Huang, Y., <b>Laber, E.B.,</b> Janes, H. (2014) "Characterizing Expected Benefits of Biomarkers in Treatment Selection," <i>Biostatistics,</i> 16(2), 383-399.</li>
-							<li class="journal">Schulte, P.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M. (2014) <a class="link" href="https://www.ncbi.nlm.nih.gov/pubmed/25620840">“A Comparison and Q- and A-Learning,”</a> <i>Statistical Science,</i> 29(4), 640-661.</li>
-							<li class="journal">Shortreed, S.M., <b>Laber, E.B.,</b> Stroup, T.S., Pineau, J., Murphy, S.A. (2014) "Overcoming missing data in a sequential, multiple assignment, randomized clinical trial of patients with schizophrenia," <i>Statistics in Medicine,</i> 43(24), 4202-4214.</li>
-							<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M. (2013) "Robust estimation of optimal dynamic treatment regimes for sequential treatment decision," <i>Biometrika,</i> 101(3), 681-694.</li>
-							<li class="journal">Vock, D.*, Tsiatis, A., Davidian, M., <b>Laber, E.B.,</b> Tsuang, W.M., Finland-Copeland, A., Palmer, S.M. (2013) "Estimating the causal effect of organ transplantation on the distribution of residual lifetime," <i>Biometrics,</i> 69(4), 820-829.</li>
-							<li class="journal">Chakraborty, B., <b>Laber, E.B.,</b> Zhao, Y. (2013) "Inference for optimal dynamic treatment regimes using an adaptive m-out-of-n bootstrap scheme," <i>Biometrics,</i> 69(4), 714-723.</li>
-							<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M., (2012) <a class="link" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1541-0420.2012.01763.x/abstract;jsessionid=289243BFB1BC170343F2EB41A49158AF.d04t02?deniedAccessCustomisedMessage=&userIsAuthenticated=false">"A robust method for estimating optimal treatment regimes,"</a> <i>Biometrics,</i> 68(4), 1010-1018.</li>
-							<ul type="square">
-								<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M., (2014) "Rejoinder: A robust method for estimating optimal treatment regimes,"</a> <i>Biometrics,</i> 71(1), 267-273.</li>
-							</ul>
-							<li class="journal">Zhang, B.*, Tsiatis, A., Davidian, M., Zhang, M., <b>Laber, E.B.</b> "A classification perspective of optimal treatment regimes," <i>Stat,</i> 1(1), 103-114.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2011) <a class="link" href="http://amstat.tandfonline.com/doi/abs/10.1198/jasa.2010.tm10053?journalCode=uasa20#preview">"Adaptive Confidence Intervalsfor the Test Error in Classification,"</a> <i>Journal of the American Statistical Association,</i> with discussion, 106(495), 904-911.</li>
-							<ul type="square">
-								<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2011) <a class="link" href="http://amstat.tandfonline.com/doi/abs/10.1198/jasa.2011.tm11514?journalCode=uasa20&">"Rejoinder: Adaptive Confidence Intervals for the Test Error in Classification,"</a> <i>Journal of the American Statistical Association,</i> 106(495), 940-945.</li>
-							</ul>
-							<li class="journal">Shortreed, S.M., <b>Laber, E.B.,</b> Lizotte, D.J., Stroup, T.S., Pineau, J., Murphy, S.A. (2011) <a class="link" href="https://link.springer.com/article/10.1007%2Fs10994-010-5229-0">"Informing sequential clinical decision-making through reinforcement learning: an empirical study,"</a> <i>Machine Learning,</i> 84, 109-136.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2008) "Small Sample Inference for Generalization Error in Classification Using the CUD Bound," Uncertainty in Artificial Intelligence, 2008. <i>Machine Learning.</i></li>							
-						</ul>
-					</div>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" id="publications-tab" data-toggle="tab" href="#publications" aria-control="publications" aria-selected="true">Publications</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="publications-tab" data-toggle="tab" href="#funding" aria-control="funding" aria-selected="true">Funding</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="publications-tab" data-toggle="tab" href="#teaching" aria-control="teaching" aria-selected="true">Teaching</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="myTabContent"> <!-- Content inside tabs -->
+						<div class="tab-pane fade show active" id="publications" role="tabpanel" aria-labelledby="publications-tab">
+							<div class="publications-section">
+								<div class="section-title">
+									<h3 class="subheader-1">Peer Reviewed</h3>
+									<p class="title-description">*(Asterisk indicates first author is student)</p>
+								</div>
+								<ul type="square" class="publications-section">
+									<li class="journal"><b>Laber, E.B.,</b> Wu, F., Munera, C., Lipkovich, I., Colucci, S., Ripa, S. "Identifying optimal dosage regimes under safety constraints: an application to long-term opiod treatment of chronic pain," tenatively accepted, <i>Statistics in Medicine.</i></li>
+									<li class="journal">Hu, T.*, <b>Laber, E.B.,</b> Meyer, N.J., Pacifici, J. (2017) "Thompson sampling for large decision problems," acceptable after minor revision, <i>Biometrika.</i></li>
+									<li class="journal"><b>Laber, E.B.,</b> Staicu, A.M., (2017) "Functional feature construction for personalized treatment regimes," in press, <i>Journal of the American Statistical Association.</i></li>
+									<li class="journal">Zhang, Y.*, <b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A. (2017) "Decision lists for optimal dynamic treatment regimes," in press, <i>Journal of the American Statistical Association.</i></li>
+									<li class="journal">Butler-Bente, E.*, <b>Laber, E.B.,</b> Kosorok, M.R. (2017) "Incorporating patient preferences into the estimation of optimal treatment regimes," to appear, <i>Biometrics.</i></li>
+									<li class="journal">Kelleher, S.A., Dorfman, C.S., Vilardaga, J.C.P., Majestic, C., Winger, J., Gandhi, V., Nunez, C., Van Denburg, A., Shelby, Reed, S.D., Murphy, S.A., Davidian, M., <b>Laber, E.B.,</b> Kimmick, K.W., Westbrook, K.W., Abernathy, A.P., Keefe, F.J., Somers, T.J. (2017) "Optimizing delivery of a behavioral cancer pain intervention using a SMART," in press, <i>Contemporary Clinical Trials.</i></li>
+									<li class="journal">Blau, S.R., David, L.M., Gorney, A.M., Dohse, C.S., Williams, K.D., Lim, J-H, Pftzner, W.G., <b>Laber, E.B.,</b> Sawicki, G.S., Olby, N.J. (2017) "Quantifying Center of Pressure Variability in Chondrodystrophoid Dogs," in press, <i>The Veterinary Journal.</i></li>
+									<li class="journal">Rashid, N., Chen, J. Lawson, M.T., Luckett, D., Wang, L., <b>Laber, E.B.,</b> Liu, Y., Yeh, J.J., Zeng, D., Kosorok, M.R. (2017) "High dimensional precision medicine from patient-derived xenografts," under review, invited discussion paper, <i>Journal of the American Statistical Association.</i></li>
+									<li class="journal"><b>Laber, E.B.,</b> Shedden, K. (2017) "Comment: Statistical Significance and the Dichotomization of Evidence: The Relevance of the ASA Statement on Statistical Significance and p-values for Statisticians," to appear, <i>Journal of the American Statistical Association.</i></li>
+									<li class="journal"><b>Laber, E.B.,</b> Meyer, N.J., Reich, B.J., Pacifici, K.P., Collazo, J., Drake, J. (2017) "On-line estimation of an optimal treatment allocation strategy for the control of white-nose syndrome in bats," under review (tentatively accepted as a read paper in JRSS C).</li>
+									<li class="journal">Fenn, J., <b>Laber, E.B.,</b> Williams, K., Rousse, C.A., Early, P.J., Mariani, C.J., Munana, K.R., Dedecker, S., Volk, H.A., Olby, N.J. (2016) "Evaluating associations between anesthetic variables and functional outcome in dogs with thoracolumbar intervertebral disc extrusion undergoing decompressive hemilaminectomy," tentatively accepted, <i>Journal of Veterinary Internal Medicine.</i></li>
+									<li class="journal">Qian, G.*, <b>Laber, E.B.,</b> Reich, B.R. (2016) "Discussion of Bayesian Non-parametric Estimation for Dynamic Treatment Regimes with Sequential Transition Times," invited discussion, <i>Journal of the American Statistical Association,</i> 111(515), 936-942.</li>
+									<li class="journal">Lizotte, D.J., <b>Laber, E.B.</b> (2016) "Non-deterministic fitted-Q for decision support," <i>Journal of Machine Learning Research,</i> 17(211), 1-28.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Regh, T., Davidian, M., Kosorok, M.R., Tsiatis, A., Zeng, D., Zhao, Y. (2016) "Using pilot data to size a two-arm randomized trial to find a nearly optimal personalized treatment strategy," <i>Statistics in Medicine,</i> 35(8), 1245-1256.</li>
+									<li class="journal">Barberan, A., Dunn, R., Reich, B., Pacifici, K., <b>Laber, E.B.,</b> Menninger, H., Morton, J., Henley, J., Leff, J., Miller, S., Fierer, N. (2015) "The ecology of microscopic life in household dust," <i>Preceedings of the Royal Society B,</i> 282(1814).</li>
+									<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> Stefanski, L.A. (2017) "Interactive Q-learning for quantiles," to appear, <i>Journal of the American Statistical Association,</i> 112(518), 638-649.</li>
+									<li class="journal">Zhang, Y.*, <b>Laber, E.B.,</b> Tsiatis, A., Davidian, M. (2015) "Using decision lists to construct interpretable and parsimonious treatment regimes," <i>Biometrics,</i> 71(4), 895-904, (selected for ENAR Distinguished Paper Award).</li>
+									<li class="journal"><b>Laber, E.B.,</b> Zhao, Y. (2015) "Tree-based methods for optimal treatment allocation," <i>Biometrika,</i> 102(3), 501-514.</li>
+									<li class="journal">Lizotte, D.J., <b>Laber, E.B.</b> (2015) "Multi-objective Markov Decision support systems," <i>Proceedings of Reinforcement Learning and Decision Making</i> (selected for oral presentation).
+									<li class="journal">Zhang, Y.*, <b>Laber, E.B.</b> (2015) "Comment on an adaptive resampling test for detecting the presence of significant predictors," <i>Journal of the American Statistical Association,</i> 110(512), 1451-1454.</li>
+									<li class="journal">Grantham, N.*, Reich, B., Pacifici, K, <b>Laber, E.B.,</b> Menninger, H.L., Henley, J.B., Leff, J.W., Barberan, A., Fierer, N., Dunn, R.R. (2015) "Fungi identify the geographic origin of dust samples," <i>PLOS One,</i> 10(4).</li>
+									<li class="journal">Zhao, Y., Zeng, D., <b>Laber, E.B.,</b> Kosorok, M. (2015) <a class="link" href="http://www.tandfonline.com/doi/pdf/10.1080/01621459.2014.937488">“New statistical learning methods for estimating optimal dynamic treatment regimes,”</a> <i>Journal of the American Statistical Association,</i> 110(510), 583-598.</li>
+									<li class="journal">Wu. F.*, <b>Laber, E.B.,</b> Lipkovich, I., Severus, E. (2015) "Who will benefit from antidepressants in the acute treatment of bipolar depression? A reanalysis of the STEP-BD study by Sachs et al. 2007, using Q-learning," <i>International Journal of Bipolar Disorders,</i> 3(1), 1-11.</li>
+									<li>Song, R., Kosork, M., Zeng, D., Zhao, Y.Q., <b>Laber, E.B.,</b> Yuan, M. (2015) "On sparse representation for optimal individualized treatment selection with penalized outcome weighted learning," <i>Stat,</i> 4(1), 59-68.</li>
+									<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> and Stefanski, L.A. (2014) "iqLearn: interactive Q-learning in R," <i>Journal of Statistical Software,</i> 64(1).</li>
+									<li class="journal">Zhao, Y., Zeng, D., <b>Laber, E.B.,</b> Kosorok, M. (2014) "Doubly Robust Learning for Estimating Individualized Treatment with Censored Data," <i>Biometrika,</i> 101(2), 151-168.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Qian, M., Pehlam, W.E., Murphy, S.A. (2014) <a class="link" href="https://projecteuclid.org/euclid.ejs/1408540283">"Dynamic treatment regimes: Technical challenges and applications,"</a> <i>Electronic Journal of Statistics</i> (with discussion), 8(1), 1225-1272.</li>
+									<ul type="square">
+										<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Qian, M., Pehlam, W.E., Murphy, S.A. (2014) <a class="link" href="https://projecteuclid.org/euclid.ejs/1408540288">"Rejoinder: Dynamic treatment regimes: technical challenges and applications,"</a> <i>Electronic Journal of Statistics,</i> 8(1), 1312-1321.</li>
+									</ul>
+									<li class="journal"><b>Laber, E.B.,</b> Linn, K.A., Stefanski, L. (2014) <a class="link" href="https://www.ncbi.nlm.nih.gov/pubmed/25541562">"Interactive model building for Q-learning,"</a> <i>Biometrika,</i> 101(4), 831-847.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Lizotte, D.J., Ferguson, B. (2014) "Set-valued dynamic treatment regimes for competing outcomes," <i>Biometrics,</i> 70(1), 53-61.</li>
+									<li class="journal">Lim, J., Chanoit, A., Smith, D.T., <b>Laber, E.B.,</b> Olby, N.J. (2014) "Potassium channel antagonists 4-aminopyridine and the t-butyl carbamate derivative of 4-AP improve hind limb function in chronically non-ambulatory dogs, a blinded, placebo-controlled trial," <i>PLOS One,</i> 9(12), 1-19.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A., Holloway, S.T. (2014) "Discussion of Biomarkers to Optimize Patient Treatment Recommendations," <i>Biometrics,</i> 70(3), 707-710.</li>
+									<li class="journal">Huang, Y., <b>Laber, E.B.</b> (2014) "Personalized evaluation of biomarker value: a cost-benefit perspective," <i>Statistics in Biosciences,</i> 8(1), 43-65.</li>
+									<li class="journal">Zhao, Y.Q., <b>Laber, E.B.</b> (2014) "Estimation of Optimal Dynamic Treatment Regimes," <i>Clinical Trials,</i> 11(4), 400-407.</li>
+									<li class="journal">Chakraborty, B., <b>Laber, E.B.,</b> Zhao, Y. (2014) "Inference about the expected performance of a data-driven dynamic treatment regime," <i>Clinical Trials</i> 11(4), 408-417.</li>
+									<li class="journal">Huang, Y., <b>Laber, E.B.,</b> Janes, H. (2014) "Characterizing Expected Benefits of Biomarkers in Treatment Selection," <i>Biostatistics,</i> 16(2), 383-399.</li>
+									<li class="journal">Schulte, P.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M. (2014) <a class="link" href="https://www.ncbi.nlm.nih.gov/pubmed/25620840">“A Comparison and Q- and A-Learning,”</a> <i>Statistical Science,</i> 29(4), 640-661.</li>
+									<li class="journal">Shortreed, S.M., <b>Laber, E.B.,</b> Stroup, T.S., Pineau, J., Murphy, S.A. (2014) "Overcoming missing data in a sequential, multiple assignment, randomized clinical trial of patients with schizophrenia," <i>Statistics in Medicine,</i> 43(24), 4202-4214.</li>
+									<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M. (2013) "Robust estimation of optimal dynamic treatment regimes for sequential treatment decision," <i>Biometrika,</i> 101(3), 681-694.</li>
+									<li class="journal">Vock, D.*, Tsiatis, A., Davidian, M., <b>Laber, E.B.,</b> Tsuang, W.M., Finland-Copeland, A., Palmer, S.M. (2013) "Estimating the causal effect of organ transplantation on the distribution of residual lifetime," <i>Biometrics,</i> 69(4), 820-829.</li>
+									<li class="journal">Chakraborty, B., <b>Laber, E.B.,</b> Zhao, Y. (2013) "Inference for optimal dynamic treatment regimes using an adaptive m-out-of-n bootstrap scheme," <i>Biometrics,</i> 69(4), 714-723.</li>
+									<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M., (2012) <a class="link" href="http://onlinelibrary.wiley.com/doi/10.1111/j.1541-0420.2012.01763.x/abstract;jsessionid=289243BFB1BC170343F2EB41A49158AF.d04t02?deniedAccessCustomisedMessage=&userIsAuthenticated=false">"A robust method for estimating optimal treatment regimes,"</a> <i>Biometrics,</i> 68(4), 1010-1018.</li>
+									<ul type="square">
+										<li class="journal">Zhang, B.*, Tsiatis, A., <b>Laber, E.B.,</b> Davidian, M., (2014) "Rejoinder: A robust method for estimating optimal treatment regimes,"</a> <i>Biometrics,</i> 71(1), 267-273.</li>
+									</ul>
+									<li class="journal">Zhang, B.*, Tsiatis, A., Davidian, M., Zhang, M., <b>Laber, E.B.</b> "A classification perspective of optimal treatment regimes," <i>Stat,</i> 1(1), 103-114.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2011) <a class="link" href="http://amstat.tandfonline.com/doi/abs/10.1198/jasa.2010.tm10053?journalCode=uasa20#preview">"Adaptive Confidence Intervalsfor the Test Error in Classification,"</a> <i>Journal of the American Statistical Association,</i> with discussion, 106(495), 904-911.</li>
+									<ul type="square">
+										<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2011) <a class="link" href="http://amstat.tandfonline.com/doi/abs/10.1198/jasa.2011.tm11514?journalCode=uasa20&">"Rejoinder: Adaptive Confidence Intervals for the Test Error in Classification,"</a> <i>Journal of the American Statistical Association,</i> 106(495), 940-945.</li>
+									</ul>
+									<li class="journal">Shortreed, S.M., <b>Laber, E.B.,</b> Lizotte, D.J., Stroup, T.S., Pineau, J., Murphy, S.A. (2011) <a class="link" href="https://link.springer.com/article/10.1007%2Fs10994-010-5229-0">"Informing sequential clinical decision-making through reinforcement learning: an empirical study,"</a> <i>Machine Learning,</i> 84, 109-136.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Murphy, S.A. (2008) "Small Sample Inference for Generalization Error in Classification Using the CUD Bound," Uncertainty in Artificial Intelligence, 2008. <i>Machine Learning.</i></li>							
+								</ul>
+							</div>
 
-					<div class="publications-section">
-						<div class="section-title">
-							<h3>Book Chapters and Misc.</h3>
+							<div class="publications-section">
+								<div class="section-title">
+									<h3>Book Chapters and Misc.</h3>
+								</div>
+								<ul type="square">
+									<li class="journal">Desmarais, S. L., Lowder, E. M., Dong, L., <b>Laber, E.B.</b> (2017) <a class="link" href="https://tinyurl.com/yaj2caqx">Mental health characteristics among Wake County detainees,"</a> Final project report prepared for the Wake County Manager and Board of Commissioners, Raleigh, NC.</li>
+									<li class="journal">Rose, E.*, <b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A. (2017) "Q-learning," Wiley StatsRef: Statistics Reference Online.</li>
+									<li class="journal">Davidian, M., Tsiatis, A.A., and Laber, E.B. (2016) "Optimal dynamic treatment regimes," Wiley StatsRef: Statistics Reference Online.</li>
+									<li class="journal">Davidian, M., <b>Laber, E.B.,</b> Tsiatis, A.A. (2016) "Dynamic treatment regimes," <i>Cancer Clinical Trials: Current and Controversial Issues in Design and Analysis,</i> book chapter, Taylor and Francis.</li>
+									<li class="journal">Shortreed, S. <b>Laber, E.B.,</b> Pineau, J., Murphy, S.A. (2015) "Imputing missing data from sequential multiple assignment randomized trials," <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
+									<li class="journal">Davidian, M., Tsiatis, A.A., <b>Laber, E.B.</b> (2015) "Value Search Estimators for Optimal Treatment Regimes." <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
+									<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> Stefanski, L.A. (2015) "Constrained estimation for competing outcomes," <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
+									<li class="journal">Wu, F.*, <b>Laber, E.B.,</b> Severus, E. (2014) "Introduction to SMARTs," <i>Bipolar Disorders,</i> book chapter, Oxford University Press.</li>
+									<li class="journal"><b>Laber, E.B.,</b> Qian, M. (2014) "Evaluating personalized treatment regimes," <i>Methods in Comparative Effectiveness Research</i> CRC Press.</li>
+									<li class="journal"><b>Laber, E.B.</b> (2013) "Book review: Linear Causal Modeling with Structural Equations by Stanley Mulaik," <i>Journal of the American Statistical Association.</i>
+								</ul>
+							</div>
 						</div>
-						<ul type="square">
-							<li class="journal">Desmarais, S. L., Lowder, E. M., Dong, L., <b>Laber, E.B.</b> (2017) <a class="link" href="https://tinyurl.com/yaj2caqx">Mental health characteristics among Wake County detainees,"</a> Final project report prepared for the Wake County Manager and Board of Commissioners, Raleigh, NC.</li>
-							<li class="journal">Rose, E.*, <b>Laber, E.B.,</b> Davidian, M., Tsiatis, A.A. (2017) "Q-learning," Wiley StatsRef: Statistics Reference Online.</li>
-							<li class="journal">Davidian, M., Tsiatis, A.A., and Laber, E.B. (2016) "Optimal dynamic treatment regimes," Wiley StatsRef: Statistics Reference Online.</li>
-							<li class="journal">Davidian, M., <b>Laber, E.B.,</b> Tsiatis, A.A. (2016) "Dynamic treatment regimes," <i>Cancer Clinical Trials: Current and Controversial Issues in Design and Analysis,</i> book chapter, Taylor and Francis.</li>
-							<li class="journal">Shortreed, S. <b>Laber, E.B.,</b> Pineau, J., Murphy, S.A. (2015) "Imputing missing data from sequential multiple assignment randomized trials," <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
-							<li class="journal">Davidian, M., Tsiatis, A.A., <b>Laber, E.B.</b> (2015) "Value Search Estimators for Optimal Treatment Regimes." <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
-							<li class="journal">Linn, K.A.*, <b>Laber, E.B.,</b> Stefanski, L.A. (2015) "Constrained estimation for competing outcomes," <i>Adaptive Treatment Strategies in Practice: Planning Trials and Analyzing Data for Personalized Medicine,</i> book chapter, CRC Press.</li>
-							<li class="journal">Wu, F.*, <b>Laber, E.B.,</b> Severus, E. (2014) "Introduction to SMARTs," <i>Bipolar Disorders,</i> book chapter, Oxford University Press.</li>
-							<li class="journal"><b>Laber, E.B.,</b> Qian, M. (2014) "Evaluating personalized treatment regimes," <i>Methods in Comparative Effectiveness Research</i> CRC Press.</li>
-							<li class="journal"><b>Laber, E.B.</b> (2013) "Book review: Linear Causal Modeling with Structural Equations by Stanley Mulaik," <i>Journal of the American Statistical Association.</i>
-						</ul>
+						<div class="tab-pane fade" id="funding" role="tabpanel" aria-labelledby="funding-tab">
+							<div class="publications-section">
+								<div class="section-title">
+									<h3 class="subheader-1">Funded or recommended</h3>
+								</div>
+								<ul type="square" class="publications-section">
+									<li class="journal">Principal investigator, "Modeling agent behavior in complex environments," ($151,442, 2018-2019), Laboratory for Analytic Sciences.</li>
+									<li class="journal">Principal investigator, "Real-time coordinated decision making in multi-agent environments with application to adaptive search for nuclear materials," ($387,772, 2018-2010), Consortium for Non-proliferation Enabling Capabilities.</li>
+									<li class="journal">Principal Investigator, "Optimization of Partially Observable Games," ($27,000, 2016-2017), Amazon EC2 Cloud Credit Program.</li>
+									<li class="journal">Principal Investigator, "Impact Evaluation of Parent Messaging Strategies on Student Attendance," (NCSU Subcontract, $292,561, 2016-2019), IES.</li>
+									<li class="journal">Co-Principal Investigator, "Mental Health Characteristics and Outcomes of Wake County Detainees," ($94,598, 2016-2017), Wake County.</li>
+									<li class="journal">Principal Investigator, 1 R01 CA207689-01, "Optimization, Implementation, and Dissemination of a Tailored Translational Communication Intervention to Reduce Colorectal Cancer Health Disparities," (NCSU Subcontract, $129,364), NIH.</li>
+									<li class="journal">Investigator, "A spatiotemporal recommendation engine for malaria control," (PI Reich, $100,000, 2016-2017), Gates Foundation.</li>
+									<li class="journal">Investigator, 1 R01 CA202779-01, "Optimizing Delivery of a Behavioral Cancer Pain Intervention Using a SMART," ($102,952, 2016-2021), NIH.</li>
+									<li class="journal">Principal Investigator, U01 MD011281-01, "A Pragmatic Trial of An Adaptive eHealth HIV Prevention Program for Diverse Adolescent MSM," (NCSU Sub-contract $191,201, total award 9.3m, 2016-2021), NIH.</li>
+									<li class="journal">Investigator, "Forensic Geolocation via Biological Signatures," (PI Faith, $1,115,000, 2016-2017), DOD.</li>
+									<li class="journal">Principal Investigator, DMS-1555141, "CAREER: Big computation and the management of emerging infectious diseases," ($564,708, 2016-2021), NSF.</li>
+									<li class="journal">Principal Investigator, DMS-1557733, "QuBBD: Collaborative Research: Precision medicine and the management of infectious diseases," ($47,1440, 2015-2016), NSF.</li>
+									<li class="journal">Principal Investigator, "Research Collaboration Between SAS Institute and NCSU: Tuning Parameter Section in LASSO Regression and Related Regression Selection Methods," ($127,911, 2015-2016), SAS Institute</li>
+									<li class="journal">Investigator, R01-DK-108073, "Statistical methods for complex patients with diabetes," (PI Zhao, NCSU subcontract $128,670, 2015-2018), NIH.</li>
+									<li class="journal">Principal Investigator, DMS-1513579, "Optimal Decision Strategies for Large Spatio-Temporal Decision Problems," ($150,000, 2015-2018), NSF.</li>
+									<li class="journal">Investigator, "Advancing the use and application of diverse data sources and species distribution models," (PI Collazo, $300,000, 2014-2018), USGS.</li>
+									<li class="journal">Investigator, 1R01DE024984-01A1 "Spatiotemporal models for periodontal disease monitoring and recall frequencies," (PI Bandyopadhyay, NCSU subcontract $373,499, 2015-2019), NIH.</li>
+									<li class="journal">Investigator, 1R01CA202779-01 "Optimizing delivery of a behavioral cancer pain intervention using a SMART," under review, (scored 29, 13th percentile), NIH.</li>
+									<li class="journal">Investigator, 1R01 AA023187-01A1 "Data-Based Methods for Just In Time Adaptive Interventions in Alcohol Use," (PI Murphy, NCSU subcontract $87,823), NIH.</li>
+									<li class="journal">Investigator, "Research and applications in support of the National Gap Analysis Program," (PI Collazo, 2014-2018, $1,616,571), USGS.</li>
+									<li class="journal">Principal Investigator, "Murdock Gift," (PI Rob Calliff, Subcontract of Duke SEDI Project, $44,740, 2014-2015).</li>
+									<li class="journal">Co-Principal Investigator, DMS-0703392, "CSUMS: NC State University computation for undergraduates in statistics program," (PI Reich, 2011-2014, $770,714), NSF.</li>
+									<li class="journal">Co-Principal Investigator, PR-W-F14AF00171, "Conservation Design and Habitat Conservation in Puerto Rico," (PI Collazo, $1,364,995, 2014-2017), USGS.</li>
+									<li class="journal">Investigator, P01 CA142538, "Statistical methods for cancer clinical trials," (PI Kosorok, $10,328,825, 2015-2020), NIH.</li>
+									<li class="journal">Investigator, "Relationship between gait analysis, MRI findings, and response to potassium channel blockade in chronically paralyzed dogs: a personalized medicine pilot study," (PI Olby, $17,800, 2014), NCSU.</li>
+									<li class="journal">Principal Investigator, NSCU Minigrant, external mentoring, 2012.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
+							<div class="publications-section">
+								<div class="section-title">
+									<h3 class="subheader-1">Courses</h3>
+								</div>
+								<ul type="square" class="publications-section">
+									<li class="journal"><b>Statistics 370:</b> Statistics for Engineeers - <i>fall 2011</i></li>
+									<li class="journal"><b>Statistics 745:</b> Advanced Survival Analysis - <i>spring 2012, spring 2014, spring 2015</i></li>
+									<li class="journal"><b>Statistics 810:</b> Advanced Computing - <i>spring 2013</i></li>
+									<li class="journal"><b>Statistics 495:</b> Undergrad Survival Analysis - <i>spring 2014</i></li>
+									<li class="journal"><b>Statistics 758:</b> Computing - <i>fall 2015</i></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -161,25 +256,24 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
 					<span class="fa-stack fa-lg">
-  						<a href="https://twitter.com/LaberLabs"><i class="fa fa-twitter fa-stack-1x"></i></a>
+  						<a href="https://twitter.com/LaberLabs"><i class="fab fa-twitter fa-stack-1x"></i></a>
 					</span>
 					<span class="fa-stack fa-lg">
-  						<a href="https://www.facebook.com/LaberLabs/"><i class="fa fa-facebook fa-stack-1x"></i></a>
+  						<a href="https://www.facebook.com/LaberLabs/"><i class="fab fa-facebook fa-stack-1x"></i></a>
 					</span>
 					<span class="fa-stack fa-lg">
-  						<a href="https://www.youtube.com/c/LaberLabs"><i class="fa fa-youtube fa-stack-1x"></i></a>
+  						<a href="https://www.youtube.com/c/LaberLabs"><i class="fab fa-youtube fa-stack-1x"></i></a>
 					</span>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
-					<p class="footer-contact">Contact Us</p>
-					<p class="footer-email">laber@stat.ncsu.edu</p>
+					<p class="footer-contact">Let's Talk Stats!</p>
+					<p class="footer-email"><a href="mailto:laber@stat.ncsu.edu">laber@stat.ncsu.edu</a></p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
 </body>
