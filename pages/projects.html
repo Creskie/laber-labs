@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laber Labs</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:400,700" rel="stylesheet">
+
+    <!-- Hamburger to X animation -->
+    <link href="../css/hamburgers.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg fixed-top" role="navigation">
+        <a class="navbar-brand" href="../index.html">Laber Labs</a>
+            <button class="navbar-toggler hamburger hamburger--squeeze" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" type="button" aria-expanded="false">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+	    <!-- Hamburger to X animation -->
+	    <script>
+	      var $hamburger = $(".hamburger");
+	      $hamburger.on("click", function(e) {
+	        $hamburger.toggleClass("is-active");
+	        // Do something else, like open/close menu
+	      });
+	    </script>
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      	<ul class="navbar-nav ml-auto tabs">
+	      		<li class="nav-item"><a class="nav-link" href="../images/ericlaber_cv.pdf">CV</a></li>
+		        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+		        <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+		        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subsets
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="doranslab.html">Doran's Lab</a>
+			            <a class="dropdown-item" href="ataristicians.html">Ataristicians</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="laserfoxes.html">Laser Foxes</a>
+			            <a class="dropdown-item" href="spacemice.html">Space Mice</a>
+			            <a class="dropdown-item" href="flyingsquirrel.html">Flying Squirrel</a>
+			            <a class="dropdown-item" href="snackattack.html">Snack Attack</a>
+			            <a class="dropdown-item" href="zombiesontreadmills.html">Zombies on Treadmills</a>
+			            <a class="dropdown-item" href="mountboredoom.html">Mount Boredoom</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item dropdown">
+		          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Videos
+		          		<i class="fas fa-angle-down"></i>
+		          	</a>
+		          	<div class="dropdown-menu" role="menu">
+			            <a class="dropdown-item" href="animations.html">Animations</a>
+			            <a class="dropdown-item" href="workshops.html">Workshops</a>
+		          	</div>
+		        </li>
+		        <li class="nav-item"><a class="nav-link" href="studentblog.html">Student Blog</a></li>
+		        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+	       	</ul>
+	    </div>
+	</nav>
+
+	<header class="header-mint header-half">
+		<div class="header-content">
+			<div class="col-8 offset-2 header-content-inner">
+				<h3 class="subheader-1">Projects</h3>
+				<p class="description-1">See what we're up to!</p>
+			</div>
+		</div>
+	</header>
+
+	<section class="additional-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12 sub-section">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" id="longstanding-tab" data-toggle="tab" href="#longstanding" aria-control="longstanding" aria-selected="true">Longstanding</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="emerging-tab" data-toggle="tab" href="#emerging" aria-control="emerging" aria-selected="true">Emerging</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="outreach-tab" data-toggle="tab" href="#outreach" aria-control="outreach" aria-selected="true">Outreach</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="myTabContent"> <!-- Content inside tabs -->
+						<!-- Start of individual tab -->
+						<div class="tab-pane fade show active" id="longstanding" role="tabpanel" aria-labelledby="longstanding-tab">
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/precision-medicine.jpg" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Precision Medicine</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt, a consectetur magna lobortis. Integer ut erat et dolor vehicula efficitur. Fusce porta justo in massa aliquam, in luctus sapien pharetra. Nulla pharetra lorem ex, vel faucibus ante faucibus ut. Nulla convallis at justo vitae sodales.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/spatio-temporal-rl.jpg" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Spatio-Temporal Reinforcement Learning</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/adversarial-decision-making.jpg" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Adversarial Decision Making</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt, a consectetur magna lobortis. Integer ut erat et dolor vehicula efficitur. Fusce porta justo in massa aliquam, in luctus sapien pharetra. Nulla pharetra lorem ex, vel faucibus ante faucibus ut. Nulla convallis at justo vitae sodales.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End of individual tab -->
+						<!-- Start of individual tab -->
+						<div class="tab-pane fade show" id="emerging" role="tabpanel" aria-labelledby="emerging-tab">
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/nick-eric-madden.jpg" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Sports Analytics</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt, a consectetur magna lobortis. Integer ut erat et dolor vehicula efficitur. Fusce porta justo in massa aliquam.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/champ-cluster.gif" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">eSports Analytics</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt, a consectetur magna lobortis. Integer ut erat et dolor vehicula efficitur. Fusce porta justo in massa aliquam.</p>
+									<div class="button2-container">
+										<a href="doranslab.html" class="btn2 btn-primary2"><i class="fas fa-arrow-right"></i> Meet Doran's Lab</a>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/lego-robot.gif" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Self-driving Cars</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End of individual tab -->
+						<!-- Start of individual tab -->
+						<div class="tab-pane fade show" id="outreach" role="tabpanel" aria-labelledby="outreach-tab">
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/reservoir-sampling.gif" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">2-Min Stats</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est.</p>
+									<div class="button2-container">
+										<a href="animations.html" class="btn2 btn-primary2"><i class="fas fa-arrow-right"></i> Watch the Videos</a>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/alt-stats.png" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Alternative Stats</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est.</p>
+									<div class="button2-container">
+										<a href="http://alternative-stats.laber-labs.com" class="btn2 btn-primary2"><i class="fas fa-arrow-right"></i> Take The Quizzes</a>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/nona-bishop.jpg" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Nona</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est. Nunc vel leo a felis efficitur accumsan et non augue. Suspendisse iaculis ipsum vitae nibh tincidunt, a consectetur magna lobortis. Integer ut erat et dolor vehicula efficitur. Fusce porta justo in massa aliquam, in luctus sapien pharetra. Nulla pharetra lorem ex, vel faucibus ante faucibus ut. Nulla convallis at justo vitae sodales.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 sub-section">
+									<img src="../images/laser-foxes.gif" />
+								</div>
+								<div class="col-md-4 sub-section">
+									<h3 class="subtitle-2">Artificial Intelligence + Games</h1>
+									<p class="description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nisi sed iaculis semper. Integer ante est, condimentum maximus orci eu, posuere ultricies nibh. Integer fringilla nisl nibh, eget ornare orci aliquet ac. Pellentesque vitae luctus est.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End of individual tab -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
+					<span class="fa-stack fa-lg">
+  						<a href="https://twitter.com/LaberLabs"><i class="fab fa-twitter"></i></a>
+					</span>
+					<span class="fa-stack fa-lg">
+  						<a href="https://www.facebook.com/LaberLabs/"><i class="fab fa-facebook"></i></a>
+					</span>
+					<span class="fa-stack fa-lg">
+  						<a href="https://www.youtube.com/c/LaberLabs"><i class="fab fa-youtube"></i></a>
+					</span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-12 footer-section">
+					<p class="footer-contact">Let's Talk Stats!</p>
+					<p class="footer-email"><a href="mailto:laber@stat.ncsu.edu">laber@stat.ncsu.edu</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
