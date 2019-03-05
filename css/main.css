@@ -300,7 +300,10 @@ section {
 /* Team */
 .team-photo-laber {
 	border-radius: 50%;
-	min-height: 50px;
+	max-height: 200px;
+	width: auto;
+	display: block;
+	margin: auto;
 }
 .team-photo {
 	border-radius: 50%;
@@ -309,6 +312,7 @@ section {
 	width: auto;
 	display: block;
 	margin: auto;
+	margin-top: 30px;
 }
 .team-container {
 	display: inline !important;
@@ -334,17 +338,8 @@ section {
 	padding-top: 15px;
 	margin-bottom: 3px;
 }
-.team-description-laber {
-	font-family: 'Overpass Mono', monospace;
-	font-weight: 700;
-	font-size: 12px;
-}
 .laber-container {
 	margin-bottom: 30px;
-}
-.team-row {
-	margin-top: 30px;
-	min-height: 200px;
 }
 .alumni-name {
 	font-family: 'Overpass Mono', monospace;
@@ -359,6 +354,17 @@ section {
 }
 .team-title {
 	margin-top: 50px;
+}
+.team-type {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	color: lightgrey;
+	font-size: 12px;
+}
+.team-bold {
+	font-family: 'Overpass Mono', monospace;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 /* Subsets */
@@ -443,6 +449,15 @@ section {
 }
 .header-pink {
 	background-color: #fbc6c5 !important;
+}
+
+/* Contact */
+a.social-link {
+	font-size: 13px;
+	color: grey;
+}
+a.social-link:hover {
+	color: #ce9413;
 }
 
 /* Animations */
