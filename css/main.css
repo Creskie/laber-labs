@@ -522,3 +522,19 @@ header.header-threequarter {
 ul.game-credits {
 	padding: 0;
 }
+
+/* Images fade in effect */
+.fade-img {
+visibility: hidden;
+}
+
+.fadeIn {
+-webkit-animation: animat_show 0.8s;
+animation: animat_show 0.8s;
+visibility: visible !important;
+}
+
+@-webkit-keyframes animat_show {
+0%{opacity:0}
+100%{opacity:1}
+}
