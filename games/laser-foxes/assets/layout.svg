@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3840"
+   height="2160"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="layout.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="2084.7523"
+     inkscape:cy="1421.3776"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     inkscape:window-width="1247"
+     inkscape:window-height="1388"
+     inkscape:window-x="75"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="240px"
+       spacingy="240px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="layout">
+    <rect
+       style="opacity:0.98000004;fill:#1e1e1e;fill-opacity:1;fill-rule:evenodd;stroke:#1e1e1e;stroke-width:5.52808571;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2988"
+       width="2874.5247"
+       height="1674.4186"
+       x="482.73767"
+       y="482.81738" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2993"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion2995"><rect
+           id="rect2997"
+           width="925.71429"
+           height="357.14285"
+           x="1534.2858"
+           y="1077.1428" /></flowRegion><flowPara
+         id="flowPara2999" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1920"
+       y="1200"
+       id="text3001"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3003"
+         x="1920"
+         y="1200"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">Arena</tspan><tspan
+         sodipodi:role="line"
+         x="1920"
+         y="1250"
+         id="tspan3005"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">12:7</tspan><tspan
+         sodipodi:role="line"
+         x="1920"
+         y="1300"
+         id="tspan3007"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">2880:1680</tspan></text>
+    <rect
+       style="opacity:0.98000004;fill:#e3dedb;fill-opacity:1;fill-rule:evenodd;stroke:#1e1e1e;stroke-width:3.18759179;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3009"
+       width="2876.8123"
+       height="476.81244"
+       x="481.59387"
+       y="1.5937959" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3011"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-49.3125,165.84878)"><flowRegion
+         id="flowRegion3013"><rect
+           id="rect3015"
+           width="607.1842"
+           height="205.71429"
+           x="1665.7142"
+           y="34.285713" /></flowRegion><flowPara
+         id="flowPara3017"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">Header</flowPara><flowPara
+         id="flowPara3019"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">12:2</flowPara><flowPara
+         id="flowPara3025"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans">2880:480</flowPara></flowRoot>    <rect
+       style="opacity:0.98000003999999996;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:#1e1e1e;stroke-width:3.18700528000000016;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3031"
+       width="476.81299"
+       height="2156.813"
+       x="1.5935026"
+       y="1.5935059" />
+    <rect
+       style="opacity:0.98000004;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:#1e1e1e;stroke-width:3.18700528;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3031-0"
+       width="476.81299"
+       height="2156.813"
+       x="3361.5935"
+       y="1.5935059" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3051"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       transform="translate(-4.296875,31.567534)"><flowRegion
+         id="flowRegion3053"><rect
+           id="rect3055"
+           width="425.71429"
+           height="168.57143"
+           x="31.428572"
+           y="168.57143" /></flowRegion><flowPara
+         id="flowPara3057">Classifier for Human</flowPara><flowPara
+         id="flowPara3059">2:9</flowPara><flowPara
+         id="flowPara3061">480:2160</flowPara></flowRoot>    <flowRoot
+       transform="translate(3355.7031,31.567534)"
+       xml:space="preserve"
+       id="flowRoot3051-0"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"><flowRegion
+         id="flowRegion3053-8"><rect
+           id="rect3055-1"
+           width="425.71429"
+           height="168.57143"
+           x="31.428572"
+           y="168.57143" /></flowRegion><flowPara
+         id="flowPara3057-1">Classifier for AI</flowPara><flowPara
+         id="flowPara3059-8">2:9</flowPara><flowPara
+         id="flowPara3061-0">480:2160</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3117"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Sans;font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center;writing-mode:lr"><flowRegion
+         id="flowRegion3119"><rect
+           id="rect3121"
+           width="17.142857"
+           height="271.42856"
+           x="3668.5715"
+           y="328.57144" /></flowRegion><flowPara
+         id="flowPara3123" /></flowRoot>  </g>
+</svg>

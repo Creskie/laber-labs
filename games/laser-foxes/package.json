@@ -1,0 +1,19 @@
+{
+  "name": "Laserfoxes",
+  "version": "0.1.0",
+  "description": "Laserfoxes is a two-player game written in Phaser.",
+  "dependencies": {
+    "beefy": "~2.1.1",
+    "browserify": "~7.0.0",
+    "build-bundle": "^2.0.8",
+    "collections": "^5.0.4",
+    "csv-write-stream": "2.0.0",
+    "es6-set": "0.1.4",
+    "phaser": "~2.2.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariajahja/laserfoxesJS.git"
+  }
+}
