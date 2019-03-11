@@ -1,14 +1,14 @@
 var game;
 
-var screenHeight = 720
-var screenWidth = 1280
+var screenHeight = 522; // 720
+var screenWidth = 928; // 1280
 
-var screen1Height = 720; //720
-var screen1Width = 854;  //854
-var screen2Height = 360;
-var screen2Width = 427;
-var screen3Height = 360;
-var screen3Width = 427;
+var screen1Height = 522; //720; //720
+var screen1Width = 619; //854;  //854
+var screen2Height = 261; //360;
+var screen2Width = 309; //427;
+var screen3Height = 261; //360;
+var screen3Width = 309; //427;
 
 var gravity = 400;
 var friction = 0.15;
