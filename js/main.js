@@ -121,4 +121,3 @@ $(document).ready(function(){
 $(window).scroll(function() {
         showImages('.fade-img');
 });
-    

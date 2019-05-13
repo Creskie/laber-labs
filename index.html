@@ -19,6 +19,7 @@
     <link href="./css/hamburgers.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/js/lottie.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -85,10 +86,23 @@
 	<header class="header-blue">
 		<div class="header-content">
 			<div class="header-content-inner">
-				<!-- hands animation -->
-				<!-- <img class="header-image" src="images/hand.svg" /> -->
 				<h3>A statistics lab dedicated to the development of practical yet mathematically rigorous methodology for data-driven decision making</h3>
 				<a href="pages/projects.html" class="btn btn-primary btn-lg">SEE OUR PROJECTS</a>
+
+				<!-- Bodymovin animation -->
+				<div id="bodymovin" style="position:absolute;"></div>
+				<script>
+				    var animData = {
+				        wrapper: document.getElementById('bodymovin'),
+				        animType: 'svg',
+				        loop: true,
+				        autoplay: true,
+				        path: '/js/yellow-streaks.json'
+
+				    };
+				    var anim = bodymovin.loadAnimation(animData);
+				    bodymovin.setSubframeRendering(true);
+				</script>
 			</div>
 		</div>
 	</header>
