@@ -298,6 +298,17 @@ section {
 }
 
 /* Team */
+.game-header-spacemice {
+	background-image: url(../images/header-team.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
+
 .team-photo-laber {
 	border-radius: 50%;
 	max-height: 200px;
