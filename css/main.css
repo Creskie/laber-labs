@@ -298,7 +298,7 @@ section {
 }
 
 /* Team */
-.game-header-spacemice {
+.header-team {
 	background-image: url(../images/header-team.jpg);
 	background-size: cover;
 	overflow: hidden;
