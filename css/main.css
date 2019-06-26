@@ -304,6 +304,12 @@ section {
 	overflow: hidden;
 }
 
+.header-projects {
+	background-image: url(../images/header-projects.png);
+	background-size: cover;
+	overflow: hidden;
+}
+
 .team-photo-laber {
 	border-radius: 50%;
 	max-height: 200px;
