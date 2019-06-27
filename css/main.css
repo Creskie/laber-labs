@@ -84,6 +84,9 @@ header .header-content .header-content-inner h3 {
  	z-index: 1;
  	position: relative;
 }
+.index-header {
+	max-width: 50%;
+}
 .header-image {
 	width: 90px;
 	position: absolute;
