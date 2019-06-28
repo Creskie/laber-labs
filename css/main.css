@@ -306,12 +306,17 @@ section {
 	background-size: cover;
 	overflow: hidden;
 }
-
 .header-projects {
 	background-image: url(../images/header-projects.png);
 	background-size: cover;
 	overflow: hidden;
 }
+.header-doranslab {
+	background-image: url(../images/header-doranslab.png);
+	background-size: cover;
+	overflow: hidden;
+}
+
 
 .team-photo-laber {
 	border-radius: 50%;
