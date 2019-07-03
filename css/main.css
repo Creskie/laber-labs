@@ -316,6 +316,11 @@ section {
 	background-size: cover;
 	overflow: hidden;
 }
+.header-publications {
+	background-image: url(../images/header-publications.png);
+	background-size: cover;
+	overflow: hidden;
+}
 
 
 .team-photo-laber {
