@@ -321,7 +321,11 @@ section {
 	background-size: cover;
 	overflow: hidden;
 }
-
+.header-contact {
+	background-image: url(../images/header-contact.png);
+	background-size: cover;
+	overflow: hidden;
+}
 
 .team-photo-laber {
 	border-radius: 50%;
