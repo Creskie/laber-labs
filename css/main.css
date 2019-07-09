@@ -331,6 +331,11 @@ section {
 	background-size: cover;
 	overflow: hidden;
 }
+.header-workshops {
+	background-image: url(../images/header-workshops.png);
+	background-size: cover;
+	overflow: hidden;
+}
 
 .team-photo-laber {
 	border-radius: 50%;
