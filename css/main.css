@@ -336,6 +336,16 @@ section {
 	background-size: cover;
 	overflow: hidden;
 }
+.header-ataristicians {
+	background-image: url(../images/header-ataristicians.png);
+	background-size: cover;
+	overflow: hidden;
+}
+.header-donkeydarlings {
+	background-image: url(../images/header-donkeydarlings.png);
+	background-size: cover;
+	overflow: hidden;
+}
 
 .team-photo-laber {
 	border-radius: 50%;
