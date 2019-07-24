@@ -349,8 +349,6 @@ section {
 
 .team-photo-laber {
 	border-radius: 50%;
-	max-height: 200px;
-	width: auto;
 	display: block;
 	margin: auto;
 }
