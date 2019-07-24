@@ -585,3 +585,22 @@ visibility: visible !important;
 0%{opacity:0}
 100%{opacity:1}
 }
+
+/* Edit class attributes for mobile size */
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+}
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+	.team-photo-laber {
+		max-width: 200px;
+	}
+	.team-blurb-laber {
+		text-align: center;
+	}
+}
