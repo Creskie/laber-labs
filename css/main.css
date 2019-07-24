@@ -598,7 +598,7 @@ visibility: visible !important;
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
 	.team-photo-laber {
-		max-width: 200px;
+		width: 200px;
 	}
 	.team-blurb-laber {
 		text-align: center;
