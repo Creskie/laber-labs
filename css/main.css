@@ -6,7 +6,7 @@ html, body {
 	background-color: #4a59a7;
 }
 .padding-0 {
-	padding: 0 !important;
+	padding: 0;
 }
 
 .title-description {
@@ -351,6 +351,8 @@ section {
 	border-radius: 50%;
 	display: block;
 	margin: auto;
+	padding-bottom: 0;
+	padding-top: 0;
 }
 .team-blurb-laber {
 	text-align: center;
