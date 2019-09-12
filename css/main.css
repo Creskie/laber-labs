@@ -37,6 +37,17 @@ a.link {
 a.link:hover {
 	color: #ce9413;
 }
+
+/* Navbar logotype */
+.navbar-brand {
+	width: 100px;
+	opacity: .5;
+
+}
+.navbar-brand:hover {
+	opacity: 1;
+}
+
 /* Making YouTube videos responsive */
 .iframe-container {
 	position: relative;
