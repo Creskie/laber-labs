@@ -47,6 +47,46 @@ a.link:hover {
 .navbar-brand:hover {
 	opacity: 1;
 }
+.logomark {
+	width: 100px;
+}
+.hand1 {
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 20s linear infinite;
+    -moz-animation:spin 20s linear infinite;
+    animation:spin 20s linear infinite;
+}
+.hand2 {
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 17s linear infinite;
+    -moz-animation:spin 17s linear infinite;
+    animation:spin 17s linear infinite;
+}
+.hand3 {
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 10s linear infinite;
+    -moz-animation:spin 10s linear infinite;
+    animation:spin 10s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+.hand1 {
+	position:absolute;
+    top:70%;
+    left:80%;
+}
+.hand2 {
+	position:absolute;
+    top:90%;
+    left:35%;
+}
+.hand3 {
+	position:absolute;
+    top:50%;
+    left:45%;
+}
 
 /* Making YouTube videos responsive */
 .iframe-container {
@@ -611,7 +651,9 @@ visibility: visible !important;
 }
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
-
+	.subtitle-2 {
+		padding-top: 0px;
+	}
 }
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
