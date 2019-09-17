@@ -260,9 +260,6 @@ section {
 	color: black;
 	padding: 15px;
 }
-.sub-description {
-	min-height: 314px;
-}
 .container {
 	width: 100%;
 }
@@ -322,6 +319,15 @@ section {
 	font-weight: 700;
 	color: black;
 	padding-top: 30px;
+}
+
+/* Partners */
+.small-header {
+	font-family: 'Overpass Mono', monospace;
+	font-size: 11px;
+	text-transform: uppercase;
+	background-color: lightgray;
+	color: white;
 }
 
 /* Publications page */
@@ -546,15 +552,6 @@ section {
 	-ms-animation: fadein 4s; /* Internet Explorer */
 	-o-animation: fadein 4s; /* Opera */
 	animation: fadein 4s;
-}
-.header-mint {
-	background-color: #f3faf9 !important;
-}
-.header-peach {
-	background-color: #fff6eb !important;
-}
-.header-pink {
-	background-color: #fbc6c5 !important;
 }
 
 /* Contact */

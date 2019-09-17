@@ -15,7 +15,7 @@
 	<link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -25,7 +25,6 @@
     <link href="./css/hamburgers.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="/js/lottie.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -111,34 +110,81 @@
 	<section class="additional-section">
 		<div class="container-fluid">
 			<div class="row">
-				<!--Quote Generator-->
-				<!-- <div class="col-lg-4 col-md-6 col-sm-12 sub-section">
-					<div id="quoteDisplay">
-
-					</div>
-					<button onclick="newQuote()">New Quote</button>
-				</div> -->
 				<div class="col-md-6 offset-md-2 col-sm-12 sub-section">
 					<div class="iframe-container">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/Xg-siRCCokw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-12 text-left sub-section sub-description">
+				<div class="col-md-2 col-sm-12 text-left sub-section">
 					<h3 class="subheader-1 text-left">About Us</h3>
 					<p class="description-1">Major research areas are causal inference, non-regular asymptotics, optimization, and reinforcement learning. Primary application areas include precision medicine, sports- and e-sports analytics, adaptive conservation, and the management of infectious diseases. We also have a small robotics laboratory that we use to study cooperative and competitive decision problems.</p>
 				</div>
-				<!-- <div class="col-md-2 offset-md-2 sub-section">
-					<img class="fade-img" src="images/lego-robot.gif" />
+			</div>
+			<!-- Consultation and partnerships -->
+			<div class="row">
+				<div class="col-md-8 offset-md-2 col-sm-12 text-left sub-section">
+					<h3 class="subheader-1 text-left">Partnerships</h3>
+					<p class="description-1">Our research has benefitted from the support of (or collaboration with) our partners.</p>
+					<h3 class="text-left"><span class="small-header">Current</span></h3>
+					<div class="row">
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/la-dodgers.png" alt="LA Dodgers" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/carolina-hurricanes.png" alt="Carolina Hurricanes" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/philadelphia-eagles.png" alt="Philadelphia Eagles" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/amazon-scholars.png" alt="Amazon Scholars" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/riot-games.png" alt="Riot Games" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/delta.png" alt="Delta Airlines" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/beyond-curie.png" alt="Beyond Curie" />
+						</div>
+					</div>
+					<h3 class="text-left"><span class="small-header">Past</span></h3>
+					<div class="row">
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/jmp.png" alt="JMP" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/ecolab.png" alt="EcoLab" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/gen.png" alt="Global Emancipation Network" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/iqvia.png" alt="Quintiles/IQVIA" />
+						</div>
+						<div class="col-lg-3 col-md-4 col-6">
+							<img class="fade-img" src="images/partners/purdue-pharma.png" alt="Purdue Pharma" />
+						</div>
+					</div>
 				</div>
-				<div class="col-md-2 sub-section">
-					<img class="fade-img" src="images/yeng-summer-camp.gif" />
+			</div>
+			<div class="row">
+				<div class="col-md-8 offset-md-2 col-sm-12 text-left sub-section">
+					<h3 class="subheader-1 text-left">Consultation</h3>
+					<p class="description-1">The dynamic treatment regimes lab offers long- and short-term consulting services and welcomes industry partnerships. Our lab is at the bleeding edge of data-driven decision making with applications to precision medicine, optimization, machine learning, and large-scale computing.</p>
+					<p class="description-1">Consulting services include:
+						<ul class="description-1">
+							<li>Predictive modeling</li>
+							<li>Recommender and data-driven decision support systems</li>
+							<li>Statistical auditing and forensic statistical analyses</li>
+							<li>Large scale statistical simulations and computing solutions</li>
+							<li>Workshops and training</li>
+						</ul>
+					</p>
+					<p class="description-1">Industry partnerships typically involve a long-term (one year or more) research contract aimed at developing new research products in the form for research papers, monographs, grant proposals, or software. A standard arrangement has one or more PhD students from the DTR-lab working 20 hours per week on-site with the industry partner.</p>
+					<p class="description-1">Partnerships can be formed through the statistics department at <a class="link" href="https://statistics.sciences.ncsu.edu/">NC State</a> or directly through the <a class="link" href="pages/contact.html">lab</a>.</p>
 				</div>
-				<div class="col-md-2 sub-section">
-					<img class="fade-img" src="images/reservoir-sampling.gif" />
-				</div>
-				<div class="col-md-2 sub-section">
-					<img class="fade-img" src="images/purple-means-grape.gif" />
-				</div> -->
 			</div>
 		</div>
 	</section>
