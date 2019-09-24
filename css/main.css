@@ -602,14 +602,21 @@ header .header-content-blog {
 	padding-top: 10px;
 }
 .blog-text {
-	font-family: 'Overpass Mono', monospace;
-	font-weight: 400;
-	font-size: 12px;
+	font-family: 'Mada', sans-serif;
+	font-size: 15px;
+}
+.blog-text2 {
+	font-family: 'Mada', sans-serif;
+	font-size: 14px;
+}
+.blog-text3 {
+	font-family: 'Mada', sans-serif;
+	font-size: 14px;
 }
 .blog-info {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
-	font-size: 15px;
+	font-size: 14px;
 }
 .blog-info2 {
 	font-family: 'Overpass Mono', monospace;
@@ -621,6 +628,32 @@ header .header-content-blog {
 }
 .blog-highlight {
 	background-color: lightgray;
+}
+.blog-image {
+	max-width: 300px;
+	height: auto;
+	padding-top: 15px;
+}
+.blog-caption {
+	font-family: 'Mada', sans-serif;
+	font-size: 12px;
+	padding-top: 5px;
+	text-align: center;
+}
+.blog-additional {
+	margin-top: 30px;
+}
+.horizontal-rule {
+	border-top: lightgray solid 1px;
+	padding-top: 15px;
+}
+.interview-question {
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', san-serif;
+	font-weight: 700;
+	font-size: 12px;
+	color: black;
+	margin-bottom: 0px;
 }
 
 /* Animations */

@@ -94,12 +94,12 @@
 	<header class="header-white header-blogpost header-half break-out">
 		<div class="header-content header-content-blog">
 			<div class="col-8 offset-2 header-content-inner">
-				<h3 class="subheader-1">Welcome to the Laber Labs Student Blog!</h3>
+				<h3 class="subheader-1">Ultimate Game of Hide-and-Seek</h3>
 				<p class="blog-info">March 2, 2017</p>
 				<div class="center">
-					<img class="fade-img team-photo" src="../../images/eric-laber.jpg" />
+					<img class="fade-img team-photo" src="../../images/nick-meyer.jpg" />
 				</div>
-				<p class="blog-info2"><span class="blog-highlight">Eric B. Laber, PhD</span></p>
+				<p class="blog-info2"><span class="blog-highlight">Nick Meyer, PhD Candidate</span></p>
 			</div>
 		</div>
 	</header>
@@ -108,21 +108,45 @@
 		<div class="container-fluid col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
 			<div class="row">
 				<div class="col-12">
-					<p class="blog-text">This blog is intended to serve as a venue for our students to practice writing about their research without relying on technical jargon and to provide an accessible overview of some of our current research projects.</p>
+					<p class="blog-text">All of us remember quietly creeping around our homes in our childhood years searching for a friend who was likely hiding in a closet somewhere. The friend was supposed to remain in the same spot, but we all know they secretly moved after they heard us search a nearby room. To find our friend, some of us randomly checked certain parts of each room and, consequently, overlooked a nook here and there. Others, perhaps unknowingly, searched the rooms in an organized and strategic fashion, and they likely found their elusive friend more easily. It turns out that we weren’t just goofing around like our parents said, but we were actually preparing for possible careers later in life. Hide-and-seek applies to many real-world problems. Perhaps a high-ranking government official is tasked with tracking down an adversary who is carrying nuclear material. Or maybe law enforcement is responding to the scene of a crime and the suspect has fled. Whatever the situation might be, experts in the field typically use empirically proven strategies and knowledge of the scenario to inform their search patterns. We hope to develop analytical tools to complement expert knowledge and inform decisions in unknown hide-and-seek scenarios.</p>
 
-					<p class="blog-text">In our lab, we focus on developing methodology for data-driven decision-making that is statistically rigorous but also driven by an urgent need in science or society. Thus, in our lab, we train our students to move quickly between high-level scientific questions and statistical methods for answering these questions. For example, the question may be does a safety-plan app lead to reduced suicide attempts among those with major depressive disorder? To address this, we might model a patient’s health trajectory as a semi-Markov Decision Process and test the effect of adding in the app. This skill is critical for statisticians (or other quantitative researchers) working in decision-making as much of our work is motivated by problems in other disciplines; poor communication can lead to incorrect results or the development of useless methodology.</p>
+					<p class="blog-text">This project was motivated by my experience as a summer intern at a national laboratory. My mentor had worked on projects involving patrolling borders and scanning incoming/outgoing vehicles, and most of my research involves sequential decision problems. Hide-and-seek lies somewhere in the intersection. We frame the problem as a group of search agents pursuing a single, evasive adversary. The units move in discrete time and discrete space. Currently, agents lie on a square in a grid. Actions for each agent are to move forward, backward left, or right. When pursuing an adversary, critical information can be provided by a third party. In our simulations, an informant will appear at random time points and provide a location for the evader. This information may or may not be reliable, and thus we must determine the credibility of the informant. Our goal is to combine history information from the search agents with information from the informants to estimate the strategy that minimizes time-to-capture. Experts will be able to utilize this methodology to inform real-time decisions in the field.</p>
 					
-					<p class="blog-text">I also hope that this blog will serve as a catalyst for new collaborations, ideas, and insights. Trying to explain research that one has been thinking about for months or years to someone who has thought about it for only a few minutes can be an excellent way to evaluate your own understanding and to identify blind spots that arise because one is too close. If anyone reading this blog finds a project interesting (or thinks we are out to lunch!), please let us know. We’d love to hear from you!</p>
+					<p class="blog-text">To demonstrate the work, we are developing an interactive viewer using Lego robots. One of the robots will be the adversary while the rest are the search agents. A human will be able to control the adversary from a tablet in a separate room where they cannot see the pursuers. They will tell the evader where to move and see how long they can survive without getting caught. We are very excited about this work and hope the interactive demonstration will facilitate others’ understanding of the methodology.</p>
+				</div>
+				<div class="col-lg-4 offset-lg-4 col-6 offset-3">
+					<img class="blog-image fade-img mx-auto d-block" src="../../images/lego-robots.jpg">
+					<p class="blog-caption">Lego robots</p>
+				</div>
+				<!-- Additional questions -->
+				<div class="col-12 blog-additional">
+					<p class="blog-text3 horizontal-rule">Nick is a PhD Candidate whose research focuses on reinforcement learning, machine learning, and robotics. We thought this posting was a great excuse to get to know a little more about him so we we asked him a few questions!</p>
+					<ul>
+						<li>
+							<p class="interview-question">What do you find most interesting/compelling about your research?</p>
+							<p class="blog-text2">"The vast areas of application for the research is what I find most interesting. Seeing practical applications for the research reminds me of the importance and provides motivation."</p>
+						</li>
+
+						<li>
+							<p class="interview-question">What do you see are the biggest or most pressing challenges in your research area?</p>
+							<p class="blog-text2">"Figuring out a solution that harmonizes nice theoretical properties with computational efficiency is the largest challenge. In large scale problems, solutions that have nice theoretical properties often are computationally expensive or infeasible and vice versa."</p>
+						</li>
+
+						<li>
+							<p class="interview-question">What is your deepest darkest fear? Please answer in the form of a question.</p>
+							<p class="blog-text2">"Alex, what is the singularity?"</p>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 d-flex flex-row-reverse">
 					<div class="button2-container padding-left">
-						<a href="hide-and-seek.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
+						<a href="terminator-to-skynet.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
 					</div>
-					<!-- <div class="button2-container padding-left">
-						<a href=".html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
-					</div> -->
+					<div class="button2-container padding-left">
+						<a href="welcome-to-the-blog.html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
+					</div>
 					<div class="button2-container padding-left">
 						<a href="../studentblog.html" class="btn2 btn-primary2">View All Posts</a>
 					</div>

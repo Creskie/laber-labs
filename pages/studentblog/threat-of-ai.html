@@ -94,12 +94,12 @@
 	<header class="header-white header-blogpost header-half break-out">
 		<div class="header-content header-content-blog">
 			<div class="col-8 offset-2 header-content-inner">
-				<h3 class="subheader-1">Welcome to the Laber Labs Student Blog!</h3>
-				<p class="blog-info">March 2, 2017</p>
+				<h3 class="subheader-1">The Threat of Artificial Intelligence</h3>
+				<p class="blog-info">March 29, 2017</p>
 				<div class="center">
-					<img class="fade-img team-photo" src="../../images/eric-laber.jpg" />
+					<img class="fade-img team-photo" src="../../images/joyce-cahoon.jpg" />
 				</div>
-				<p class="blog-info2"><span class="blog-highlight">Eric B. Laber, PhD</span></p>
+				<p class="blog-info2"><span class="blog-highlight">Joyce Yu Cahoon, PhD Candidate</span></p>
 			</div>
 		</div>
 	</header>
@@ -108,21 +108,48 @@
 		<div class="container-fluid col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
 			<div class="row">
 				<div class="col-12">
-					<p class="blog-text">This blog is intended to serve as a venue for our students to practice writing about their research without relying on technical jargon and to provide an accessible overview of some of our current research projects.</p>
+					<p class="blog-text">Now that the break has begun, I’m getting around to watching Black Mirror, a series on Netflix, and my god, it’s thought-provoking. I stopped last night at episode “The Entire History of You” because it left me so unsettled. It presents an alternate reality where everyone is implanted with a 'grain' that records everything seen, done and heard and gives each individual a means to replay memories on-screen–which I’ve got to admit, is really neat. Growing up in this age of social media, where everyone is publicizing every mundane moment of their life, the recording and sharing of every second of one’s life is not unimaginable. The repercussions of that technology are what left me clammy; the protagonist of this episode ultimately rips out the grain implanted behind his ear because he is unable to cope with the memory of losing his wife.</p>
 
-					<p class="blog-text">In our lab, we focus on developing methodology for data-driven decision-making that is statistically rigorous but also driven by an urgent need in science or society. Thus, in our lab, we train our students to move quickly between high-level scientific questions and statistical methods for answering these questions. For example, the question may be does a safety-plan app lead to reduced suicide attempts among those with major depressive disorder? To address this, we might model a patient’s health trajectory as a semi-Markov Decision Process and test the effect of adding in the app. This skill is critical for statisticians (or other quantitative researchers) working in decision-making as much of our work is motivated by problems in other disciplines; poor communication can lead to incorrect results or the development of useless methodology.</p>
-					
-					<p class="blog-text">I also hope that this blog will serve as a catalyst for new collaborations, ideas, and insights. Trying to explain research that one has been thinking about for months or years to someone who has thought about it for only a few minutes can be an excellent way to evaluate your own understanding and to identify blind spots that arise because one is too close. If anyone reading this blog finds a project interesting (or thinks we are out to lunch!), please let us know. We’d love to hear from you!</p>
+					<p class="blog-text">I’ve fantasized about working in artificial intelligence (AI) for years but have yet to stop and think about the drawbacks. Yeah, I believe inventing such a 'grain' would be highly beneficial for society. No, I don’t believe it should be mandated that everyone has one–my Pavlovian reaction to watching the “The Entire History of You.” The eeriness this one episode elicited has led me to take on a greater awareness of my work: solving problems in computer vision and in mammography may not result in the gains I imagined. In fact, could it be beneficial that no one adopts the technology at all? That no one has the ability to abuse such powerful AI systems? To abuse and misuse for aims not necessarily as noble as the detection of breast cancer? What the heck is 'noble' anyway? How pedantic! I digress, but the repercussions of our work are important to explore.</p>
+
+					<p class="blog-text">For the past semester, I’ve been working towards improving the detection of tumors in routine mammograms. What does that entail? (1) Learning how to use libraries for deep learning like TensorFlow and Theano; (2) reading research papers related to deep learning systems; and (3) executing new ideas on a small set of digital mammograms and performing some type of cross-validation to test if these ideas work. So, what’s the point? I’m drawn to this problem in mammography because I know individuals that have died from breast cancer as well as those that have survived. One in 8 women will be diagnosed with it in their lifetime, but a whopping 61% of cases detected early have a 5-year survival rate of 98.6%. What does that mean? It means that while there’s a high prevalence of breast cancer, early detection can avert death and thus the frenzy among scientists to improve the accuracy of the screening process, digital mammography.</p>
+
+					<p class="blog-text">The majority of solutions today rely on domain experts to manually identify diseased breast tissue in thousands (if not more) mammograms, then use these ’labeled’ images to develop computational models known as `convolutional neural nets’ (CNN) that can identify a patient with or without breast cancer with greater accuracy than that of a physician. The ability of CNNs to outperform radiologists has yet to be achieved. And experts have attributed this deficiency to CNNs’ reliance on being trained by intractably large sets of labeled mammograms; such a dataset, if it exists, must encapsulate all features of tumors that are relevant to any patient. Many published CNNs have failed in generalizing to other breast cancer datasets.</p>
+
+					<p class="blog-text">My work thus centers on developing a model that takes in unlabeled (raw) mammograms and provides an indication of diseased breast tissue. How? It uses `smarter’ weights in the CNN, eliminating the need to provide millions of labeled images. The models I work on are essentially simple visual cortexes: you give it an arbitrary mammogram, and each layer of the model processes the image a little more and understands it in some deeper sense until you reach the very last layer, which has an abstract understanding of the mammogram giving way to the binary outcome of diseased or undiseased breast tissue. Like a newborn baby, our CNN starts off as a blank slate that becomes more and more specialized over time as it is exposed to more stimuli (or mammograms in our case). Whether or not our work can be adapted to more sinister applications… well, only time will tell, but right now, I can’t imagine a scenario in which improved screening can be in any way nefarious. Someone please prove me wrong.</p>
+				</div>
+				<!-- Additional questions -->
+				<div class="col-12 blog-additional">
+					<p class="blog-text3 horizontal-rule">Joyce is a PhD Candidate whose research focuses on machine learning. We thought this posting was a great excuse to get to know a little more about her so we we asked her a few questions!</p>
+					<ul>
+						<li>
+							<p class="interview-question">What do you find most interesting/compelling about your research?</p>
+							<p class="blog-text2">"Reverse engineering human intelligence."</p>
+						</li>
+
+						<li>
+							<p class="interview-question">What do you see are the biggest or most pressing challenges in your research area?</p>
+							<p class="blog-text2">"From the thought leaders @ DARPA: “building systems capable of contextual adaption.”"</p>
+						</li>
+
+						<li>
+							<p class="interview-question">If there were a hell for ponies, what do you think it would look like? Your answer should be in the form of a picture drawn using microsoft paint.</p>
+							<div class="col-lg-4 offset-lg-4 col-6 offset-3">
+								<img class="blog-image fade-img mx-auto d-block" src="../../images/pony-hell.png">
+								<p class="blog-caption"></p>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 d-flex flex-row-reverse">
 					<div class="button2-container padding-left">
-						<a href="hide-and-seek.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
+						<a href="computers-thinking-humans.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
 					</div>
-					<!-- <div class="button2-container padding-left">
-						<a href=".html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
-					</div> -->
+					<div class="button2-container padding-left">
+						<a href="terminator-to-skynet.html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
+					</div>
 					<div class="button2-container padding-left">
 						<a href="../studentblog.html" class="btn2 btn-primary2">View All Posts</a>
 					</div>

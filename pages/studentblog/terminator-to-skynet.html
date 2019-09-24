@@ -94,12 +94,12 @@
 	<header class="header-white header-blogpost header-half break-out">
 		<div class="header-content header-content-blog">
 			<div class="col-8 offset-2 header-content-inner">
-				<h3 class="subheader-1">Welcome to the Laber Labs Student Blog!</h3>
-				<p class="blog-info">March 2, 2017</p>
+				<h3 class="subheader-1">From Terminator to Skynet</h3>
+				<p class="blog-info">March 14, 2017</p>
 				<div class="center">
-					<img class="fade-img team-photo" src="../../images/eric-laber.jpg" />
+					<img class="fade-img team-photo" src="../../images/marshall-wang.jpg" />
 				</div>
-				<p class="blog-info2"><span class="blog-highlight">Eric B. Laber, PhD</span></p>
+				<p class="blog-info2"><span class="blog-highlight">Longshaokan (Marshall) Wang, PhD Candidate</span></p>
 			</div>
 		</div>
 	</header>
@@ -108,21 +108,52 @@
 		<div class="container-fluid col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
 			<div class="row">
 				<div class="col-12">
-					<p class="blog-text">This blog is intended to serve as a venue for our students to practice writing about their research without relying on technical jargon and to provide an accessible overview of some of our current research projects.</p>
+					<p class="blog-text">If you’ve seen the movie Terminator, you’ll probably remember the scary robot who would stop at nothing to kill the protagonist because it was programmed to do so. The mastermind behind the Terminator is Skynet, the Artificial Intelligence (AI) that broke the grip of its human creators and evolved on its own to achieve super-human intelligence. Skynet could think independently and issue commands, whereas Terminator was receiving them. We call the former a self-evolving AI and the latter a deterministic AI. It isn’t difficult to see which one is the smarter AI.</p>
 
-					<p class="blog-text">In our lab, we focus on developing methodology for data-driven decision-making that is statistically rigorous but also driven by an urgent need in science or society. Thus, in our lab, we train our students to move quickly between high-level scientific questions and statistical methods for answering these questions. For example, the question may be does a safety-plan app lead to reduced suicide attempts among those with major depressive disorder? To address this, we might model a patient’s health trajectory as a semi-Markov Decision Process and test the effect of adding in the app. This skill is critical for statisticians (or other quantitative researchers) working in decision-making as much of our work is motivated by problems in other disciplines; poor communication can lead to incorrect results or the development of useless methodology.</p>
+					<p class="blog-text">Deterministic AIs are much easier to create. For example, in the video game LaserCat (play it <a class="link" href="../spacemice.html">here</a>), you are controlling a cat that shoots lasers at mice. You gain points when you kill a mouse and lose points when you collide with a mouse or let one escape. The amount of points for each kill is proportional to the distance between the cat and the right boundary because it’s harder to react when the cat is away from the right side.</p>
+				</div>
+
+				<div class="col-lg-4 offset-lg-4 col-6 offset-3">
+					<img class="blog-image fade-img mx-auto d-block" src="../../images/laser-cat.png">
+					<p class="blog-caption">Laser cat</p>
+				</div>
 					
-					<p class="blog-text">I also hope that this blog will serve as a catalyst for new collaborations, ideas, and insights. Trying to explain research that one has been thinking about for months or years to someone who has thought about it for only a few minutes can be an excellent way to evaluate your own understanding and to identify blind spots that arise because one is too close. If anyone reading this blog finds a project interesting (or thinks we are out to lunch!), please let us know. We’d love to hear from you!</p>
+				<div class="col-12">
+					<p class="blog-text">If we build a deterministic AI to control the cat, we can extract the speed of the mice, lasers, and cat, as well as the frequency of lasers. Then, we can move the cat in front of each mouse, as close as possible but without running into it, when the next laser appears. Notice that we are using a lot of prior knowledge about the game including rules and the objects’ mechanics. When building AIs to solve real world problems, it is often difficult to acquire such domain knowledge.</p>
+
+					<p class="blog-text">Is it possible then, to build a self-evolving AI that knows nothing about the rules or mechanics but is able to practice and get better on its own based on information on the screen like how a human plays? Such an AI is not science fiction. We can build it with a Reinforcement Learning algorithm. The concept originated from human learning, unsurprisingly. If we receive a reward after performing some action, then that action will be reinforced and we are more likely to perform that action again. For instance, if the food tastes amazing when we try a new recipe, then we are likely to reuse that recipe in the future. Whereas if we receive a penalty/negative reward instead, we are less likely to perform the corresponding action again. A Reinforcement Learning algorithm can make the AI behave in a similar fashion. In the beginning, the AI cat will just explore random actions. If the action leads to colliding with the mouse, it will observe a decrease in scores and will avoid that action in the future. If the action leads to killing a mouse and an increase in scores, it will try to repeat that action. It will even figure out that shooting the mouse farther away from the right boundary is more desirable. Through trial and error and constant updates of what the best action is in each scenario, the AI cat will become smarter and smarter and achieve a super-human level on its own. <a class="link" href="https://www.youtube.com/watch?v=Z6eVNIvB8e4&feature=youtu.be">(Video demo)</a></p>
+
+					<p class="blog-text">Building a self-evolving AI for a video game might not seem very important given that we can build a deterministic AI that performs reasonably well. But as mentioned, in real life it can be very challenging to acquire domain expertise and hand-craft AIs. AIs powered by Reinforcement Learning algorithms, in contrast, can discover optimal strategies that humans may not think of. This is evidenced by AlphaGo, the AI trained by playing the game Go with itself. It eventually was able to beat a human world champion. Reinforcement Learning allows us to move from building Terminator to building Skynet. We can only hope that the AIs will still remain friendly after their evolutions.</p>
+				</div>
+				<!-- Additional questions -->
+				<div class="col-12 blog-additional">
+					<p class="blog-text3 horizontal-rule">Marshall is a PhD Candidate whose research focuses on artificial intelligence, machine learning, and sufficient dimension reduction. We thought this posting was a great excuse to get to know a little more about him so we we asked him a few questions!</p>
+					<ul>
+						<li>
+							<p class="interview-question">What do you find most interesting/compelling about your research?</p>
+							<p class="blog-text2">"Reinforcement learning and deep learning have very broad applications. I can be designing an algorithm to play video games today, and using the algorithm to find cures for cancer the next."</p>
+						</li>
+
+						<li>
+							<p class="interview-question">What do you see are the biggest or most pressing challenges in your research area?</p>
+							<p class="blog-text2">"There aren’t enough statisticians dedicated to AI research, even though building AIs can involve regression, classification, optimization, model selection, and other statistical topics. Right now it seems that computer scientists are taking most of the cake."</p>
+						</li>
+
+						<li>
+							<p class="interview-question">What is your deepest darkest fear? Please answer in the form of a haiku.</p>
+							<p class="blog-text2">"Nova of nuke<br>blossoms from alien ship–<br>July Fourth"</p>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 d-flex flex-row-reverse">
 					<div class="button2-container padding-left">
-						<a href="hide-and-seek.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
+						<a href="threat-of-ai.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
 					</div>
-					<!-- <div class="button2-container padding-left">
-						<a href=".html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
-					</div> -->
+					<div class="button2-container padding-left">
+						<a href="hide-and-seek.html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
+					</div>
 					<div class="button2-container padding-left">
 						<a href="../studentblog.html" class="btn2 btn-primary2">View All Posts</a>
 					</div>
