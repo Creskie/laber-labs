@@ -40,6 +40,12 @@ a.link {
 a.link:hover {
 	color: #ce9413;
 }
+.italic {
+	font-style: italic !important;
+}
+.bold {
+	font-style: bold !important;
+}
 
 /* Navbar logotype */
 .navbar-brand {
@@ -612,6 +618,7 @@ header .header-content-blog {
 .blog-text3 {
 	font-family: 'Mada', sans-serif;
 	font-size: 14px;
+	font-style: italic;
 }
 .blog-info {
 	font-family: 'Josefin Sans', sans-serif;
@@ -634,11 +641,17 @@ header .header-content-blog {
 	height: auto;
 	padding-top: 15px;
 }
+.blog-image2 {
+	max-width: 500px;
+	height: auto;
+	padding-top: 15px;
+}
 .blog-caption {
 	font-family: 'Mada', sans-serif;
 	font-size: 12px;
 	padding-top: 5px;
 	text-align: center;
+	font-style: italic;
 }
 .blog-additional {
 	margin-top: 30px;
@@ -654,6 +667,17 @@ header .header-content-blog {
 	font-size: 12px;
 	color: black;
 	margin-bottom: 0px;
+}
+.blog-table {
+	font-family: 'Overpass Mono', monospace;
+	font-size: 12px;
+	margin-bottom: 16px;
+	margin-top: 15px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	padding: 3px 3px 3px 12px;
 }
 
 /* Animations */
