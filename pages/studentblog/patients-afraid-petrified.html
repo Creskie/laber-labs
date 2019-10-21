@@ -94,12 +94,12 @@
 	<header class="header-white header-blogpost header-half break-out">
 		<div class="header-content header-content-blog">
 			<div class="col-8 offset-2 header-content-inner">
-				<h3 class="subheader-1">Propaganda in the Twitterverse</h3>
-				<p class="blog-info">May 20, 2019</p>
+				<h3 class="subheader-1">At First Patients Were Afraid, They Were Petrified</h3>
+				<p class="blog-info">October 16, 2019</p>
 				<div class="center">
-					<img class="fade-img team-photo" src="../../images/khuzaima-hameed.jpg" />
+					<img class="fade-img team-photo" src="../../images/eric-rose.jpg" />
 				</div>
-				<p class="blog-info2"><span class="blog-highlight">Khuzaima Hameed, PhD Candidate</span></p>
+				<p class="blog-info2"><span class="blog-highlight">Eric Rose, PhD</span></p>
 			</div>
 		</div>
 	</header>
@@ -108,40 +108,38 @@
 		<div class="container-fluid col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
 			<div class="row">
 				<div class="col-12">
-					<p class="blog-text">Propaganda has become a hot topic since the 2016 U.S. presidential election cycle. Since then, we’ve learned of the significant efforts that State actors have made to misinform, misguide, and manipulate the institutions that we trust. Looking at Twitter, our president’s vocation and pastime of choice, we can see numerous reports of Russia aiming to gain an advantage by manipulating Americans’ behavior. And there is a common thread between these incidents—that Russian actors used accounts to promote inauthentic agendas.</p>
+					<p class="blog-text">A goal of precision medicine is to tailor treatment to the unique characteristics of a patient. For example, when there are multiple treatment options or strategies available, how does one select the “best” treatment for an individual? Ideally, that decision is based on the available patient information. But understanding the relationship between a patient’s unique characteristics and the effectiveness of a treatment is a complex problem. This is particularly true for chronic diseases such as cancer where treatments are assigned sequentially over a period of time. In these situations, we are commonly interested in maximizing the survival time of a patient. This causes complications for analysis though since when we are studying a time-to-event, such as survival time, we will have patients that we do not observe the event for. This is called censoring, which can cause naïve application of standard statistical methods to produce biased results.</p>
 
-					<p class="blog-text">An unsettling thought is that many of us did not discern that these accounts were fake. Consider this: many of us are passionate about certain topics and can occasionally be vocal about them in debates with others. And imagine you’re following such a debate only to realize that one of the accounts was not tweeting from a coffee shop in St. Louis, but rather an office building in St. Petersburg. All of the sudden, your trust in Twitter wavers, and it brings to light the tricky problem of identifying propaganda online.</p>
+					<p class="blog-text">Frequently in biostatistics, we are interested in comparing different potential treatments to try to determine which would be best for future patients. To do this, we must have some formal outcome or set of outcomes of interest that we use to define what treatment is best. This outcome changes based on the context of what we are studying. For example, there may be some continuous measure of severity that we want to minimize or we may be interested in the presence/absence of a disease after some amount of time.</p>
 
-					<p class="blog-text">Sure enough, Twitter is making an effort to maintain users’ trust and to take down offending accounts, but identifying such accounts is not a static process. If Twitter identifies content as propaganda, a bad actor can adjust their content so that they become undetected. Of course Twitter will respond in kind and will work to identify the newly changed content as propaganda. This back-and-forth is not unlike a pattern that occurs in computer security, where both security systems and hackers become more and more sophisticated as they discover, learn, and attempt to outsmart one another. Likewise, a successful propaganda classifier will account for this dynamic and should be robust to being exploited. This isn’t considered in your typical classification problem of, say, classifying animals as cats or not cats. Like, cats aren’t trying to trick you into thinking they’re not cats (although this would set a potentially adorable plot in a Blade Runner-esque sci-fi thriller).</p>
+					<p class="blog-text">Another possible outcome of interest is the amount of time a patient survives with a disease. This is an example of a time-to-event outcome. Other possible time-to-event outcomes are the time until a patient is in remission or the time to the reccurrence of a disease. These types of outcomes are common when studying chronic diseases such as cancer or cardiovascular disease.</p>
 
-					<p class="blog-text">One possible weakness in classifying propaganda directly is assuming that the labels being used are correct, e.g., a text identified as propaganda is in fact propaganda. As far as I know, there aren’t any propaganda experts who can identify propaganda with 100% accuracy! So the task becomes managing errors in labeled data. I’ve had the wonderful pleasure of using our lab’s greatest minds to label Tweets on Twitter. Using a majority vote, we can retrieve labels, with the understanding that our lab’s implicit biases play a role in the result of the label. I will not say what those biases are, but let’s just say any disparagement towards Oreos will be duly mislabeled as propaganda. From there, one can use robust methods like γ-divergence to reduce bias induced from mislabeling.</p>
+					<p class="blog-text">When we are dealing with time-to-event outcomes we frequently have patients in our study for whom we never observe the event we are interested in. This could be because the patient drops out of the study midway through or the study is of a limited length so the patient hasn’t had the event occur by its completion. We call an observation censored if we do not observe when the patient experienced the event. If we ignore the patients that are censored when conducting our analyses, we could potentially end up with biased results. The area of statistics that covers how to deal with time-to-event data is called survival analysis.</p>
 
-					<p class="blog-text">Another important question is what covariate information to collect, i.e., what attributes about Tweets can help us distinguish propaganda from ordinary content. For instance, we can analyze the text of a Tweet, which can give us useful information like sentiment or topics. But extracting information from text is generally a difficult task to do across multiple languages. An alternative would be to explore the behavior of a Tweet on Twitter. For instance, how do users engage with a Tweet? A natural way to formulate engagement is through network analysis. Indeed there are observed differences between so called misinforming users and ordinary users, such as the tendency for misinforming users to be within the core of retweet networks. These differences can provide us with an alternative means to identify propaganda. Another advantage of using network features is that propagandists rely on engaging users and masking that engagement would require more than simply changing the content of their Tweets. Selecting a robust feature set is crucial in dealing with propagandists’ ever-changing methods.</p>
+					<p class="blog-text">Now suppose we are assigning multiple treatments to a patient sequentially over time and are interested in tailoring treatments for patients based on individual patient characteristics. This is called a dynamic treatment regime, which is defined as a set of rules, one for each decision point, that maps patient characteristics to a recommended treatment. Our goal in this context is to estimate the optimal treatment regime that would maximize our outcome of interest if all patients in the population of interest were assigned treatments via these rules.</p>
 
-					<p class="blog-text">There are a myriad of other possible issues that arise from attempting to identify propaganda on Twitter, like sampling bias from using APIs, missing data, and reliable early detection. These issues bring with them a myriad of opportunities to understand the phenomenon of propaganda better, as well as to protect both our institutions and our trust in each other.</p>
+					<p class="blog-text">In this context our outcome of interest could also be a time-to-event in which case our usual methods would still lead to bias as before. In this case though there are further considerations that need to be accounted for. This is because each patient will not necessarily reach all of the different decision points. This could be because either the patient was censored during the course of the study or they had the event occur before reaching all decision points.</p>
+
+					<p class="blog-text">These problems create a difficult challenge for statisticians to study. Overcoming some of these obstacles has been an active area of research in recent years. With time-to-event outcomes being so prevalent in certain areas of medicine, furthering our understanding of how to estimate optimal dynamic treatment regimes in this scenario has great potential to improve our understanding of how to best treat patients to improve health care.</p>
 				</div>
 				<!-- Additional questions -->
 				<div class="col-12 blog-additional">
-					<p class="blog-text3 horizontal-rule">Khuzaima is a PhD Candidate whose research interests include machine learning and mobile health. His current research focuses on optimal treatment regimes on partially observed spatial networks. We asked a fellow Laber Labs colleague to ask Khuzaima a probing question.</p>
+					<p class="blog-text3 horizontal-rule">Eric has just defended his PhD thesis (congratulations, Dr. Eric Rose)!! We asked a fellow Laber Labs colleague to ask Eric a probing question.</p>
 					<ul>
 						<li>
-							<p class="interview-question">Draw a graph of Alex’s productivity as a function of the length of his hair.  Justify your answer.</p>
-							<div class="col-lg-8 offset-lg-2 col-12">
-								<img class="blog-image2 fade-img mx-auto d-block" src="../../images/alex-hair-productivity.png">
-								<p class="blog-caption"></p>
-							</div>							
-							<p class="blog-text2">I know this is a pressing question that has stumped scientists for decades, long before Alex joined the lab. But Alex is a complex individual. Much beyond his productive acuity, there is an abundance of dimensions to Alex’s constantly evolving character (“hair-acter?”). And lying below his flowing locks of hair are the answers to all of our questions. Above is a small sample of our discoveries to date. Each panel displays a picture of Alex, and his—err—hair as a heatmap of the designated attribute (the top of his head represents the shortest length of hair). As for an explanation, the relationship of Alex’s hair and these qualities is nothing short of magic, and as Dr. Laber would tell you, a magician never explains his tricks.</p>
+							<p class="interview-question">It is said that indifference, not hate, is the opposite of love. What is the opposite of pancakes?</p>		
+							<p class="blog-text2">It seems obvious to choose the natural nemesis of the pancake, the waffle. For centuries, these two foods have competed for those looking for a sweet, doughy treat. But just as love and hate on the surface appear to the antithesis of each other, they are in fact very similar. The natural transition is then to switch to one of the many savory foods eaten for breakfast around the country every day. I believe though that the ideal place for a pancake is as a sweet side to complement a plate of bacon and eggs. To me the true opposite would be something that fills the same role within the meal, but is far different in composition or taste. Therefore, the true opposite of pancakes is plain white toast.</p>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 d-flex flex-row-reverse">
+					<!-- <div class="button2-container padding-left">
+						<a href=".html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
+					</div> -->
 					<div class="button2-container padding-left">
-						<a href="patients-afraid-petrified.html" class="btn2 btn-primary2">Next <i class="fas fa-arrow-right"></i></a>
-					</div>
-					<div class="button2-container padding-left">
-						<a href="puzzle-of-asymptotic-argument.html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
+						<a href="propaganda-in-the-twitterverse.html" class="btn2 btn-primary2"><i class="fas fa-arrow-left"></i> Previous</a>
 					</div>
 					<div class="button2-container padding-left">
 						<a href="../studentblog.html" class="btn2 btn-primary2">View All Posts</a>
