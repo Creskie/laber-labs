@@ -571,6 +571,16 @@ section {
 	-o-animation: fadein 4s; /* Opera */
 	animation: fadein 4s;
 }
+.game-header-pac-boy {
+	background-image: url(../images/pac-boy-poster.jpg);
+	background-size: cover;
+	overflow: hidden;
+	-webkit-animation: fadein 4s; /* Safari and Chrome */
+	-moz-animation: fadein 4s; /* Firefox */
+	-ms-animation: fadein 4s; /* Internet Explorer */
+	-o-animation: fadein 4s; /* Opera */
+	animation: fadein 4s;
+}
 
 /* Contact */
 a.social-link {
