@@ -184,12 +184,7 @@ export class PePacmanState extends Phaser.State {
         //this.ghost_controllers = new trainGhostControllerRL(this.ghosts, this.board, 5, 0.01, JSON.parse(localStorage.getItem('param_list')));
         //this.ghost_controllers = new testGhostControllerRL(this.ghosts, this.board, JSON.parse(localStorage.getItem('param_list')));
         //this.ghost_controllers = new trainGhostControllerRL(this.ghosts, this.board, 5, 0.01, null);
-        /**
-        * var test: Array<Array<Array<number>>> = JSON.parse(localStorage.getItem('param_list'));
-        * for (var k = 0; k < 256; k++){
-        * console.log('test' + k + ': ' + test[1][k]);
-        * }
-        */
+
         //this.ghost_controllers = new RwPacmanGhostControllerRL(this.ghosts, 
         //    this.board, 5);
         //this.ghost_controllers.push(new RedGhostController(
