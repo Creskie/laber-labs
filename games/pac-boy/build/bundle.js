@@ -926,10 +926,6 @@ var PePacmanState = (function (_super) {
             }
         }
         this.ghost_controllers = new red_ghost_controller_1.RedGhostController(this.ghosts, this.board);
-        var test = JSON.parse(localStorage.getItem('param_list'));
-        for (var k = 0; k < 256; k++) {
-            console.log('test' + k + ': ' + test[1][k]);
-        }
         this.pacman_controller = new keyboard_controller_1.KeyboardController(this.game.input.keyboard, this.pacman, this.board);
         this.posts = new Array();
         this.posts.push(new pacman_post_1.RwPacmanPost(this.board, this.ghosts, this.pacman, [this.pacman.spot], 5));
