@@ -70,8 +70,8 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Unit = (function () {
-    function Unit(board, alive, x, y, ticks_per_spot) {
+class Unit {
+    constructor(board, alive, x, y, ticks_per_spot) {
         this.board = board;
         this.alive = alive;
         this.x = x;
@@ -83,10 +83,10 @@ var Unit = (function () {
         this.ticks_per_spot = ticks_per_spot;
         this.move_eps = (1 / this.ticks_per_spot) * 0.1;
     }
-    Unit.prototype.is_alive = function () {
+    is_alive() {
         return this.alive;
-    };
-    Unit.prototype.update_spot = function () {
+    }
+    update_spot() {
         if (this.alive) {
             var tile_x = Math.floor(this.x);
             var tile_y = Math.floor(this.y);
@@ -96,8 +96,8 @@ var Unit = (function () {
         else {
             this.spot = -1;
         }
-    };
-    Unit.prototype.update_motion = function () {
+    }
+    update_motion() {
         if (this.action < 0) {
             this.motion = -1;
             this.dest_spot = -1;
@@ -119,24 +119,24 @@ var Unit = (function () {
                 this.dest_spot = this.spot;
             }
         }
-    };
-    Unit.prototype.set_action = function (new_action) {
+    }
+    set_action(new_action) {
         if (new_action == 0 || new_action == 1
             || new_action == 2 || new_action == 3) {
             this.action = new_action;
         }
-    };
-    Unit.prototype.move = function () {
+    }
+    move() {
         if (this.is_alive()) {
             this.alive_move();
         }
         else {
             this.dead_move();
         }
-    };
-    Unit.prototype.dead_move = function () {
-    };
-    Unit.prototype.alive_move = function () {
+    }
+    dead_move() {
+    }
+    alive_move() {
         if (this.dest_spot >= 0) {
             var dist_to_move = 1.0 / this.ticks_per_spot;
             var dot = this.board.get_dot(this.spot, true);
@@ -201,9 +201,8 @@ var Unit = (function () {
         else {
             this.update_motion();
         }
-    };
-    return Unit;
-}());
+    }
+}
 exports.Unit = Unit;
 
 
@@ -214,13 +213,13 @@ exports.Unit = Unit;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Controller = (function () {
-    function Controller(units, board) {
+class Controller {
+    constructor(units, board) {
         this.units = units;
         this.num_units = this.units.length;
         this.board = board;
     }
-    Controller.prototype.assign_actions = function (actions) {
+    assign_actions(actions) {
         if (actions.length != this.num_units) {
             throw new Error("Incorrect number of actions: "
                 + actions.length + " vs. " + this.num_units);
@@ -228,9 +227,8 @@ var Controller = (function () {
         for (var i = 0; i < this.num_units; ++i) {
             this.units[i].set_action(actions[i]);
         }
-    };
-    return Controller;
-}());
+    }
+}
 exports.Controller = Controller;
 
 
@@ -241,8 +239,21 @@ exports.Controller = Controller;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ProbAssign = (function () {
-    function ProbAssign(board, ghosts, probs) {
+class Post {
+    constructor() { }
+}
+exports.Post = Post;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class ProbAssign {
+    constructor(board, ghosts, probs) {
         this.board = board;
         this.ghosts = ghosts;
         this.probs = new Array(this.board.dots.length);
@@ -250,7 +261,7 @@ var ProbAssign = (function () {
             this.probs[i] = probs[i];
         }
     }
-    ProbAssign.prototype.bestProbs = function () {
+    bestProbs() {
         var best_spots = new Array();
         var best_spot;
         for (var j = 0; j < this.ghosts.length; j++) {
@@ -274,8 +285,8 @@ var ProbAssign = (function () {
             this.probs[target_spot] = 0;
         }
         return best_spots;
-    };
-    ProbAssign.prototype.probAssign = function () {
+    }
+    probAssign() {
         var permute = this.permutator(this.bestProbs());
         console.log(" ");
         var best_dist = Infinity;
@@ -302,11 +313,10 @@ var ProbAssign = (function () {
             }
         }
         return best_assign;
-    };
-    ProbAssign.prototype.permutator = function (inputArr) {
+    }
+    permutator(inputArr) {
         var result = [];
-        function permute(arr, m) {
-            if (m === void 0) { m = []; }
+        function permute(arr, m = []) {
             if (arr.length === 0) {
                 result.push(m);
             }
@@ -320,25 +330,9 @@ var ProbAssign = (function () {
         }
         permute(inputArr);
         return result;
-    };
-    return ProbAssign;
-}());
-exports.ProbAssign = ProbAssign;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Post = (function () {
-    function Post() {
     }
-    return Post;
-}());
-exports.Post = Post;
+}
+exports.ProbAssign = ProbAssign;
 
 
 /***/ }),
@@ -355,10 +349,10 @@ module.exports = __webpack_require__(5);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var wall_1 = __webpack_require__(6);
-var dot_1 = __webpack_require__(7);
-var viewer_1 = __webpack_require__(8);
-window.onload = function () {
+const wall_1 = __webpack_require__(6);
+const dot_1 = __webpack_require__(7);
+const viewer_1 = __webpack_require__(8);
+window.onload = () => {
     var walls = new Array();
     walls.push(new wall_1.Wall([448, 449, 450, 451, 452, 453,
         425, 397, 369, 341,
@@ -764,13 +758,12 @@ window.onload = function () {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Wall = (function () {
-    function Wall(tiles, closed) {
+class Wall {
+    constructor(tiles, closed) {
         this.tiles = tiles;
         this.closed = closed;
     }
-    return Wall;
-}());
+}
 exports.Wall = Wall;
 
 
@@ -781,8 +774,8 @@ exports.Wall = Wall;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Dot = (function () {
-    function Dot(spot, tile, kind, up, down, left, right) {
+class Dot {
+    constructor(spot, tile, kind, up, down, left, right) {
         this.spot = spot;
         this.tile = tile;
         this.kind = kind;
@@ -792,13 +785,13 @@ var Dot = (function () {
         this.right = right;
         this.alive = true;
     }
-    Dot.prototype.is_alive = function () {
+    is_alive() {
         return this.alive;
-    };
-    Dot.prototype.pick_up = function () {
+    }
+    pick_up() {
         this.alive = false;
-    };
-    Dot.prototype.get_neighbor = function (dir) {
+    }
+    get_neighbor(dir) {
         if (dir == 0) {
             return this.up;
         }
@@ -814,9 +807,8 @@ var Dot = (function () {
         else {
             throw new Error("Direction must be in {0, 1, 2, 3}");
         }
-    };
-    return Dot;
-}());
+    }
+}
 exports.Dot = Dot;
 
 
@@ -826,60 +818,45 @@ exports.Dot = Dot;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var board_1 = __webpack_require__(9);
-var pacman_1 = __webpack_require__(10);
-var ghost_1 = __webpack_require__(11);
-var dynamics_1 = __webpack_require__(12);
-var pacman_sprite_1 = __webpack_require__(13);
-var wall_sprite_1 = __webpack_require__(14);
-var dot_sprite_1 = __webpack_require__(16);
-var ghost_box_1 = __webpack_require__(17);
-var ghost_box_sprite_1 = __webpack_require__(18);
-var ghost_sprite_1 = __webpack_require__(19);
-var keyboard_controller_1 = __webpack_require__(20);
-var red_ghost_controller_1 = __webpack_require__(21);
-var pacman_post_1 = __webpack_require__(22);
-var prob_sprite_1 = __webpack_require__(23);
-var assign_prob_1 = __webpack_require__(2);
-var closest_rwPacman_post_1 = __webpack_require__(24);
-var PePacmanGame = (function (_super) {
-    __extends(PePacmanGame, _super);
-    function PePacmanGame(num_tiles_x, num_tiles_y, tile_dim, walls, dots) {
-        var _this = this;
+const board_1 = __webpack_require__(9);
+const pacman_1 = __webpack_require__(10);
+const ghost_1 = __webpack_require__(11);
+const dynamics_1 = __webpack_require__(12);
+const pacman_sprite_1 = __webpack_require__(13);
+const wall_sprite_1 = __webpack_require__(14);
+const dot_sprite_1 = __webpack_require__(16);
+const ghost_box_1 = __webpack_require__(17);
+const ghost_box_sprite_1 = __webpack_require__(18);
+const ghost_sprite_1 = __webpack_require__(19);
+const keyboard_controller_1 = __webpack_require__(20);
+const pacman_post_1 = __webpack_require__(21);
+const prob_sprite_1 = __webpack_require__(22);
+const assign_prob_1 = __webpack_require__(3);
+const test_ghost_RL_controller_1 = __webpack_require__(23);
+const closest_rwPacman_post_1 = __webpack_require__(24);
+class PePacmanGame extends Phaser.Game {
+    constructor(num_tiles_x, num_tiles_y, tile_dim, walls, dots) {
         var state = new PePacmanState(num_tiles_x, num_tiles_y, tile_dim, walls, dots);
-        _this = _super.call(this, num_tiles_x * tile_dim, num_tiles_y * tile_dim, Phaser.AUTO, 'pe-pacman-game', state) || this;
-        return _this;
+        super(num_tiles_x * tile_dim, num_tiles_y * tile_dim, Phaser.AUTO, 'pe-pacman-game', state);
     }
-    return PePacmanGame;
-}(Phaser.Game));
+}
 exports.PePacmanGame = PePacmanGame;
-var PePacmanState = (function (_super) {
-    __extends(PePacmanState, _super);
-    function PePacmanState(num_tiles_x, num_tiles_y, tile_dim, walls, dots) {
-        var _this = _super.call(this) || this;
-        _this.num_tiles_x = num_tiles_x;
-        _this.num_tiles_y = num_tiles_y;
-        _this.tile_dim = tile_dim;
-        _this.walls = walls;
-        _this.dots = dots;
-        _this.score = 0;
-        _this.restart = false;
-        _this.dotCount = 0;
-        _this.win = true;
-        return _this;
+class PePacmanState extends Phaser.State {
+    constructor(num_tiles_x, num_tiles_y, tile_dim, walls, dots) {
+        super();
+        this.num_tiles_x = num_tiles_x;
+        this.num_tiles_y = num_tiles_y;
+        this.tile_dim = tile_dim;
+        this.walls = walls;
+        this.dots = dots;
+        this.score = 0;
+        this.restart = false;
+        this.dotCount = 0;
+        this.win = true;
+        this.refresh = false;
     }
-    PePacmanState.prototype.preload = function () {
+    preload() {
         this.game.load.image('RedUp', 'red-up.png');
         this.game.load.image('RedDown', 'red-down.png');
         this.game.load.image('RedLeft', 'red-left.png');
@@ -897,12 +874,16 @@ var PePacmanState = (function (_super) {
         this.game.load.image('OrangeLeft', 'orange-left.png');
         this.game.load.image('OrangeRight', 'orange-right.png');
         this.game.load.image('VulnerableGhost', 'vulnerable-ghost.png');
+        this.game.load.image('restart', 'restart.png');
+        this.game.load.image('start', 'start.png');
         this.game.load.spritesheet('Pacman', 'Pacman.png', 32, 32, 49);
         this.game.load.spritesheet('Death', 'death.png', 32, 32, 54);
-    };
-    PePacmanState.prototype.create = function () {
+        this.load.text('mytext', 'test.txt');
+    }
+    create() {
         this.load.start();
         this.game.time.slowMotion = 20.0;
+        this.game.paused = true;
         this.overText = this.game.add.text(180, 20, 'Game Over', { font: '16px Arial', fill: '#fff' });
         this.overText.visible = false;
         this.powerText = this.game.add.text(100, 0, 'Power time:' + 0, { font: '16px Arial', fill: '#fff' });
@@ -913,6 +894,22 @@ var PePacmanState = (function (_super) {
         this.winText.visible = false;
         this.timeText = this.game.add.text(300, 0, 'Time:' + 0, { font: '16px Arial', fill: '#fff' });
         this.timeText.visible = true;
+        this.startText = this.game.add.text(140, 20, 'Press start button to play!', { font: '16px Arial', fill: '#fff' });
+        this.startText.visible = true;
+        this.pauseButton = this.game.add.sprite(420, 0, 'restart');
+        this.pauseButton.width = 20;
+        this.pauseButton.height = 20;
+        this.pauseButton.inputEnabled = true;
+        this.pauseButton.events.onInputUp.add(function () { this.refresh = true; this.game.paused = false; }, this);
+        this.game.input.onDown.add(function () { if (this.game.paused)
+            this.game.paused = false; }, this);
+        this.startButton = this.game.add.sprite(390, 0, 'start');
+        this.startButton.width = 20;
+        this.startButton.height = 20;
+        this.startButton.inputEnabled = true;
+        this.startButton.events.onInputUp.add(function () { this.game.paused = false; this.startText.visible = false; }, this);
+        this.game.input.onDown.add(function () { if (this.game.paused)
+            this.game.paused = false; this.startText.visible = false; }, this);
         this.board = new board_1.Board(this.num_tiles_x, this.num_tiles_y, this.dots);
         this.pacman = new pacman_1.Pacman(this.board, 14.5, 26.5, 1);
         this.box = new ghost_box_1.GhostBox(this.board, 10, 15, 8, 5, [new ghost_box_1.Slot(12, 17, 12, 17.5, 12, 18), new ghost_box_1.Slot(14, 17, 14, 17.5, 14, 18), new ghost_box_1.Slot(16, 17, 16, 17.5, 16, 18)]);
@@ -925,7 +922,35 @@ var PePacmanState = (function (_super) {
                 this.ghosts.push(new ghost_1.Ghost(this.board, true, 14, 14.5, 1, this.box));
             }
         }
-        this.ghost_controllers = new red_ghost_controller_1.RedGhostController(this.ghosts, this.board);
+        var text = this.cache.getText('mytext');
+        var data1 = text.split(',');
+        var p = 0;
+        this.test = new Array(2);
+        for (var b = 0; b < 2; b++) {
+            this.test[b] = new Array(256);
+            for (var i = 0; i < 256; i++) {
+                var temp = new Array(12);
+                for (var j = 0; j < 12; j++) {
+                    temp[j] = Number(data1[p]);
+                    p += 1;
+                }
+                this.test[b][i] = temp;
+            }
+        }
+        this.ghost_controllers = new test_ghost_RL_controller_1.testGhostControllerRL(this.ghosts, this.board, this.test);
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+            else {
+                pom.click();
+            }
+        }
         this.pacman_controller = new keyboard_controller_1.KeyboardController(this.game.input.keyboard, this.pacman, this.board);
         this.posts = new Array();
         this.posts.push(new pacman_post_1.RwPacmanPost(this.board, this.ghosts, this.pacman, [this.pacman.spot], 5));
@@ -950,8 +975,7 @@ var PePacmanState = (function (_super) {
         this.pacman_sprite.animations.play('up');
         this.ghost_sprites = new Array();
         var c = 0;
-        for (var _i = 0, _a = this.ghosts; _i < _a.length; _i++) {
-            var g = _a[_i];
+        for (let g of this.ghosts) {
             var GS = new ghost_sprite_1.GhostSprite(this.game, this.dynamics.board, this.tile_dim, g);
             if (c == 0) {
                 GS.loadTexture('RedUp');
@@ -978,23 +1002,20 @@ var PePacmanState = (function (_super) {
         for (var i = 0; i < this.ghosts.length; i++) {
             this.prob_sprites[i].visible = false;
         }
-        for (var _b = 0, _c = this.walls; _b < _c.length; _b++) {
-            var wall = _c[_b];
+        for (let wall of this.walls) {
             this.wall_sprites.push(new wall_sprite_1.WallSprite(this.game, this.dynamics.board, this.tile_dim, wall));
         }
-        for (var _d = 0, _e = this.dynamics.board.dots; _d < _e.length; _d++) {
-            var dot = _e[_d];
+        for (let dot of this.dynamics.board.dots) {
             this.dot_sprites.push(new dot_sprite_1.DotSprite(this.game, this.dynamics.board, this.tile_dim, dot));
         }
         this.box_sprite = new ghost_box_sprite_1.GhostBoxSprite(this.game, this.dynamics.board, this.tile_dim, this.box);
-    };
-    PePacmanState.prototype.update = function () {
+    }
+    update() {
         if (this.restart == false) {
             var x = this.dynamics.pacman.x;
             this.dynamics.update();
             var c = 0;
-            for (var _i = 0, _a = this.ghost_sprites; _i < _a.length; _i++) {
-                var gs = _a[_i];
+            for (let gs of this.ghost_sprites) {
                 if (c == 0) {
                     if (this.dynamics.power_time == 0) {
                         if (gs.ghost.action == 0) {
@@ -1087,8 +1108,7 @@ var PePacmanState = (function (_super) {
             }
         }
         else {
-            for (var _b = 0, _c = this.prob_sprites; _b < _c.length; _b++) {
-                var ps = _c[_b];
+            for (let ps of this.prob_sprites) {
                 ps.visible = false;
             }
             if (this.win === false) {
@@ -1098,11 +1118,87 @@ var PePacmanState = (function (_super) {
                 this.game.paused = true;
             }
         }
-    };
-    PePacmanState.prototype.render = function () {
-    };
-    return PePacmanState;
-}(Phaser.State));
+        if (this.refresh) {
+            this.dynamics.death.kill();
+            this.refresh = false;
+            this.pacman_sprite.kill();
+            for (let gs of this.ghost_sprites) {
+                gs.kill();
+            }
+            for (let ds of this.dot_sprites) {
+                ds.kill();
+            }
+            this.score = 0;
+            this.restart = false;
+            this.dotCount = 0;
+            this.win = true;
+            this.overText.visible = false;
+            for (let dot of this.dots) {
+                dot.alive = true;
+            }
+            this.dot_sprites = new Array();
+            for (let dot of this.dynamics.board.dots) {
+                this.dot_sprites.push(new dot_sprite_1.DotSprite(this.game, this.dynamics.board, this.tile_dim, dot));
+            }
+            this.pacman = new pacman_1.Pacman(this.board, 14.5, 26.5, 1);
+            this.box = new ghost_box_1.GhostBox(this.board, 10, 15, 8, 5, [new ghost_box_1.Slot(12, 17, 12, 17.5, 12, 18), new ghost_box_1.Slot(14, 17, 14, 17.5, 14, 18), new ghost_box_1.Slot(16, 17, 16, 17.5, 16, 18)]);
+            this.ghosts = new Array();
+            for (var i = 0; i < 4; i++) {
+                if (i != 3) {
+                    this.ghosts.push(new ghost_1.Ghost(this.board, false, null, null, 1, this.box));
+                }
+                else {
+                    this.ghosts.push(new ghost_1.Ghost(this.board, true, 14, 14.5, 1, this.box));
+                }
+            }
+            this.ghost_controllers = new test_ghost_RL_controller_1.testGhostControllerRL(this.ghosts, this.board, this.test);
+            this.pacman_controller = new keyboard_controller_1.KeyboardController(this.game.input.keyboard, this.pacman, this.board);
+            this.posts = new Array();
+            this.posts.push(new pacman_post_1.RwPacmanPost(this.board, this.ghosts, this.pacman, [this.pacman.spot], 5));
+            this.posts.push(new closest_rwPacman_post_1.ClosestRwPacmanPost(this.board, this.ghosts, this.pacman, [this.pacman.spot], 5, 0.1));
+            for (var b = 0; b < this.posts.length; b++) {
+                this.posts[b].update(-1);
+                this.posts[b].num_points = 0;
+            }
+            this.dynamics = new dynamics_1.Dynamics(this.pacman, this.ghosts, this.board, this.pacman_controller, this.ghost_controllers, this.posts, this);
+            this.tick = 0;
+            this.dot_sprites = new Array();
+            this.pacman_sprite = new pacman_sprite_1.PacmanSprite(this.game, this.dynamics.board, this.tile_dim, this.dynamics.pacman);
+            this.pacman_sprite.loadTexture('Pacman');
+            this.pacman_sprite.width = this.pacman_sprite.tile_dim * 1.5;
+            this.pacman_sprite.height = this.pacman_sprite.tile_dim * 1.5;
+            this.pacman_sprite.frame = 42;
+            this.pacman_sprite.animations.add('right', [0, 1, 2, 3, 4, 5, 6], 14, true);
+            this.pacman_sprite.animations.add('down', [14, 15, 16, 17, 18, 19, 20], 14, true);
+            this.pacman_sprite.animations.add('left', [28, 29, 30, 31, 32, 33, 34], 14, true);
+            this.pacman_sprite.animations.add('up', [42, 43, 44, 45, 46, 47, 48], 14, true);
+            this.pacman_sprite.animations.play('up');
+            this.ghost_sprites = new Array();
+            var c = 0;
+            for (let g of this.ghosts) {
+                var GS = new ghost_sprite_1.GhostSprite(this.game, this.dynamics.board, this.tile_dim, g);
+                if (c == 0) {
+                    GS.loadTexture('RedUp');
+                }
+                if (c == 1) {
+                    GS.loadTexture('PinkDown');
+                }
+                if (c == 2) {
+                    GS.loadTexture('BlueUp');
+                }
+                if (c == 3) {
+                    GS.loadTexture('OrangeDown');
+                }
+                c++;
+                GS.width = GS.tile_dim * 1.5;
+                GS.height = GS.tile_dim * 1.5;
+                this.ghost_sprites.push(GS);
+            }
+        }
+    }
+    render() {
+    }
+}
 exports.PePacmanState = PePacmanState;
 
 
@@ -1113,15 +1209,14 @@ exports.PePacmanState = PePacmanState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Board = (function () {
-    function Board(num_tiles_x, num_tiles_y, dots) {
+class Board {
+    constructor(num_tiles_x, num_tiles_y, dots) {
         this.num_tiles_x = num_tiles_x;
         this.num_tiles_y = num_tiles_y;
         this.dots = dots;
         this.tile_to_spot = new Array();
-        for (var _i = 0, _a = this.dots; _i < _a.length; _i++) {
-            var dot_1 = _a[_i];
-            this.tile_to_spot[dot_1.tile] = dot_1.spot;
+        for (let dot of this.dots) {
+            this.tile_to_spot[dot.tile] = dot.spot;
         }
         this.trans_mat_random = new Array(this.dots.length);
         for (var i = 0; i < this.dots.length; i++) {
@@ -1180,7 +1275,7 @@ var Board = (function () {
             }
         }
     }
-    Board.prototype.get_dot = function (index, is_spot) {
+    get_dot(index, is_spot) {
         if (is_spot) {
             if (index < this.dots.length) {
                 return this.dots[index];
@@ -1201,12 +1296,11 @@ var Board = (function () {
                 return this.dots[converted];
             }
         }
-    };
-    Board.prototype.dist = function (x1, y1, x2, y2) {
+    }
+    dist(x1, y1, x2, y2) {
         return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    };
-    return Board;
-}());
+    }
+}
 exports.Board = Board;
 
 
@@ -1216,25 +1310,13 @@ exports.Board = Board;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var unit_1 = __webpack_require__(0);
-var Pacman = (function (_super) {
-    __extends(Pacman, _super);
-    function Pacman(board, x, y, ticks_per_spot) {
-        return _super.call(this, board, true, x, y, ticks_per_spot) || this;
+const unit_1 = __webpack_require__(0);
+class Pacman extends unit_1.Unit {
+    constructor(board, x, y, ticks_per_spot) {
+        super(board, true, x, y, ticks_per_spot);
     }
-    return Pacman;
-}(unit_1.Unit));
+}
 exports.Pacman = Pacman;
 
 
@@ -1244,32 +1326,20 @@ exports.Pacman = Pacman;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var unit_1 = __webpack_require__(0);
-var Ghost = (function (_super) {
-    __extends(Ghost, _super);
-    function Ghost(board, alive, x, y, ticks_per_spot, box) {
-        var _this = _super.call(this, board, alive, x, y, ticks_per_spot) || this;
-        _this.box = box;
-        if (!_this.is_alive()) {
-            _this.route = _this.box.assign_slot();
-            _this.x = _this.route.dest_x;
-            _this.y = _this.route.dest_y;
-            _this.route_counts = 0;
+const unit_1 = __webpack_require__(0);
+class Ghost extends unit_1.Unit {
+    constructor(board, alive, x, y, ticks_per_spot, box) {
+        super(board, alive, x, y, ticks_per_spot);
+        this.box = box;
+        if (!this.is_alive()) {
+            this.route = this.box.assign_slot();
+            this.x = this.route.dest_x;
+            this.y = this.route.dest_y;
+            this.route_counts = 0;
         }
-        return _this;
     }
-    Ghost.prototype.dead_move = function () {
+    dead_move() {
         if (this.route.dest_type == 5) {
             this.alive = true;
             var tile = Math.floor(this.y) * this.board.num_tiles_x +
@@ -1299,9 +1369,8 @@ var Ghost = (function (_super) {
                 this.y = this.y * (1.0 - alpha) + this.route.dest_y * alpha;
             }
         }
-    };
-    return Ghost;
-}(unit_1.Unit));
+    }
+}
 exports.Ghost = Ghost;
 
 
@@ -1312,8 +1381,8 @@ exports.Ghost = Ghost;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Dynamics = (function () {
-    function Dynamics(pacman, ghosts, board, pacman_controller, ghost_controllers, posts, state) {
+class Dynamics {
+    constructor(pacman, ghosts, board, pacman_controller, ghost_controllers, posts, state) {
         this.pacman = pacman;
         this.ghosts = ghosts;
         this.board = board;
@@ -1325,8 +1394,14 @@ var Dynamics = (function () {
         this.memory_dots = new Array();
         this.memory_energy_dots = new Array();
         this.informant = -1;
+        this.death = this.state.game.add.sprite((this.pacman.x - 0.5) * this.state.tile_dim, (this.pacman.y - 1) * this.state.tile_dim, 'Death');
+        this.death.visible = false;
+        this.death.width = this.state.tile_dim * 1.5;
+        this.death.height = this.state.tile_dim * 1.5;
+        this.death.frame = 51;
+        this.death.animations.add('ani', [51, 42, 43, 44], 2, false);
     }
-    Dynamics.prototype.update = function () {
+    update() {
         this.state.tick += 1;
         this.state.timeText.text = 'Time:' + this.state.tick;
         if (this.pacman.is_alive()) {
@@ -1338,8 +1413,7 @@ var Dynamics = (function () {
             this.state.prob_sprites[i].update();
         }
         this.pacman.move();
-        for (var _i = 0, _a = this.ghosts; _i < _a.length; _i++) {
-            var g = _a[_i];
+        for (let g of this.ghosts) {
             g.move();
         }
         this.informant = -1;
@@ -1368,8 +1442,7 @@ var Dynamics = (function () {
         this.state.powerText.text = 'Power time:' + this.power_time;
         this.state.scoreText.text = 'Score:' + this.state.score;
         if (this.power_time > 0) {
-            for (var _b = 0, _c = this.ghosts; _b < _c.length; _b++) {
-                var g = _c[_b];
+            for (let g of this.ghosts) {
                 g.ticks_per_spot = 10;
                 if (this.pacman.x >= g.x - 1 && this.pacman.x <= g.x + 1 &&
                     this.pacman.y >= g.y - 1 && this.pacman.y <= g.y + 1) {
@@ -1385,31 +1458,27 @@ var Dynamics = (function () {
             this.power_time--;
         }
         else {
-            for (var _d = 0, _e = this.ghosts; _d < _e.length; _d++) {
-                var g = _e[_d];
+            for (let g of this.ghosts) {
                 g.ticks_per_spot = 1;
                 if (this.pacman.x >= g.x - 1 && this.pacman.x <= g.x + 1 &&
                     this.pacman.y >= g.y - 1 && this.pacman.y <= g.y + 1) {
-                    var death = this.state.game.add.sprite((this.pacman.x - 0.5) * this.state.tile_dim, (this.pacman.y - 1) * this.state.tile_dim, 'Death');
-                    death.width = this.state.tile_dim * 1.5;
-                    death.height = this.state.tile_dim * 1.5;
-                    death.frame = 51;
-                    death.animations.add('ani', [51, 42, 43, 44], 2, false);
-                    death.animations.play('ani');
+                    this.death.x = (this.pacman.x - 0.5) * this.state.tile_dim;
+                    this.death.y = (this.pacman.y - 1) * this.state.tile_dim;
+                    this.death.visible = true;
+                    this.death.animations.play('ani');
                     this.state.overText.visible = true;
                     this.state.win = false;
                     this.state.restart = true;
                 }
             }
         }
-    };
-    Dynamics.prototype.restart = function () {
+    }
+    restart() {
         this.state.overText.visible = true;
         this.state.game.state.restart();
         this.state.restart = false;
-    };
-    return Dynamics;
-}());
+    }
+}
 exports.Dynamics = Dynamics;
 
 
@@ -1419,37 +1488,24 @@ exports.Dynamics = Dynamics;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var PacmanSprite = (function (_super) {
-    __extends(PacmanSprite, _super);
-    function PacmanSprite(viewer, board, tile_dim, pacman) {
-        var _this = _super.call(this, viewer, 0, 0) || this;
-        _this.board = board;
-        _this.pacman = pacman;
-        _this.tile_dim = tile_dim;
-        _this.anchor.x = 0.5;
-        _this.anchor.y = 0.5;
-        _this.position.x = _this.pacman.x * tile_dim;
-        _this.position.y = _this.pacman.y * tile_dim;
-        viewer.add.existing(_this);
-        return _this;
+class PacmanSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, pacman) {
+        super(viewer, 0, 0);
+        this.board = board;
+        this.pacman = pacman;
+        this.tile_dim = tile_dim;
+        this.anchor.x = 0.5;
+        this.anchor.y = 0.5;
+        this.position.x = this.pacman.x * tile_dim;
+        this.position.y = this.pacman.y * tile_dim;
+        viewer.add.existing(this);
     }
-    PacmanSprite.prototype.update = function () {
+    update() {
         this.position.x = this.pacman.x * this.tile_dim;
         this.position.y = this.pacman.y * this.tile_dim;
-    };
-    return PacmanSprite;
-}(Phaser.Sprite));
+    }
+}
 exports.PacmanSprite = PacmanSprite;
 
 
@@ -1459,29 +1515,16 @@ exports.PacmanSprite = PacmanSprite;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var coord_1 = __webpack_require__(15);
-var WallSprite = (function (_super) {
-    __extends(WallSprite, _super);
-    function WallSprite(viewer, board, tile_dim, wall) {
-        var _this = this;
+const coord_1 = __webpack_require__(15);
+class WallSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, wall) {
         var start_c = coord_1.Coord.from_tile(wall.tiles[0], board.num_tiles_x, board.num_tiles_y, tile_dim);
         var min_x = Infinity;
         var max_x = -Infinity;
         var min_y = Infinity;
         var max_y = -Infinity;
-        for (var _i = 0, _a = wall.tiles; _i < _a.length; _i++) {
-            var tile = _a[_i];
+        for (let tile of wall.tiles) {
             var c = coord_1.Coord.from_tile(tile, board.num_tiles_x, board.num_tiles_y, tile_dim);
             min_x = Math.min(min_x, c.x);
             max_x = Math.max(max_x, c.x + tile_dim);
@@ -1493,8 +1536,7 @@ var WallSprite = (function (_super) {
         var g = new Phaser.Graphics(viewer, 0, 0);
         g.lineStyle(0.25 * tile_dim, 0x0000ff, 1);
         g.moveTo(start_c.x - min_x + tile_dim * 0.5, start_c.y - min_y + tile_dim * 0.5);
-        for (var _b = 0, _c = wall.tiles; _b < _c.length; _b++) {
-            var tile = _c[_b];
+        for (let tile of wall.tiles) {
             var c = coord_1.Coord.from_tile(tile, board.num_tiles_x, board.num_tiles_y, tile_dim);
             var x = c.x - min_x + tile_dim * 0.5;
             var y = c.y - min_y + tile_dim * 0.5;
@@ -1506,12 +1548,10 @@ var WallSprite = (function (_super) {
             g.lineTo(x, y);
         }
         g.endFill();
-        _this = _super.call(this, viewer, min_x + tile_dim * 0.25, min_y + tile_dim * 0.25, g.generateTexture()) || this;
-        viewer.add.existing(_this);
-        return _this;
+        super(viewer, min_x + tile_dim * 0.25, min_y + tile_dim * 0.25, g.generateTexture());
+        viewer.add.existing(this);
     }
-    return WallSprite;
-}(Phaser.Sprite));
+}
 exports.WallSprite = WallSprite;
 
 
@@ -1522,20 +1562,19 @@ exports.WallSprite = WallSprite;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Coord = (function () {
-    function Coord(x, y) {
+class Coord {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-    Coord.from_tile = function (tile, num_tiles_x, num_tiles_y, tile_dim) {
+    static from_tile(tile, num_tiles_x, num_tiles_y, tile_dim) {
         var tile_x = tile % num_tiles_x;
         var tile_y = Math.floor(tile / num_tiles_x);
         var x = tile_x * tile_dim;
         var y = tile_y * tile_dim;
         return new Coord(x, y);
-    };
-    return Coord;
-}());
+    }
+}
 exports.Coord = Coord;
 
 
@@ -1545,21 +1584,9 @@ exports.Coord = Coord;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var DotSprite = (function (_super) {
-    __extends(DotSprite, _super);
-    function DotSprite(viewer, board, tile_dim, dot) {
-        var _this = this;
+class DotSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, dot) {
         var g = new Phaser.Graphics(viewer, 0, 0);
         var x = (dot.tile % board.num_tiles_x) * tile_dim;
         var y = Math.floor(dot.tile / board.num_tiles_x) * tile_dim;
@@ -1573,18 +1600,16 @@ var DotSprite = (function (_super) {
             g.drawCircle(0, 0, tile_dim);
         }
         g.endFill();
-        _this = _super.call(this, viewer, x, y, g.generateTexture()) || this;
-        _this.dot = dot;
-        viewer.add.existing(_this);
-        return _this;
+        super(viewer, x, y, g.generateTexture());
+        this.dot = dot;
+        viewer.add.existing(this);
     }
-    DotSprite.prototype.update = function () {
+    update() {
         if (!this.dot.is_alive()) {
             this.kill();
         }
-    };
-    return DotSprite;
-}(Phaser.Sprite));
+    }
+}
 exports.DotSprite = DotSprite;
 
 
@@ -1595,8 +1620,8 @@ exports.DotSprite = DotSprite;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GhostBox = (function () {
-    function GhostBox(board, x, y, width, height, slots) {
+class GhostBox {
+    constructor(board, x, y, width, height, slots) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -1608,7 +1633,7 @@ var GhostBox = (function () {
             this.occupants[i] = 0;
         }
     }
-    GhostBox.prototype.assign_slot = function () {
+    assign_slot() {
         var best_slot = 0;
         var best_occ = Infinity;
         for (var i = 0; i < this.num_slots; ++i) {
@@ -1620,8 +1645,8 @@ var GhostBox = (function () {
         this.occupants[best_slot]++;
         var sr = new SlotRoute(best_slot, 1, 0, this.slots[best_slot].center_x, this.slots[best_slot].center_y);
         return sr;
-    };
-    GhostBox.prototype.update_route = function (curr_sr, done) {
+    }
+    update_route(curr_sr, done) {
         if (curr_sr.dest_type == 0 && curr_sr.motion == 0) {
             return new SlotRoute(curr_sr.index, 1, 1, this.slots[curr_sr.index].center_x, this.slots[curr_sr.index].center_y);
         }
@@ -1654,12 +1679,11 @@ var GhostBox = (function () {
                 + "motion " + curr_sr.motion + ", and"
                 + "done status " + done);
         }
-    };
-    return GhostBox;
-}());
+    }
+}
 exports.GhostBox = GhostBox;
-var Slot = (function () {
-    function Slot(top_x, top_y, center_x, center_y, bottom_x, bottom_y) {
+class Slot {
+    constructor(top_x, top_y, center_x, center_y, bottom_x, bottom_y) {
         this.center_x = center_x;
         this.center_y = center_y;
         this.top_x = top_x;
@@ -1667,19 +1691,17 @@ var Slot = (function () {
         this.bottom_x = bottom_x;
         this.bottom_y = bottom_y;
     }
-    return Slot;
-}());
+}
 exports.Slot = Slot;
-var SlotRoute = (function () {
-    function SlotRoute(index, dest_type, motion, dest_x, dest_y) {
+class SlotRoute {
+    constructor(index, dest_type, motion, dest_x, dest_y) {
         this.index = index;
         this.dest_type = dest_type;
         this.motion = motion;
         this.dest_x = dest_x;
         this.dest_y = dest_y;
     }
-    return SlotRoute;
-}());
+}
 exports.SlotRoute = SlotRoute;
 
 
@@ -1689,21 +1711,9 @@ exports.SlotRoute = SlotRoute;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GhostBoxSprite = (function (_super) {
-    __extends(GhostBoxSprite, _super);
-    function GhostBoxSprite(viewer, board, tile_dim, box) {
-        var _this = this;
+class GhostBoxSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, box) {
         var g = new Phaser.Graphics(viewer, 0, 0);
         g.lineStyle(0.25 * tile_dim, 0x0000ff, 1);
         g.drawRect(0, 0, (box.width - 1.125) * tile_dim, (box.height - 1.125) * tile_dim);
@@ -1711,14 +1721,12 @@ var GhostBoxSprite = (function (_super) {
         g.moveTo(((box.width - 1.125) * tile_dim) * 1.0 / 3.0, 0);
         g.lineTo(((box.width - 1.125) * tile_dim) * 2.0 / 3.0, 0);
         g.endFill();
-        _this = _super.call(this, viewer, (box.x + 0.375) * tile_dim, (box.y + 0.375) * tile_dim, g.generateTexture()) || this;
-        viewer.add.existing(_this);
-        _this.board = board;
-        _this.box = box;
-        return _this;
+        super(viewer, (box.x + 0.375) * tile_dim, (box.y + 0.375) * tile_dim, g.generateTexture());
+        viewer.add.existing(this);
+        this.board = board;
+        this.box = box;
     }
-    return GhostBoxSprite;
-}(Phaser.Sprite));
+}
 exports.GhostBoxSprite = GhostBoxSprite;
 
 
@@ -1728,37 +1736,24 @@ exports.GhostBoxSprite = GhostBoxSprite;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GhostSprite = (function (_super) {
-    __extends(GhostSprite, _super);
-    function GhostSprite(viewer, board, tile_dim, ghost) {
-        var _this = _super.call(this, viewer, 0, 0) || this;
-        _this.board = board;
-        _this.ghost = ghost;
-        _this.tile_dim = tile_dim;
-        _this.anchor.x = 0.5;
-        _this.anchor.y = 0.5;
-        _this.position.x = _this.ghost.x * tile_dim;
-        _this.position.y = _this.ghost.y * tile_dim;
-        viewer.add.existing(_this);
-        return _this;
+class GhostSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, ghost) {
+        super(viewer, 0, 0);
+        this.board = board;
+        this.ghost = ghost;
+        this.tile_dim = tile_dim;
+        this.anchor.x = 0.5;
+        this.anchor.y = 0.5;
+        this.position.x = this.ghost.x * tile_dim;
+        this.position.y = this.ghost.y * tile_dim;
+        viewer.add.existing(this);
     }
-    GhostSprite.prototype.update = function () {
+    update() {
         this.position.x = this.ghost.x * this.tile_dim;
         this.position.y = this.ghost.y * this.tile_dim;
-    };
-    return GhostSprite;
-}(Phaser.Sprite));
+    }
+}
 exports.GhostSprite = GhostSprite;
 
 
@@ -1768,47 +1763,33 @@ exports.GhostSprite = GhostSprite;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var controller_1 = __webpack_require__(1);
-var KeyboardController = (function (_super) {
-    __extends(KeyboardController, _super);
-    function KeyboardController(keyboard, unit, board) {
-        var _this = _super.call(this, [unit], board) || this;
-        _this.last_press = -1;
-        _this.upKey = keyboard.addKey(Phaser.Keyboard.UP);
-        _this.upKey.onDown.add(function () {
-            _this.last_press = 0;
-        }, _this);
-        _this.downKey = keyboard.addKey(Phaser.Keyboard.DOWN);
-        _this.downKey.onDown.add(function () {
-            _this.last_press = 1;
-        }, _this);
-        _this.leftKey = keyboard.addKey(Phaser.Keyboard.LEFT);
-        _this.leftKey.onDown.add(function () {
-            _this.last_press = 2;
-        }, _this);
-        _this.rightKey = keyboard.addKey(Phaser.Keyboard.RIGHT);
-        _this.rightKey.onDown.add(function () {
-            _this.last_press = 3;
-        }, _this);
-        return _this;
+const controller_1 = __webpack_require__(1);
+class KeyboardController extends controller_1.Controller {
+    constructor(keyboard, unit, board) {
+        super([unit], board);
+        this.last_press = -1;
+        this.upKey = keyboard.addKey(Phaser.Keyboard.UP);
+        this.upKey.onDown.add(() => {
+            this.last_press = 0;
+        }, this);
+        this.downKey = keyboard.addKey(Phaser.Keyboard.DOWN);
+        this.downKey.onDown.add(() => {
+            this.last_press = 1;
+        }, this);
+        this.leftKey = keyboard.addKey(Phaser.Keyboard.LEFT);
+        this.leftKey.onDown.add(() => {
+            this.last_press = 2;
+        }, this);
+        this.rightKey = keyboard.addKey(Phaser.Keyboard.RIGHT);
+        this.rightKey.onDown.add(() => {
+            this.last_press = 3;
+        }, this);
     }
-    KeyboardController.prototype.select_actions = function (pacman, ghosts, posts) {
-        if (posts === void 0) { posts = null; }
+    select_actions(pacman, ghosts, posts = null) {
         return [this.last_press];
-    };
-    return KeyboardController;
-}(controller_1.Controller));
+    }
+}
 exports.KeyboardController = KeyboardController;
 
 
@@ -1818,33 +1799,263 @@ exports.KeyboardController = KeyboardController;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var controller_1 = __webpack_require__(1);
-var assign_prob_1 = __webpack_require__(2);
-var RedGhostController = (function (_super) {
-    __extends(RedGhostController, _super);
-    function RedGhostController(units, board) {
-        return _super.call(this, units, board) || this;
+const post_1 = __webpack_require__(2);
+class RwPacmanPost extends post_1.Post {
+    constructor(board, ghosts, pacman, starting_loc_choices, ghost_vision_limit) {
+        super();
+        this.board = board;
+        this.ghosts = ghosts;
+        this.pacman = pacman;
+        this.probs = new Array(this.board.dots.length);
+        this.probs_new = new Array(this.board.dots.length);
+        this.num_points = 0;
+        this.starting_loc_choices = starting_loc_choices;
+        this.ghost_vision_limit = ghost_vision_limit;
+        this.K = 1;
+        this.trans_mat = this.board.trans_mat_random_new;
+        console.log("transition matrix: " + this.board.trans_mat_random[227][237]);
     }
-    RedGhostController.prototype.select_actions = function (pacman, ghosts, posts, target_spot) {
-        if (posts === void 0) { posts = null; }
-        if (target_spot === void 0) { target_spot = null; }
-        var best_motions = new Array(this.units.length);
-        var prob_assign = new assign_prob_1.ProbAssign(this.board, ghosts, posts[0].probs);
+    update(informant) {
+        var sum = 0;
+        if (this.num_points === 0) {
+            for (var i = 0; i < this.board.dots.length; i++) {
+                if (this.starting_loc_choices.indexOf(i) >= 0) {
+                    this.probs_new[i] = 1 / this.starting_loc_choices.length;
+                }
+                else {
+                    this.probs_new[i] = 0;
+                }
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                this.probs[i] = this.probs_new[i];
+            }
+            var end = 0;
+            var prob_info = 1;
+            var record = new Array();
+            if (informant >= 0) {
+                for (var i = 0; i < this.board.dots.length; i++) {
+                    this.probs[i] = 0;
+                }
+                this.probs[this.pacman.spot] = 1;
+                this.K *= this.probs_new[this.pacman.spot];
+                end = 1;
+            }
+            else {
+                for (let dot of this.board.dots) {
+                    if (dot.is_alive() && dot.kind != 0) {
+                        this.probs[dot.spot] = 0;
+                        prob_info -= this.probs_new[dot.spot];
+                        record.push(dot.spot);
+                    }
+                }
+            }
+            if (end === 0) {
+                for (let g of this.ghosts) {
+                    if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
+                        this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
+                        this.pacman.y <= g.y + this.ghost_vision_limit) {
+                        for (var i = 0; i < this.board.dots.length; i++) {
+                            this.probs[i] = 0;
+                        }
+                        this.probs[this.pacman.spot] = 1;
+                        this.K *= this.probs_new[this.pacman.spot];
+                        break;
+                    }
+                    else {
+                        for (var i = 0; i < this.board.dots.length; i++) {
+                            var dot = this.board.get_dot(i, true);
+                            var spot_tl_x = (dot.tile % this.board.num_tiles_x);
+                            var spot_tl_y = Math.floor(dot.tile / this.board.num_tiles_x);
+                            if (spot_tl_x >= g.x - this.ghost_vision_limit && spot_tl_x <=
+                                g.x + this.ghost_vision_limit - 0.5 && spot_tl_y >= g.y -
+                                this.ghost_vision_limit && spot_tl_y <= g.y + this.ghost_vision_limit - 0.5) {
+                                if (record.indexOf(i) < 0) {
+                                    this.probs[i] = 0;
+                                    prob_info -= this.probs_new[i];
+                                    record.push(i);
+                                }
+                            }
+                        }
+                    }
+                }
+                this.K *= prob_info;
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                sum += this.probs[i];
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                this.probs[i] = this.probs[i] / sum;
+            }
+        }
+        else {
+            for (var j = 0; j < this.board.dots.length; j++) {
+                this.probs_new[j] = 0;
+                for (var i = 0; i < this.board.dots.length; i++) {
+                    this.probs_new[j] += this.probs[i] * this.trans_mat[i][j];
+                }
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                this.probs[i] = this.probs_new[i];
+            }
+            var end = 0;
+            var prob_info = 1;
+            var record = new Array();
+            if (informant >= 0) {
+                for (var i = 0; i < this.board.dots.length; i++) {
+                    this.probs[i] = 0;
+                }
+                this.probs[this.pacman.spot] = 1;
+                this.K *= this.probs_new[this.pacman.spot];
+                end = 1;
+            }
+            else {
+                for (let dot of this.board.dots) {
+                    if (dot.is_alive() && dot.kind != 0) {
+                        this.probs[dot.spot] = 0;
+                        prob_info -= this.probs_new[dot.spot];
+                        record.push(dot.spot);
+                    }
+                }
+            }
+            if (end === 0) {
+                for (let g of this.ghosts) {
+                    if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
+                        this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
+                        this.pacman.y <= g.y + this.ghost_vision_limit) {
+                        for (var i = 0; i < this.board.dots.length; i++) {
+                            this.probs[i] = 0;
+                        }
+                        this.probs[this.pacman.spot] = 1;
+                        this.K *= this.probs_new[this.pacman.spot];
+                        break;
+                    }
+                    else {
+                        for (var i = 0; i < this.board.dots.length; i++) {
+                            var dot = this.board.get_dot(i, true);
+                            var spot_tl_x = (dot.tile % this.board.num_tiles_x);
+                            var spot_tl_y = Math.floor(dot.tile / this.board.num_tiles_x);
+                            if (spot_tl_x >= g.x - this.ghost_vision_limit && spot_tl_x <=
+                                g.x + this.ghost_vision_limit - 0.5 && spot_tl_y >= g.y -
+                                this.ghost_vision_limit && spot_tl_y <= g.y + this.ghost_vision_limit - 0.5) {
+                                if (record.indexOf(i) < 0) {
+                                    this.probs[i] = 0;
+                                    prob_info -= this.probs_new[i];
+                                    record.push(i);
+                                }
+                            }
+                        }
+                    }
+                }
+                this.K *= prob_info;
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                sum += this.probs[i];
+            }
+            for (var i = 0; i < this.board.dots.length; i++) {
+                this.probs[i] = this.probs[i] / sum;
+            }
+        }
+        ++this.num_points;
+    }
+}
+exports.RwPacmanPost = RwPacmanPost;
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class ProbSprite extends Phaser.Sprite {
+    constructor(viewer, board, tile_dim, target_spot) {
+        var g = new Phaser.Graphics(viewer, 0, 0);
+        g.beginFill(0xFFE733);
+        g.drawCircle(0, 0, tile_dim * 1);
+        g.endFill();
+        super(viewer, 0, 0, g.generateTexture());
+        this.board = board;
+        this.target_spot = target_spot;
+        this.tile_dim = tile_dim;
+        this.anchor.x = 0.5;
+        this.anchor.y = 0.5;
+        var target_dot = this.board.get_dot(target_spot, true);
+        var target_x = target_dot.tile % this.board.num_tiles_x;
+        var target_y = Math.floor(target_dot.tile
+            / this.board.num_tiles_x);
+        this.position.x = target_x * tile_dim;
+        this.position.y = target_y * tile_dim;
+        viewer.add.existing(this);
+    }
+    update() {
+        var target_dot = this.board.get_dot(this.target_spot, true);
+        var target_x = target_dot.tile % this.board.num_tiles_x;
+        var target_y = Math.floor(target_dot.tile
+            / this.board.num_tiles_x);
+        this.position.x = target_x * this.tile_dim;
+        this.position.y = target_y * this.tile_dim;
+    }
+}
+exports.ProbSprite = ProbSprite;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const controller_1 = __webpack_require__(1);
+const assign_prob_1 = __webpack_require__(3);
+class testGhostControllerRL extends controller_1.Controller {
+    constructor(units, board, param_list) {
+        super(units, board);
+        this.param_list = param_list;
+    }
+    select_actions(pacman, ghosts, posts) {
+        var Ks = new Array(posts.length);
+        var sum = 0;
+        for (var b = 0; b < posts.length; b++) {
+            Ks[b] = posts[b].K;
+            sum += Ks[b];
+        }
+        for (var b = 0; b < posts.length; b++) {
+            Ks[b] /= sum;
+        }
+        var tot_prob = 0;
+        var draw = Math.random();
+        for (var b = 0; b < posts.length; b++) {
+            var prob_to_add = Ks[b];
+            tot_prob += prob_to_add;
+            if (tot_prob > draw) {
+                this.sampledStrategy = b;
+                break;
+            }
+        }
+        var prob_assign = new assign_prob_1.ProbAssign(this.board, ghosts, posts[this.sampledStrategy].probs);
+        var possible_loc = new Array();
+        var max = 0;
+        for (var i = 0; i < posts[this.sampledStrategy].probs.length; i++) {
+            if (max < posts[this.sampledStrategy].probs[i]) {
+                max = posts[this.sampledStrategy].probs[i];
+            }
+        }
+        for (var i = 0; i < posts[this.sampledStrategy].probs.length; i++) {
+            if (posts[this.sampledStrategy].probs[i] === max) {
+                possible_loc.push(i);
+            }
+        }
         this.target_spots = prob_assign.probAssign();
+        var curr_evader_loc;
+        curr_evader_loc = possible_loc[Math.floor(Math.random() * possible_loc.length)];
+        var best_motions_list;
+        best_motions_list = new Array(this.units.length);
         for (var i = 0; i < ghosts.length; i++) {
             if (this.units[i].is_alive()) {
-                var target_dot = this.board.get_dot(pacman.spot, true);
+                var target_dot = this.board.get_dot(this.target_spots[i], true);
                 var target_x = target_dot.tile % this.board.num_tiles_x;
                 var target_y = Math.floor(target_dot.tile
                     / this.board.num_tiles_x);
@@ -1919,257 +2130,97 @@ var RedGhostController = (function (_super) {
                     throw new Error("Did not find a valid move");
                 }
                 if (best_motion.length > 0) {
-                    best_motions[i] = best_motion[Math.floor(Math.random() * best_motion.length)];
+                    best_motions_list[i] = best_motion;
                 }
                 else {
-                    best_motions[i] = second_best_motion;
+                    best_motions_list[i] = [second_best_motion];
                 }
-            }
-        }
-        return best_motions;
-    };
-    return RedGhostController;
-}(controller_1.Controller));
-exports.RedGhostController = RedGhostController;
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var post_1 = __webpack_require__(3);
-var RwPacmanPost = (function (_super) {
-    __extends(RwPacmanPost, _super);
-    function RwPacmanPost(board, ghosts, pacman, starting_loc_choices, ghost_vision_limit) {
-        var _this = _super.call(this) || this;
-        _this.board = board;
-        _this.ghosts = ghosts;
-        _this.pacman = pacman;
-        _this.probs = new Array(_this.board.dots.length);
-        _this.probs_new = new Array(_this.board.dots.length);
-        _this.num_points = 0;
-        _this.starting_loc_choices = starting_loc_choices;
-        _this.ghost_vision_limit = ghost_vision_limit;
-        _this.K = 1;
-        _this.trans_mat = _this.board.trans_mat_random_new;
-        console.log("transition matrix: " + _this.board.trans_mat_random[227][237]);
-        return _this;
-    }
-    RwPacmanPost.prototype.update = function (informant) {
-        var sum = 0;
-        if (this.num_points === 0) {
-            for (var i = 0; i < this.board.dots.length; i++) {
-                if (this.starting_loc_choices.indexOf(i) >= 0) {
-                    this.probs_new[i] = 1 / this.starting_loc_choices.length;
-                }
-                else {
-                    this.probs_new[i] = 0;
-                }
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                this.probs[i] = this.probs_new[i];
-            }
-            var end = 0;
-            var prob_info = 1;
-            var record = new Array();
-            if (informant >= 0) {
-                for (var i = 0; i < this.board.dots.length; i++) {
-                    this.probs[i] = 0;
-                }
-                this.probs[this.pacman.spot] = 1;
-                this.K *= this.probs_new[this.pacman.spot];
-                end = 1;
             }
             else {
-                for (var _i = 0, _a = this.board.dots; _i < _a.length; _i++) {
-                    var dot_1 = _a[_i];
-                    if (dot_1.is_alive() && dot_1.kind != 0) {
-                        this.probs[dot_1.spot] = 0;
-                        prob_info -= this.probs_new[dot_1.spot];
-                        record.push(dot_1.spot);
-                    }
-                }
-            }
-            if (end === 0) {
-                for (var _b = 0, _c = this.ghosts; _b < _c.length; _b++) {
-                    var g = _c[_b];
-                    if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
-                        this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
-                        this.pacman.y <= g.y + this.ghost_vision_limit) {
-                        for (var i = 0; i < this.board.dots.length; i++) {
-                            this.probs[i] = 0;
-                        }
-                        this.probs[this.pacman.spot] = 1;
-                        this.K *= this.probs_new[this.pacman.spot];
-                        break;
-                    }
-                    else {
-                        for (var i = 0; i < this.board.dots.length; i++) {
-                            var dot = this.board.get_dot(i, true);
-                            var spot_tl_x = (dot.tile % this.board.num_tiles_x);
-                            var spot_tl_y = Math.floor(dot.tile / this.board.num_tiles_x);
-                            if (spot_tl_x >= g.x - this.ghost_vision_limit && spot_tl_x <=
-                                g.x + this.ghost_vision_limit - 0.5 && spot_tl_y >= g.y -
-                                this.ghost_vision_limit && spot_tl_y <= g.y + this.ghost_vision_limit - 0.5) {
-                                if (record.indexOf(i) < 0) {
-                                    this.probs[i] = 0;
-                                    prob_info -= this.probs_new[i];
-                                    record.push(i);
-                                }
-                            }
-                        }
-                    }
-                }
-                this.K *= prob_info;
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                sum += this.probs[i];
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                this.probs[i] = this.probs[i] / sum;
+                best_motions_list[i] = [0];
             }
         }
-        else {
-            for (var j = 0; j < this.board.dots.length; j++) {
-                this.probs_new[j] = 0;
-                for (var i = 0; i < this.board.dots.length; i++) {
-                    this.probs_new[j] += this.probs[i] * this.trans_mat[i][j];
-                }
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                this.probs[i] = this.probs_new[i];
-            }
-            var end = 0;
-            var prob_info = 1;
-            var record = new Array();
-            if (informant >= 0) {
-                for (var i = 0; i < this.board.dots.length; i++) {
-                    this.probs[i] = 0;
-                }
-                this.probs[this.pacman.spot] = 1;
-                this.K *= this.probs_new[this.pacman.spot];
-                end = 1;
-            }
-            else {
-                for (var _d = 0, _e = this.board.dots; _d < _e.length; _d++) {
-                    var dot_2 = _e[_d];
-                    if (dot_2.is_alive() && dot_2.kind != 0) {
-                        this.probs[dot_2.spot] = 0;
-                        prob_info -= this.probs_new[dot_2.spot];
-                        record.push(dot_2.spot);
-                    }
-                }
-            }
-            if (end === 0) {
-                for (var _f = 0, _g = this.ghosts; _f < _g.length; _f++) {
-                    var g = _g[_f];
-                    if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
-                        this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
-                        this.pacman.y <= g.y + this.ghost_vision_limit) {
-                        for (var i = 0; i < this.board.dots.length; i++) {
-                            this.probs[i] = 0;
+        var list_actions;
+        list_actions = new Array();
+        for (var i = 0; i < best_motions_list[0].length; i++) {
+            var actions_temp;
+            actions_temp = new Array();
+            actions_temp.push(best_motions_list[0][i]);
+            for (var j = 0; j < best_motions_list[1].length; j++) {
+                actions_temp.push(best_motions_list[1][j]);
+                for (var k = 0; k < best_motions_list[2].length; k++) {
+                    actions_temp.push(best_motions_list[2][k]);
+                    for (var p = 0; p < best_motions_list[3].length; p++) {
+                        actions_temp.push(best_motions_list[3][p]);
+                        var temp = new Array(4);
+                        for (var s = 0; s < actions_temp.length; s++) {
+                            temp[s] = actions_temp[s];
                         }
-                        this.probs[this.pacman.spot] = 1;
-                        this.K *= this.probs_new[this.pacman.spot];
-                        break;
+                        list_actions.push(temp);
+                        actions_temp.pop();
                     }
-                    else {
-                        for (var i = 0; i < this.board.dots.length; i++) {
-                            var dot = this.board.get_dot(i, true);
-                            var spot_tl_x = (dot.tile % this.board.num_tiles_x);
-                            var spot_tl_y = Math.floor(dot.tile / this.board.num_tiles_x);
-                            if (spot_tl_x >= g.x - this.ghost_vision_limit && spot_tl_x <=
-                                g.x + this.ghost_vision_limit - 0.5 && spot_tl_y >= g.y -
-                                this.ghost_vision_limit && spot_tl_y <= g.y + this.ghost_vision_limit - 0.5) {
-                                if (record.indexOf(i) < 0) {
-                                    this.probs[i] = 0;
-                                    prob_info -= this.probs_new[i];
-                                    record.push(i);
-                                }
-                            }
-                        }
-                    }
+                    actions_temp.pop();
                 }
-                this.K *= prob_info;
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                sum += this.probs[i];
-            }
-            for (var i = 0; i < this.board.dots.length; i++) {
-                this.probs[i] = this.probs[i] / sum;
+                actions_temp.pop();
             }
         }
-        ++this.num_points;
-    };
-    return RwPacmanPost;
-}(post_1.Post));
-exports.RwPacmanPost = RwPacmanPost;
-
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var ProbSprite = (function (_super) {
-    __extends(ProbSprite, _super);
-    function ProbSprite(viewer, board, tile_dim, target_spot) {
-        var _this = this;
-        var g = new Phaser.Graphics(viewer, 0, 0);
-        g.beginFill(0xFFE733);
-        g.drawCircle(0, 0, tile_dim * 1);
-        g.endFill();
-        _this = _super.call(this, viewer, 0, 0, g.generateTexture()) || this;
-        _this.board = board;
-        _this.target_spot = target_spot;
-        _this.tile_dim = tile_dim;
-        _this.anchor.x = 0.5;
-        _this.anchor.y = 0.5;
-        var target_dot = _this.board.get_dot(target_spot, true);
-        var target_x = target_dot.tile % _this.board.num_tiles_x;
-        var target_y = Math.floor(target_dot.tile
-            / _this.board.num_tiles_x);
-        _this.position.x = target_x * tile_dim;
-        _this.position.y = target_y * tile_dim;
-        viewer.add.existing(_this);
-        return _this;
+        if (list_actions.length === 1) {
+            return list_actions[0];
+        }
+        for (var i = 0; i < this.units.length; i++) {
+            if (!this.units[i].is_alive()) {
+                return list_actions[Math.floor(Math.random() * list_actions.length)];
+            }
+        }
+        var dot = this.board.get_dot(curr_evader_loc, true);
+        var x_ = dot.tile % this.board.num_tiles_x;
+        var y_ = Math.floor(dot.tile / this.board.num_tiles_x);
+        var diff_coordinates = new Array();
+        for (var k = 0; k < 4; k++) {
+            var temp = new Array(2);
+            temp[0] = ghosts[k].x - x_;
+            temp[1] = ghosts[k].y - y_;
+            diff_coordinates.push(temp);
+        }
+        diff_coordinates.sort(function (a, b) { return a[0] * a[0] + a[1] * a[1] - b[0] * b[0] - b[1] * b[1]; });
+        var possible_actions;
+        possible_actions = new Array();
+        var best_r = -Infinity;
+        for (var i = 0; i < list_actions.length; i++) {
+            var actions = list_actions[i];
+            var ind = 0;
+            for (var k = 0; k < 4; k++) {
+                ind += (actions[k] * Math.pow(4, (3 - k)));
+            }
+            var par = this.param_list[this.sampledStrategy][ind];
+            var s = 0;
+            for (var k = 0; k < 4; k++) {
+                s += (par[3 * k] + par[3 * k + 1] * diff_coordinates[k][0] + par[3 * k + 2] * diff_coordinates[k][1]);
+            }
+            if (s >= best_r) {
+                best_r = s;
+            }
+        }
+        for (var i = 0; i < list_actions.length; i++) {
+            var actions = list_actions[i];
+            var ind = 0;
+            for (var k = 0; k < 4; k++) {
+                ind += (actions[k] * Math.pow(4, (3 - k)));
+            }
+            var par = this.param_list[this.sampledStrategy][ind];
+            var s = 0;
+            for (var k = 0; k < 4; k++) {
+                s += (par[3 * k] + par[3 * k + 1] * diff_coordinates[k][0] + par[3 * k + 2] * diff_coordinates[k][1]);
+            }
+            if (s === best_r) {
+                possible_actions.push(actions);
+            }
+        }
+        return possible_actions[Math.floor(Math.random() * possible_actions.length)];
+        ;
     }
-    ProbSprite.prototype.update = function () {
-        var target_dot = this.board.get_dot(this.target_spot, true);
-        var target_x = target_dot.tile % this.board.num_tiles_x;
-        var target_y = Math.floor(target_dot.tile
-            / this.board.num_tiles_x);
-        this.position.x = target_x * this.tile_dim;
-        this.position.y = target_y * this.tile_dim;
-    };
-    return ProbSprite;
-}(Phaser.Sprite));
-exports.ProbSprite = ProbSprite;
+}
+exports.testGhostControllerRL = testGhostControllerRL;
 
 
 /***/ }),
@@ -2178,43 +2229,31 @@ exports.ProbSprite = ProbSprite;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var post_1 = __webpack_require__(3);
-var ClosestRwPacmanPost = (function (_super) {
-    __extends(ClosestRwPacmanPost, _super);
-    function ClosestRwPacmanPost(board, ghosts, pacman, starting_loc_choices, ghost_vision_limit, w) {
-        var _this = _super.call(this) || this;
-        _this.board = board;
-        _this.ghosts = ghosts;
-        _this.pacman = pacman;
-        _this.probs = new Array(_this.board.dots.length);
-        _this.probs_new = new Array(_this.board.dots.length);
-        _this.num_points = 0;
-        _this.starting_loc_choices = starting_loc_choices;
-        _this.ghost_vision_limit = ghost_vision_limit;
-        _this.K = 1;
-        _this.w = w;
-        _this.trans_mat = new Array(_this.board.dots.length);
-        for (var i = 0; i < _this.board.dots.length; i++) {
-            _this.trans_mat[i] = new Array(_this.board.dots.length);
-            for (var j = 0; j < _this.board.dots.length; j++) {
-                _this.trans_mat[i][j] = 0;
+const post_1 = __webpack_require__(2);
+class ClosestRwPacmanPost extends post_1.Post {
+    constructor(board, ghosts, pacman, starting_loc_choices, ghost_vision_limit, w) {
+        super();
+        this.board = board;
+        this.ghosts = ghosts;
+        this.pacman = pacman;
+        this.probs = new Array(this.board.dots.length);
+        this.probs_new = new Array(this.board.dots.length);
+        this.num_points = 0;
+        this.starting_loc_choices = starting_loc_choices;
+        this.ghost_vision_limit = ghost_vision_limit;
+        this.K = 1;
+        this.w = w;
+        this.trans_mat = new Array(this.board.dots.length);
+        for (var i = 0; i < this.board.dots.length; i++) {
+            this.trans_mat[i] = new Array(this.board.dots.length);
+            for (var j = 0; j < this.board.dots.length; j++) {
+                this.trans_mat[i][j] = 0;
             }
         }
-        _this.largest_prob = -Infinity;
-        return _this;
+        this.largest_prob = -Infinity;
     }
-    ClosestRwPacmanPost.prototype.update = function (informant) {
+    update(informant) {
         var sum = 0;
         if (this.num_points === 0) {
             for (var i = 0; i < this.board.dots.length; i++) {
@@ -2245,18 +2284,16 @@ var ClosestRwPacmanPost = (function (_super) {
                 end = 1;
             }
             else {
-                for (var _i = 0, _a = this.board.dots; _i < _a.length; _i++) {
-                    var dot_1 = _a[_i];
-                    if (dot_1.is_alive() && dot_1.kind != 0) {
-                        this.probs[dot_1.spot] = 0;
-                        prob_info -= this.probs_new[dot_1.spot];
-                        record.push(dot_1.spot);
+                for (let dot of this.board.dots) {
+                    if (dot.is_alive() && dot.kind != 0) {
+                        this.probs[dot.spot] = 0;
+                        prob_info -= this.probs_new[dot.spot];
+                        record.push(dot.spot);
                     }
                 }
             }
             if (end === 0) {
-                for (var _b = 0, _c = this.ghosts; _b < _c.length; _b++) {
-                    var g = _c[_b];
+                for (let g of this.ghosts) {
                     if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
                         this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
                         this.pacman.y <= g.y + this.ghost_vision_limit) {
@@ -2320,18 +2357,16 @@ var ClosestRwPacmanPost = (function (_super) {
                 end = 1;
             }
             else {
-                for (var _d = 0, _e = this.board.dots; _d < _e.length; _d++) {
-                    var dot_2 = _e[_d];
-                    if (dot_2.is_alive() && dot_2.kind != 0) {
-                        this.probs[dot_2.spot] = 0;
-                        prob_info -= this.probs_new[dot_2.spot];
-                        record.push(dot_2.spot);
+                for (let dot of this.board.dots) {
+                    if (dot.is_alive() && dot.kind != 0) {
+                        this.probs[dot.spot] = 0;
+                        prob_info -= this.probs_new[dot.spot];
+                        record.push(dot.spot);
                     }
                 }
             }
             if (end === 0) {
-                for (var _f = 0, _g = this.ghosts; _f < _g.length; _f++) {
-                    var g = _g[_f];
+                for (let g of this.ghosts) {
                     if (this.pacman.x >= g.x - this.ghost_vision_limit && this.pacman.x <= g.x +
                         this.ghost_vision_limit && this.pacman.y >= g.y - this.ghost_vision_limit &&
                         this.pacman.y <= g.y + this.ghost_vision_limit) {
@@ -2375,8 +2410,8 @@ var ClosestRwPacmanPost = (function (_super) {
         }
         this.updateTransMat();
         ++this.num_points;
-    };
-    ClosestRwPacmanPost.prototype.updateTransMat = function () {
+    }
+    updateTransMat() {
         for (var i = 0; i < this.board.dots.length; i++) {
             var dot = this.board.get_dot(i, true);
             var walkable_spots = new Array();
@@ -2386,8 +2421,7 @@ var ClosestRwPacmanPost = (function (_super) {
             var dot_y = Math.floor(dot.tile
                 / this.board.num_tiles_x);
             var c = 0;
-            for (var _i = 0, _a = this.ghosts; _i < _a.length; _i++) {
-                var g = _a[_i];
+            for (let g of this.ghosts) {
                 if (dot_x >= g.x - this.ghost_vision_limit && dot_x <= g.x +
                     this.ghost_vision_limit && dot_y >= g.y - this.ghost_vision_limit &&
                     dot_y <= g.y + this.ghost_vision_limit) {
@@ -2467,8 +2501,7 @@ var ClosestRwPacmanPost = (function (_super) {
                 for (var j = 0; j < this.board.dots.length; j++) {
                     this.trans_mat[i][j] = 0;
                 }
-                for (var _b = 0, _c = this.board.dots; _b < _c.length; _b++) {
-                    var board_dot = _c[_b];
+                for (let board_dot of this.board.dots) {
                     if (board_dot.is_alive() && board_dot.kind > 0) {
                         var board_dot_x = board_dot.tile % this.board.num_tiles_x;
                         var board_dot_y = Math.floor(board_dot.tile
@@ -2541,9 +2574,8 @@ var ClosestRwPacmanPost = (function (_super) {
                 this.trans_mat[i][j] = (1 - this.w) * this.trans_mat[i][j] + this.w * this.board.trans_mat_random[i][j];
             }
         }
-    };
-    return ClosestRwPacmanPost;
-}(post_1.Post));
+    }
+}
 exports.ClosestRwPacmanPost = ClosestRwPacmanPost;
 
 

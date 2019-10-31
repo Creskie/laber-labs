@@ -1,7 +1,7 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "/Users/lisawong/Desktop/pacman-master/node_modules/phaser/typescript/typings.json",
+    "src": "/Users/lisawong/workspace/laber-site/games/pac-boy/node_modules/phaser/typescript/typings.json",
     "raw": "file:node_modules/phaser/typescript/typings.json",
     "main": "phaser.comments.d.ts",
     "files": [
