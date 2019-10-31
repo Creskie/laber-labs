@@ -119,7 +119,9 @@
 				</div>
 				<div class="col-lg-3 sub-section">
 					<h3 class="subtitle-1">About the Game</h1>
-					<p class="description-1">Pac-Boy is similar to the classic Pac-Man game. Insert short blurb about the game and how it was made.</p>
+					<p class="description-1">Pac-Boy, much like the classic Pac-Man, features four enemies (“ghosts”) and a single player (“Pac-Boy”). While the goal of the ghosts is to catch the player, the player’s objective is to navigate the maze and consume as many dots as possible—all while avoiding capture! When the player eats one of the four large power dots (near the corners of the maze), the ghosts are temporarily slowed and made vulnerable to be eaten by Pac-Boy.
+					<br><br>
+					In the standard Pac-Man game, the ghosts know the exact location of Pac-Man and select their actions accordingly (or employ other heuristic strategies) to minimize the distance to the player. In our version (lovingly named “Pac-Boy”), we do not assume the ghosts know the exact location of the player; instead, the ghosts estimate the evader’s [Pac-Boy’s] location and strategy by applying Thompson Sampling. Furthermore, the ghosts use reinforcement learning to compute the optimal search strategy once the evader’s “policy” is estimated. After play-testing, we believe that our game, Pac-Boy, features more aggressive and “scary” ghosts. Try your hand at beating this game!</p>
 				</div>
 				<div class="col-lg-2 sub-section sidebar-right">
 					<h3 class="subtitle-1">Developers</h1>
